@@ -1,0 +1,109 @@
+<!-- Start Page Title Area -->
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/home">الرئيسية</a></li>
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/user/list">المستخدمين</a></li>
+          <li class="breadcrumb-item active" aria-current="page">إضافة مستخدم</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="card m-auto">
+          <div class="card-body">
+            <form class="row" [formGroup]="registrationForm" (ngSubmit)="OnSubmit()">
+              <div class="form-group col-12 col-md-12">
+                  <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+                   تم تحديث بيانات المستخدم بنجاح
+                </div>
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+                 تم إضافة المستخدم بنجاح
+              </div>
+            </div>
+              <div class="form-group col-6 col-md-6">
+                <label for="name" class="form-label">الاسم</label>
+                <input type="text" class="form-control" formControlName="userName">
+                <span class="ErrorMessage" *ngIf="!registrationForm.get('userName')?.valid &&
+                (registrationForm.get('userName')?.touched || userSubmitted )">
+                  الرجاء كتابة الاسم
+                </span>
+              </div>
+
+              <div class="form-group col-6 col-md-6">
+                <label for="email" class="form-label">الايميل</label>
+                <input type="text" class="form-control" formControlName="email">
+                <span class="ErrorMessage" *ngIf="!registrationForm.get('email')?.valid &&
+                (registrationForm.get('email')?.touched || userSubmitted)">
+                    <span *ngIf="registrationForm.get('email')?.hasError('required')">
+                      الرجاء كتابة الايميل
+                    </span>
+                    <span *ngIf="registrationForm.get('email')?.hasError('email')">
+                      الرجاء كتابة الايميل بصورة صحيحة
+                    </span>
+                </span>
+              </div>
+
+              <div class="form-group col-6 col-md-6">
+                <label for="passwrod" class="form-label">كلمة المرور</label>
+                <input type="password" class="form-control" formControlName="password">
+                <span class="ErrorMessage" *ngIf="!registrationForm.get('password')?.valid &&
+                (registrationForm.get('password')?.touched || userSubmitted)">
+                    <span *ngIf="registrationForm.get('password')?.hasError('required')">
+                      الرجاء كتابة كلمة المرور
+                    </span>
+                    <span *ngIf="registrationForm.get('password')?.hasError('passwordStrength')">
+                      - ان تحتوي علي حرف كبير <br />
+                      - ان تحتوي علي حرف صغير <br />
+                      - ان تحتوي علي ارقام <br />
+                    </span>
+                </span>
+              </div>
+
+              <div class="form-group col-6 col-md-6">
+                <label for="cpassword" class="form-label">تأكيد كلمة المرور</label>
+                <input type="password" class="form-control" formControlName="confirmPassword">
+                <span class="ErrorMessage" *ngIf="(!registrationForm.get('confirmPassword')?.valid &&
+                registrationForm.get('confirmPassword')?.touched)
+                || (registrationForm?.hasError('notmatched') || userSubmitted)">
+                    <span *ngIf="registrationForm.get('confirmPassword')?.hasError('required')">
+                      الرجاء إعادة كتابة كلمة المرور
+                    </span>
+                    <span *ngIf="!registrationForm.get('confirmPassword')?.hasError('required') && registrationForm?.hasError('notmatched')">
+                      الرجاء التأكد من مطابقة كلمة المرور
+                    </span>
+                </span>
+              </div>
+
+              <div class="form-group col-6 col-md-6">
+                <label for="mobile" class="form-label">رقم الجوال</label>
+                <input type="text" class="form-control" formControlName="mobile">
+                <span class="ErrorMessage" *ngIf="!registrationForm.get('mobile')?.valid &&
+                (registrationForm.get('mobile')?.touched || userSubmitted)">
+                    <span *ngIf="registrationForm.get('mobile')?.hasError('required')">
+                      الرجاء كتابة رقم الجوال
+                    </span>
+                    <span *ngIf="registrationForm.get('mobile')?.hasError('minlength') ||
+                    registrationForm.get('mobile')?.hasError('maxlength')">
+                      يجب ان يكون طول رقم الجوال 10 ارقام
+                    </span>
+                </span>
+              </div>
+
+              <div class="form-group col-12 pt-lg-5">
+                <button type="submit" class="btn btn-primary">حفظ</button>
+                <button type="reset" class="btn btn-secondary mr-5">الغاء</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Page Title Area -->

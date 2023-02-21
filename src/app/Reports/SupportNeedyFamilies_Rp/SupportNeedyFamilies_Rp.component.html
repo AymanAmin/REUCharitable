@@ -1,0 +1,378 @@
+<div id="MyReport" class="container-fluid invoice-container" style="margin-top:200px;">
+  <!-- Header -->
+  <header>
+    <div class="row align-items-center">
+      <div class="col-sm-12 text-center mb-3 mb-sm-0"> <img id="logo" src="../../assets/img/logo1.jpeg"
+          style="width: 40%;" title="شعار المؤسسة" alt="شعار المؤسسة"> </div>
+      <div class="col-sm-12 text-center">
+        <h4 class="mb-0">{{TitleReport}}</h4>
+        <p class="mb-0">طلب رقم - <span>{{BasicInfo.Id}}</span></p>
+      </div>
+    </div>
+    <hr>
+  </header>
+  <!-- Main Content -->
+  <main>
+    <!-- Basic Info -->
+    <div class="table-responsive Prag_print" *ngIf="BasicInfo">
+      <h4 class="text-4">البيانات الاساسية للمستفيد او المستفيدة</h4>
+      <table class="table table-bordered fs-10">
+        <thead>
+          <tr>
+            <td colspan="4" class=""><span class="fw-600">الاسم : </span> {{BasicInfo.Full_Name =='null'?'':BasicInfo.Full_Name}} <span
+                class="float-end">
+                <span class="fw-600">تاريخ التقديم</span>: {{BasicInfo.DateCreation =='null'?'':BasicInfo.DateCreation}}</span></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="fw-600 col-3">رقم الهوية/الاقامة</td>
+            <td class="col-3">{{BasicInfo.Identify_Id == 'null'?'':BasicInfo.Identify_Id}}</td>
+            <td class="fw-600 col-3">الجنس</td>
+            <td class="col-3">{{BasicInfo.Gander =='null'?'':BasicInfo.Gander}}</td>
+          </tr>
+          <tr>
+            <td class="fw-600">الجنسية</td>
+            <td>{{BasicInfo.Nationalty =='null'?'':BasicInfo.Nationalty}}</td>
+            <td class="fw-600">العمر</td>
+            <td>{{BasicInfo.age =='null'?'':BasicInfo.age}}</td>
+          </tr>
+          <tr>
+            <td class="fw-600">تاريخ الميلاد</td>
+            <td>{{BasicInfo.BirthDate =='null'?'':BasicInfo.BirthDate}}</td>
+            <td class="fw-600">البريد الالكتروني</td>
+            <td>{{BasicInfo.Email =='null'?'':BasicInfo.Email}}</td>
+          </tr>
+          <tr>
+            <td class="fw-600">الحالة الاجتماعية</td>
+            <td>{{BasicInfo.Social_Situation =='null'?'':BasicInfo.Social_Situation}}</td>
+            <td class="fw-600">المهنة</td>
+            <td>{{BasicInfo.Career =='null'?'':BasicInfo.Career}}</td>
+          </tr>
+          <tr>
+            <td class="fw-600">الدخل الشهري</td>
+            <td>{{BasicInfo.Salary =='null'?'':BasicInfo.Salary}}</td>
+            <td class="fw-600">مصدر الدخل</td>
+            <td>{{BasicInfo.Income_Source =='null'?'':BasicInfo.Income_Source}}</td>
+          </tr>
+          <tr>
+            <td class="fw-600">دوره بالاسرة</td>
+            <td>{{BasicInfo.Family_Role =='null'?'':BasicInfo.Family_Role}}</td>
+            <td class="fw-600">رقم الجوال</td>
+            <td>{{BasicInfo.Phone =='null'?'':BasicInfo.Phone}}</td>
+          </tr>
+          <tr>
+            <td class="fw-600"> السكن</td>
+            <td>{{BasicInfo.Housing_Status =='null'?'':BasicInfo.Housing_Status}} - {{BasicInfo.Housing_Type =='null'?'':BasicInfo.Housing_Type}}</td>
+            <td class="fw-600">العنوان</td>
+            <td>{{BasicInfo.city =='null'?'':BasicInfo.city}} - {{BasicInfo.Neighborhood =='null'?'':BasicInfo.Neighborhood}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bank Info -->
+    <div class="table-responsive Prag_print" *ngIf="BankData">
+      <h4 class="text-4 mt-4 mb-2">الحسابات البنكية للمتقدم</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>إسم البنك</th>
+            <th>رقم الحساب</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{BankData.Bank_Name_1 =='null'?'':BankData.Bank_Name_1}}</td>
+            <td>{{BankData.Bank_No_1 =='null'?'':BankData.Bank_No_1}}</td>
+          </tr>
+          <tr>
+            <td>{{BankData.Bank_Name_2 =='null'?'':BankData.Bank_Name_2}}</td>
+            <td>{{BankData.Bank_No_2 =='null'?'':BankData.Bank_No_2}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Financial Situation -->
+    <div class="table-responsive Prag_print" *ngIf="FinancialSituation">
+      <h4 class="text-4 mt-4 mb-2">الوضع المالي</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>الراتب</th>
+            <th>التقاعد</th>
+            <th>التأمينات الاجتماعية</th>
+            <th>الضمان الاجتماعي</th>
+            <th>الإعانات</th>
+            <th>أخرى</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{FinancialSituation.Salary =='null'?'':FinancialSituation.Salary}}</td>
+            <td>{{FinancialSituation.Retirement =='null'?'':FinancialSituation.Retirement}}</td>
+            <td>{{FinancialSituation.Social_Insurance =='null'?'':FinancialSituation.Social_Insurance}}</td>
+            <td>{{FinancialSituation.Social_Insurance_2 =='null'?'':FinancialSituation.Social_Insurance_2}}</td>
+            <td>{{FinancialSituation.Subsidies =='null'?'':FinancialSituation.Subsidies}}</td>
+            <td>{{FinancialSituation.Other_Money_Sources =='null'?'':FinancialSituation.Other_Money_Sources}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Family Member -->
+    <div class="table table-responsive Prag_print" *ngIf="FamilyMemberData.length > 0">
+      <h4 class="text-4 mt-4 mb-2">أفراد الاسرة(جميع أفراد الأسرة)</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>الاسم</th>
+            <th>صلة القراب</th>
+            <th> العمر</th>
+            <th> الجنس</th>
+            <th>المستوى التعليمي</th>
+            <th>الوضع الاجتماعي</th>
+            <th>الحالة الصحي</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of FamilyMemberData">
+            <td>{{item.FamilyName =='null'?'':item.FamilyName}}</td>
+            <td>{{item.RelationShip =='null'?'':item.RelationShip}}</td>
+            <td>{{item.Age =='null'?'':item.Age}}</td>
+            <td>{{item.Gander =='null'?'':item.Gander}}</td>
+            <td>{{item.Level_Edu =='null'?'':item.Level_Edu}}</td>
+            <td>{{item.Social_Status =='null'?'':item.Social_Status}}</td>
+            <td>{{item.Health_Status =='null'?'':item.Health_Status}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Related Person -->
+    <div class="table table-responsive Prag_print" *ngIf="RelatedPersonData.length > 0">
+      <h4 class="text-4 mt-4 mb-2">المعرفين على الحالة</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>الاسم</th>
+            <th>العنوان الوطني </th>
+            <th> رقم الجوال</th>
+            <th> نوع المعرف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of RelatedPersonData">
+            <td>{{item.Name =='null'?'':item.Name}}</td>
+            <td>{{item.NationalAddress =='null'?'':item.NationalAddress}}</td>
+            <td>{{item.PhoneNumber =='null'?'':item.PhoneNumber}}</td>
+            <td>{{item.RelatedPerson =='null'?'':item.RelatedPerson}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+<!-- HouseRenovation Info -->
+<div class="table-responsive Prag_print" *ngIf="HouseInfo">
+  <h4 class="text-4 mt-4 mb-2"> بيانات السكن </h4>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>نوع السكن</th>
+        <th>حالة السكن</th>
+        <th> تصنيف السكن</th>
+        <th> هل يحتاج السكن الى اي اعمال صيانة او ترميم</th>
+        <th>ماهي التكلفة التقديرية لأعمال الصيانة والترميم المطلوبة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{HouseInfo.Housing_Type =='null'?'':HouseInfo.Housing_Type}}</td>
+        <td>{{HouseInfo.Housing_Status =='null'?'':HouseInfo.Housing_Status}}</td>
+        <td>{{HouseInfo.Housing_Classification =='null'?'':HouseInfo.Housing_Classification}}</td>
+        <td>{{HouseInfo.Housing_look =='null'?'':HouseInfo.Housing_look}}</td>
+        <td>{{HouseInfo.Housing_Cost =='null'?'':HouseInfo.Housing_Cost}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PatientHealth  Info -->
+<div class="table-responsive Prag_print" *ngIf="PatientHealth ">
+  <h4 class="text-4 mt-4 mb-2">  الحالة الصحية للمريض </h4>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td class="fw-600 col-3">نوع المرض </td>
+        <td class="col-3">{{PatientHealth.Disease_Type == 'null'?'':PatientHealth.Disease_Type}}</td>
+        <td class="fw-600">تاريخ الاصابة</td>
+        <td>{{PatientHealth.Injury_Date =='null'?'':PatientHealth.Injury_Date}}</td>
+      </tr>
+      <tr>
+        <td class="fw-600">اسم المستشفى</td>
+        <td>{{PatientHealth.Hostiptal_Name =='null'?'':PatientHealth.Hostiptal_Name}}</td>
+        <td class="fw-600">المدينة</td>
+        <td>{{PatientHealth.City =='null'?'':PatientHealth.City}}</td>
+      </tr>
+      <tr>
+        <td class="fw-600">رقم الملف</td>
+        <td>{{PatientHealth.File_No =='null'?'':PatientHealth.File_No}}</td>
+        <td class="fw-600">العلاجات التي خضع لها</td>
+        <td>{{PatientHealth.Remedies =='null'?'':PatientHealth.Remedies}}</td>
+      </tr>
+      <tr>
+        <td class="fw-600"> العلاجات التي يتلقاها حاليا</td>
+        <td>{{PatientHealth.Current_Remedies =='null'?'':PatientHealth.Current_Remedies}}</td>
+        <td class="fw-600">حالة المريض أثناء الزيارة</td>
+        <td>{{PatientHealth.Patient_Condition =='null'?'':PatientHealth.Patient_Condition}}</td>
+      </tr>
+      <tr>
+        <td class="fw-600"> خدمة المريض لنفسه</td>
+        <td>{{PatientHealth.Self_Service =='null'?'':PatientHealth.Self_Service}}</td>
+        <td class="fw-600"> يتلقى خدمات صحية منزلية</td>
+        <td>{{PatientHealth.Home_Care =='null'?'':PatientHealth.Home_Care}}</td>
+      </tr>
+      <tr>
+        <td class="fw-600"> سلامة الحواس والنطق</td>
+        <td>{{PatientHealth.Senses_Speech_Integrity =='null'?'':PatientHealth.Senses_Speech_Integrity}}</td>
+        <td class="fw-600"> أمراض أخرى يعاني منها</td>
+        <td>{{PatientHealth.Other_Diseases =='null'?'':PatientHealth.Other_Diseases}} </td>
+      </tr>
+      <tr >
+        <td class="fw-600">وصف مختصر للحالة</td>
+        <td colspan="3" >{{PatientHealth.Brief_Medical_Description =='null'?'':PatientHealth.Brief_Medical_Description}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- PatientNeeds  Info -->
+<div class="table-responsive Prag_print" *ngIf="PatientNeeds ">
+  <h4 class="text-4 mt-4 mb-2">  احتياجات المريض</h4>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td class="fw-600 col-3"> الاحتياجات التعليمية </td>
+        <td class="col-3">{{PatientNeeds.Educational_Needs == 'null'?'':PatientNeeds.Educational_Needs}}</td>
+        <td class="fw-600"> الجلسات والمواعيد الخارجية</td>
+        <td>{{PatientNeeds.External_Meetings_Appointments =='null'?'':PatientNeeds.External_Meetings_Appointments}}</td>
+      </tr>
+      <tr>
+        <td class="fw-600"> مراجعة المراكز العلاجية</td>
+        <td>{{PatientNeeds.Medical_Centers_Review =='null'?'':PatientNeeds.Medical_Centers_Review}}</td>
+        <td class="fw-600">صعوبات تعترضه بالمستشفى</td>
+        <td>{{PatientNeeds.Difficulties_In_Hospital =='null'?'':PatientNeeds.Difficulties_In_Hospital}}</td>
+      </tr>
+      <tr>
+        <td class="fw-600"> احتياجاته الصحية والطبية</td>
+        <td>{{PatientNeeds.Health_Medical_Needs =='null'?'':PatientNeeds.Health_Medical_Needs}}</td>
+        <td class="fw-600"> الخدمات المساندة</td>
+        <td>{{PatientNeeds.Support_Services =='null'?'':PatientNeeds.Support_Services}}</td>
+      </tr>
+      <tr>
+        <td class="fw-600"> الاجهزة المساعدة</td>
+        <td>{{PatientNeeds.Auxiliary_Devices =='null'?'':PatientNeeds.Auxiliary_Devices}}</td>
+        <td class="fw-600">الدعم النفسي</td>
+        <td>{{PatientNeeds.Psychological_Support =='null'?'':PatientNeeds.Psychological_Support}}</td>
+      </tr>
+      <tr >
+        <td class="fw-600">احتياجات أخرى</td>
+        <td colspan="3" >{{PatientNeeds.Other_Needs =='null'?'':PatientNeeds.Other_Needs}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+ <!-- OtherPatientConditions info-->
+ <div class="table-responsive Prag_print" *ngIf="OtherPatientConditions">
+  <h4 class="text-4 mt-4 mb-2"> ظروف أخرى للمريض</h4>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>وضع المنزل</th>
+        <th>أثاث ومستلزمات المريض الخاصة</th>
+        <th> تنقلات المريض خارج المنزل</th>
+        <th> التغذية والطعام</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{OtherPatientConditions.Home_Mode =='null'?'':OtherPatientConditions.Home_Mode}}</td>
+        <td>{{OtherPatientConditions.Special_Patient_Supplies =='null'?'':OtherPatientConditions.Special_Patient_Supplies}}</td>
+        <td>{{OtherPatientConditions.Patient_Travel_Outside =='null'?'':OtherPatientConditions.Patient_Travel_Outside}}</td>
+        <td>{{OtherPatientConditions.Nutrition_Food =='null'?'':OtherPatientConditions.Nutrition_Food}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+ <!-- Services Families -->
+ <div class="table table-responsive Prag_print" *ngIf="ServicesFamilies">
+  <h4 class="text-4 mt-4 mb-2">سوف يستخدم الدعم لتسديد</h4>
+  <ul>
+    <li *ngIf="ServicesFamilies.Financial_Support">مساندة مالية</li>
+    <li *ngIf="ServicesFamilies.BillS">سداد 50% من الفواتير</li>
+    <li *ngIf="ServicesFamilies.House_Rent">إيجار منزل</li>
+    <li *ngIf="ServicesFamilies.Food_Gift">سلة غذائية</li>
+    <li *ngIf="ServicesFamilies.Medical_Supplies">مستلزمات طبية</li>
+    <li *ngIf="ServicesFamilies.BillS_Serves">فواتير خدمات</li>
+    <li *ngIf="ServicesFamilies.Physiotherapy">علاج طبيعي</li>
+    <li *ngIf="ServicesFamilies.WinterClothing">كسوة الشتاء</li>
+    <li *ngIf="ServicesFamilies.OtherServicestext =='null' || ServicesFamilies.OtherServicestext == ''?'':ServicesFamilies.OtherServicestext">آخرى : {{ServicesFamilies.OtherServicestext}}</li>
+  </ul>
+</div>
+
+      <!-- ServicesPatients Families -->
+      <div class="table table-responsive Prag_print" *ngIf="ServicesPatients">
+        <h4 class="text-4 mt-4 mb-2">الجهات الأخرى التي تقدم خدمات أو مساعدات للمستفيد أو عائلته</h4>
+        <ul>
+
+          <li *ngIf="ServicesPatients.Al_Ber_Charity_Association">جمعية البر الخيرية</li>
+          <li *ngIf="ServicesPatients.Al_Rajhi_Charitable_Society">جمعية الراجحي الخيرية</li>
+          <li *ngIf="ServicesPatients.Medical_Authority">الهيئة الطبية</li>
+          <li *ngIf="ServicesPatients.Sanad_Association_Riyadh">جمعية سند (الرياض) </li>
+          <li *ngIf="ServicesPatients.Comprehensive_Rehabilitation_Center"> مركز التأهيل الشامل</li>
+          <li *ngIf="ServicesPatients.Social_Insurance"> الضمان الاجتماعي</li>
+          <li *ngIf="ServicesPatients.OtherServicesProvider =='null'?'':ServicesPatients.OtherServicesProvider">جهات آخرى : {{ServicesPatients.OtherServicesProvider}}</li>
+
+        </ul>
+      </div>
+
+     <!-- Massage -->
+     <div class="table table-responsive Prag_print" *ngIf="Massage">
+      <h4 class="text-4 mt-2">رسالة المستفيد للمؤسسة</h4>
+      <ul class="text-1">
+        <p>{{Massage =='null'?'':Massage}}</p>
+      </ul>
+    </div>
+
+    <!-- File Data -->
+    <div class="table-responsive Prag_print" *ngIf="FilesData.length > 0">
+      <h4 class="text-4 mt-4 mb-2">المرفقات</h4>
+
+      <ol>
+          <li *ngFor="let item of FilesData">
+            <a href="{{item.FilePath}}">{{item.Type == null?'ملفات اخرى':item.Type}}</a>
+          </li>
+        </ol>
+    </div>
+
+
+
+
+
+
+  </main>
+  <!-- Footer -->
+  <footer class="text-center">
+    <hr>
+    <img src="../../../assets/img/footer-report.png" />
+    <hr>
+    <div class="btn-group btn-group-sm d-print-none"> <a href="javascript:window.print()"
+        class="btn btn-light border text-black-50 shadow-none"><i class="fa fa-print"></i> Print</a> </div>
+  </footer>
+</div>

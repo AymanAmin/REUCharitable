@@ -1,0 +1,74 @@
+<div class="card" style="text-align: right;">
+  <div class="card-header">ظروف أخرى للمريض</div>
+  <div class="card-body">
+    <form class="row" [formGroup]="OtherPatientConditionsForm" (ngSubmit)="OnSubmit()">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Home_Mode">وضع المنزل</label>
+          <select class="form-select form-select-sm" formControlName="Home_Mode">
+            <option value="واسع ولائق" selected="selected">واسع ولائق</option>
+            <option value="يحتاج صيانة">يحتاج صيانة</option>
+            <option value="ضيق">ضيق</option>
+            <option value="غير مناسب للنقاهة">غير مناسب للنقاهة</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Special_Patient_Supplies">أثاث ومستلزمات المريض الخاصة</label>
+          <select class="form-select form-select-sm" formControlName="Special_Patient_Supplies">
+            <option value="متوفر ولائق" selected="selected">متوفر ولائق</option>
+            <option value="متوسط الكفاءة">متوسط الكفاءة</option>
+            <option value="ردئ الكفاءة"> ردئ الكفاءة </option>
+            <option value="غير مناسب">غير مناسب</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Patient_Travel_Outside">تنقلات المريض خارج المنزل</label>
+          <select class="form-select form-select-sm" formControlName="Patient_Travel_Outside">
+            <option value="متوفرة من الاسرة" selected="selected">متوفرة من الاسرة</option>
+            <option value="تنقلات بالأجرة">تنقلات بالأجرة</option>
+            <option value="تؤمنها المؤسسة">تؤمنها المؤسسة</option>
+            <option value="تؤمنها جهة أخرى<">تؤمنها جهة أخرى</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Nutrition_Food">التغذية والطعام</label>
+          <select class="form-select form-select-sm" formControlName="Nutrition_Food">
+            <option value="غير مقيد" selected="selected">غير مقيد</option>
+            <option value="حمية خاصة">حمية خاصة</option>
+            <option value="غذاء خاص">غذاء خاص</option>
+            <option value="رجيم">رجيم</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-12 mt-md-3">
+        <button type="submit" [disabled]="!(OtherPatientConditionsForm.valid && IsReady)" class="btn btn-primary">حفظ</button>
+      </div>
+
+    </form>
+  </div>
+</div>

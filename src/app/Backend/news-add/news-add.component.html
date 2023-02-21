@@ -1,0 +1,91 @@
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/home">الرئيسية</a></li>
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/news/viewlist">قائمة الاخبار</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">إضافة خبر</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="card m-auto">
+          <div class="card-body">
+            <form class="row" [formGroup]="AddNewsForm" (ngSubmit)="OnSubmit()">
+              <div class="form-group col-12 col-md-12">
+                <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+                  تم تحديث بيانات الخبر بنجاح
+                </div>
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+                  تم إضافة الخبر بنجاح
+                </div>
+              </div>
+              <div class="form-group col-7 col-md-7">
+                <label for="name" class="form-label">تاريخ الخبر</label>
+                <input type="text" class="form-control" formControlName="NewsDate">
+                <span class="ErrorMessage" *ngIf="!AddNewsForm.get('NewsDate')?.valid &&
+                (AddNewsForm.get('NewsDate')?.touched || userSubmitted )">
+                  الرجاء كتابة تاريخ الخبر
+                </span>
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <label for="name" class="form-label">عنوان الخبر</label>
+                <input type="text" class="form-control" formControlName="title">
+                <span class="ErrorMessage" *ngIf="!AddNewsForm.get('title')?.valid &&
+                (AddNewsForm.get('title')?.touched || userSubmitted )">
+                  الرجاء كتابة العنوان
+                </span>
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <label for="name" class="form-label">تفاصيل الخبر</label>
+                <textarea type="text" class="form-control" formControlName="details"></textarea>
+                <span class="ErrorMessage" *ngIf="!AddNewsForm.get('details')?.valid &&
+                (AddNewsForm.get('details')?.touched || userSubmitted )">
+                  الرجاء كتابة تفاصيل الخبر
+                </span>
+              </div>
+
+              <div class="form-group col-6 col-md-6">
+                <label for="name" class="form-label">تم النشر بواسطة</label>
+                <input type="text" class="form-control" readonly formControlName="publishBy">
+              </div>
+
+              <div class="form-group col-6 col-md-6">
+                <label for="name" class="form-label">تاريخ النشر</label>
+                <input type="text" class="form-control" readonly formControlName="date">
+              </div>
+              <div class="form-group col-6 col-md-6">
+                <label for="name" class="form-label">مرفق</label>
+                <input formControlName="img" accept="image/*" id="file" type="file" class="form-control"
+                  (change)="onFileChange($any($event).target.files)">
+                <span class="ErrorMessage" *ngIf="!AddNewsForm.get('img')?.valid &&
+                (AddNewsForm.get('img')?.touched || userSubmitted )">
+                  الرجاء إضافة صورة للخبر
+                </span>
+              </div>
+              <div class="form-group col-6 col-md-6">
+                <img [src]="imageSrc" *ngIf="imageSrc" style="height: 100px; width:100px;object-fit: cover;">
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <input class="form-check-input" type="checkbox" value="" [(ngModel)]="IsPublish"  formControlName="IsPublish">
+                <label class="form-check-label ms-2" for="IsPublish">
+                  نشر
+                </label>
+              </div>
+
+              <div class="form-group col-12 pt-lg-5">
+                <button [disabled]="!AddNewsForm.valid" type="submit" class="btn btn-primary">حفظ</button>
+                <button type="reset" class="btn btn-secondary mr-5">الغاء</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

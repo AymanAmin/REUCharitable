@@ -1,0 +1,11 @@
+body{
+  margin-top:20px;
+  background:#f8f8f8
+}
+.page-title-area::before {
+  background-color: white;
+}
+.btn-outline-secondary:hover  {
+  color: #fff !important;
+  background-color: #76b430;
+}

@@ -1,0 +1,36 @@
+.page-title-area::before {
+  background-color: white !important;
+}
+
+.page-title-area .page-title-content h2 {
+  color: black !important;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.form-group {
+  text-align: right;
+  padding-top: 10px;
+}
+
+.ErrorMessage {
+  color: red;
+}
+
+.IconSize {
+  font-size: xx-large;
+}
+
+.card-link{
+  cursor: pointer;
+  text-align: right;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(31, 214, 77, 0.301);
+  cursor: pointer;
+}

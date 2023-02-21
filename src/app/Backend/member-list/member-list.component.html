@@ -1,0 +1,82 @@
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/home">الرئيسية</a></li>
+          <li class="breadcrumb-item active" aria-current="page">الاعضاء</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="row flex-lg-nowrap">
+          <div class="col">
+            <div class="e-tabs mb-3 px-3">
+              <ul class="nav nav-tabs">
+                <li class="nav-item"><a class="nav-link active">قائمة الاعضاء</a></li>
+              </ul>
+            </div>
+
+            <div class="row flex-lg-nowrap">
+              <div class="col mb-3">
+                <div class="e-panel card">
+                  <div class="card-body">
+                    <div class="e-table">
+                      <div class="table-responsive table-lg mt-3">
+                        <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th>الرقم</th>
+                              <th class="max-width">الاسم</th>
+                              <th class="sortable">المسمى الوظيفي</th>
+                              <th>الاحداث</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let member of member_list |
+                            paginate: {id: 'listing_pagination',
+                            itemsPerPage: 5,
+                            currentPage: page,
+                            totalItems: tatalRecords
+                        } index as id">
+                              <td class="align-middle text-center">
+                                {{id + 1}}
+                              </td>
+                              <td class="text-nowrap align-middle">{{member.memberName}}</td>
+                              <td class="text-nowrap align-middle"><span>{{member.memberPosition}}</span></td>
+                              <td class="text-center align-middle">
+                                <div class="btn-group align-top">
+                                  <a routerLink="/backend/member/update/{{member.id}}"
+                                    class="btn btn-sm btn-outline-secondary badge text-info" type="button">تحديث</a>
+                                  <a class="btn btn-sm btn-outline-secondary badge text-danger" type="button"><i
+                                      class="fa fa-trash"></i></a>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="col-md-12">
+                        <pagination-controls id='listing_pagination' [maxSize]="5" [directionLinks]="true"
+                        [autoHide]="true"
+                        [responsive]="true"
+                        previousLabel="السابق"
+                        nextLabel="التالي"
+                        screenReaderPaginationLabel="الصفحات"
+                        screenReaderPageLabel="الصفحة" (pageChange)="page = $event"></pagination-controls>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

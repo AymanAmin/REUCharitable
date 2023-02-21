@@ -1,0 +1,75 @@
+<!-- Start Page Title Area -->
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/home">الرئيسية</a></li>
+          <li class="breadcrumb-item active" aria-current="page">معرض الصور</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="card m-auto" style="padding: 20px;">
+          <div class="card-body">
+
+            <div class="row">
+              <div class="form-group col-8 col-md-8">
+
+                <label for="" class="form-label">الاسم : </label>
+                <span>{{imageName}}</span>
+                <br />
+
+                <label for="" class="form-label mt-1">الحجم : </label>
+                <span> {{imageSize}}</span>  KB
+                <br />
+
+                <label for="" class="form-label mt-1">النوع : </label>
+                <span> {{imageType}}</span>
+                <br />
+                <form class="row" [formGroup]="AddImageForm" (ngSubmit)="uploadImage()">
+                  <div class="form-group col-8 col-md-8">
+                    <input formControlName="img" accept="image/*" id="file" type="file" class="form-control"
+                      (change)="onFileChange($any($event).target.files)">
+                  </div>
+                  <div class="form-group col-4 col-md-4">
+                    <button type="submit" class="savebtn" [hidden]="!AddImageForm.valid">تحميل
+                      الصورة</button>
+                  </div>
+                </form>
+              </div>
+              <div class="form-group col-4 col-md-4">
+                <img class="img-gallery" [src]="imageSrc" *ngIf="imageSrc"
+                  style="float: left;height: 200px; width:200px;object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 m-auto pt-3"  *ngFor="let image of image_list |
+      paginate: {id: 'listing_pagination',
+      itemsPerPage: 8,
+      currentPage: page,
+      totalItems: tatalRecords}">
+        <div class="card">
+          <div class="card-body">
+            <img class="img-gallery" src="{{image?.imageSrc}}" style="width: 100%;">
+            <a (click)="deleteImage(image?.id)" class="card-link">حذف</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 pt-5">
+        <pagination-controls id='listing_pagination' [maxSize]="5" [directionLinks]="true"
+        [autoHide]="true"
+        [responsive]="true"
+        previousLabel="السابق"
+        nextLabel="التالي"
+        screenReaderPaginationLabel="الصفحات"
+        screenReaderPageLabel="الصفحة" (pageChange)="page = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

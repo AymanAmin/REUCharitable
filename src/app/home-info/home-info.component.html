@@ -1,0 +1,96 @@
+
+
+<div class="card" style="text-align: right;">
+  <div class="card-header">بيانات السكن
+  </div>
+  <div class="card-body">
+      <form class="row" [formGroup]="BasicInfoForm" (ngSubmit)="OnSubmit()">
+
+        <div class="form-group col-12 col-md-12">
+          <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+            تم تحديث بيانات بنجاح
+          </div>
+          <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+            حدث خطاء
+          </div>
+        </div>
+        <div class="form-group col-12 col-md-12">
+          <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+            تم إضافة بنجاح
+          </div>
+        </div>
+
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Housing_Type">نوع السكن</label>
+            <select class="form-select form-select-sm" formControlName="Housing_Type">
+              <option value="ملك" selected="selected">ملك</option>
+              <option value="إيجار">إيجار</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Housing_Status">حالة السكن</label>
+            <select class="form-select form-select-sm" formControlName="Housing_Status">
+              <option value="جيد" selected="selected">جيد</option>
+              <option value="متوسط">متوسط</option>
+              <option value="متهالك">متهالك</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Housing_Classification">تصنيف السكن</label>
+            <select class="form-select form-select-sm" formControlName="Housing_Classification">
+              <option value="فيلا" selected="selected">فيلا</option>
+              <option value="منزل شعبي">منزل شعبي</option>
+              <option value="شقة">شقة</option>
+            </select>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Housing_look">هل يحتاج السكن الى اي اعمال صيانة او ترميم</label>
+            <select class="form-select form-select-sm" formControlName="Housing_look">
+              <option value="نعم" selected="selected">نعم</option>
+              <option value="لا">لا</option>
+            </select>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Housing_Cost">ماهي التكلفة التقديرية لأعمال الصيانة والترميم المطلوبة
+            </label>
+            <select class="form-select form-select-sm" formControlName="Housing_Cost">
+              <option value="من 500-1500" selected="selected">من 500-1500</option>
+              <option value="من 1500-5000">من 1500-5000</option>
+              <option value="من 5000-15000" selected="selected">من 5000-15000</option>
+              <option value="اكثر من 15000">اكثر من 15000</option>
+            </select>
+          </div>
+        </div>
+
+        <div>  </div>
+
+
+        <div class="col-md-12 mt-md-3">
+          <button type="submit" [disabled]="!BasicInfoForm.valid" class="btn btn-primary">حفظ</button>
+        </div>
+
+      </form>
+  </div>
+</div>
+

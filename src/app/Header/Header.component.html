@@ -1,0 +1,286 @@
+<!-- Start Header Area -->
+<div class="nivo-header-style-one fixed-top">
+  <div class="header-wrap">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-6">
+          <ul class="header-information ">
+            <li>
+              <a href="tel:{{company?.phone}}">
+                <i class="fa fa-phone"></i>
+                {{company?.phone}}
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:{{company?.phone2}}">
+                <i class="fa fa-phone"></i>
+                {{company?.phone2}}
+              </a>
+            </li>
+
+            <li>
+              <a href="mailto:{{company?.email}}">
+                <i class="fa fa-envelope"></i>
+                {{company?.email}}
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <ul class="social-icon">
+
+
+            <li>
+              <a target="blank" href="{{company?.twitter}}">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a target="blank" href="{{company?.linkedin}}">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+            <li>
+              <a target="blank" href="{{company?.youtube}}">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar-area">
+    <!-- Menu For Mobile Device -->
+    <div class="mobile-nav mean-container">
+      <div class="mean-bar">
+        <a onclick="ChangeClass()" class="meanmenu-reveal"
+          style="right: 0px; left: auto; text-align: center; text-indent: 0px; font-size: 18px;"><span><span><span></span></span></span></a>
+
+        <nav class="mean-nav">
+          <ul class="navbar-nav m-auto" id="mobileMenu" style="display: none;">
+            <li class="nav-item">
+              <a routerLink="/" class="nav-link" onclick="hideMobileMenu()">الرئيسية</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/CEOSpeech" class="nav-link" onclick="hideMobileMenu()">كلمة الرئيس </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/OrganizationChart" class="nav-link" onclick="hideMobileMenu()">الهيكل التنظيمي</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/Members" class="nav-link" onclick="hideMobileMenu()">مجلس الامناء</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/BasicRegulation" class="nav-link" onclick="hideMobileMenu()">اللائحة الأساسية</a>
+            </li>
+            <li class="nav-item" >
+              <a routerLink="/policies" class="nav-link" onclick="hideMobileMenu()">السياسات </a>
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="/registration-certificate" class="nav-link" onclick="hideMobileMenu()">شهادة تسجيل المؤسسة</a>
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="/Gallery" class="nav-link" onclick="hideMobileMenu()"> معرض الصور</a>
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="/gallery-vid" class="nav-link" onclick="hideMobileMenu()">معرض الفديوهات</a>
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="/News" class="nav-link" onclick="hideMobileMenu()"> الاخبار</a>
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="/YearlyReports" class="nav-link" onclick="hideMobileMenu()">التقارير السنوية</a>
+            </li>
+
+
+            <li class="nav-item">
+              <a routerLink="Customer/SupportNeedyFamilies" class="nav-link" onclick="hideMobileMenu()">نموذج رقم (1) - دعم مقطوع </a>
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="/Customer/AssociationSupport" class="nav-link" onclick="hideMobileMenu()">نموذج رقم (2) - دعم الجمعيات والمؤسسات</a>
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="/Customer/RestorationHomeForm" class="nav-link" onclick="hideMobileMenu()">نموذج رقم (3) - دعم ترميم مسكن</a>
+            </li>
+
+
+            <li class="nav-item">
+              <a routerLink="/Customer/InstitutionBenefitForm" class="nav-link" onclick="hideMobileMenu()">نموذج رقم (4) - دعم حالة مرضية</a>
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="/Customer/CheckResultComponent" class="nav-link" onclick="hideMobileMenu()"> مستفيد موجود مسبقا</a>
+            </li>
+
+
+
+            <li class="nav-item" *ngIf="IsLogin">
+              <a routerLink="/backend/home" class="nav-link" onclick="hideMobileMenu()">بوابة الموظفين</a>
+            </li>
+
+            <li class="nav-item" *ngIf="!IsLogin">
+              <a routerLink="/user/login" class="nav-link" onclick="hideMobileMenu()">بوابة الموظفين</a>
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="Customer/Project2023" class="nav-link"> المشاريع المدعومة عام 2023 </a>
+            </li>
+
+            <li class="nav-item">
+              <a routerLink="/News" class="nav-link" onclick="hideMobileMenu()">آخر الاخبار</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/Contact" class="nav-link" onclick="hideMobileMenu()">تواصل معنا</a>
+            </li>
+          </ul>
+
+        </nav>
+
+      </div>
+      <a routerLink="/" class="logo">
+        <img src="../../assets/img/logo1.jpeg" style="  margin-top: -18px;" alt="شعار المؤسسة">
+      </a>
+    </div>
+    <!-- Menu For Desktop Device -->
+    <div class="nivo-nav-one">
+      <div class="main-nav">
+        <nav class="navbar navbar-expand-md navbar-light">
+          <div class="container">
+
+            <a class="navbar-brand" routerLink="/">
+              <img src="../../assets/img/logo1.jpeg" style="max-width: 80% ; margin-top:-10px;" alt="شعار المؤسسة">
+            </a>
+
+            <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
+
+
+
+              <ul class="navbar-nav m-auto">
+                <li class="nav-item">
+                  <a routerLink="/" class="nav-link">الرئيسية</a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/" class="nav-link dropdown-toggle">عن المؤسسة</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a routerLink="/CEOSpeech" class="nav-link">كلمة الرئيس </a>
+                    </li>
+                    <li class="nav-item">
+                      <a routerLink="/OrganizationChart" class="nav-link">الهيكل التنظيمي</a>
+                    </li>
+                    <li class="nav-item">
+                      <a routerLink="/Members" class="nav-link">مجلس الامناء</a>
+                    </li>
+                    <li class="nav-item">
+                      <a routerLink="/BasicRegulation" class="nav-link">اللائحة الأساسية</a>
+                    </li>
+                    <li class="nav-item">
+                      <a routerLink="/policies" class="nav-link" onclick="hideMobileMenu()">السياسات </a>
+                    </li>
+                    <li class="nav-item">
+                      <a routerLink="/registration-certificate" class="nav-link">شهادة تسجيل المؤسسة</a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="nav-item">
+                  <a routerLink="/" class="nav-link dropdown-toggle">المركز الاعلامي</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a routerLink="/News" class="nav-link"> الأخبار</a>
+                    </li>
+                    <li class="nav-item">
+                      <a routerLink="/Gallery" class="nav-link">معرض الصور</a>
+                    </li>
+                    <li class="nav-item">
+                      <a routerLink="/gallery-vid" class="nav-link"> معرض الفيديوهات</a>
+                    </li>
+
+                  </ul>
+                </li>
+
+
+                <li class="nav-item">
+                  <a routerLink="/" class="nav-link dropdown-toggle">الخدمات الاكترونية</a>
+                  <ul class="dropdown-menu">
+
+
+                    <li class="nav-item">
+                      <a routerLink="Customer/SupportNeedyFamilies" class="nav-link">نموذج رقم (1) - دعم مقطوع  </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                      <a routerLink="/Customer/AssociationSupport" class="nav-link">نموذج رقم (2) - دعم الجمعيات والمؤسسات</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                      <a routerLink="/Customer/RestorationHomeForm" class="nav-link">نموذج رقم (3) - دعم ترميم مسكن</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                      <a routerLink="/Customer/InstitutionBenefitForm" class="nav-link">نموذج رقم (4) - دعم حالة مرضية</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a routerLink="/Customer/CheckResultComponent" class="nav-link"> مستفيد موجود مسبقا</a>
+                    </li>
+
+
+
+                    <li class="nav-item" *ngIf="IsLogin">
+                      <a routerLink="/backend/home" class="nav-link">بوابة الموظفين</a>
+                    </li>
+                    <li class="nav-item" *ngIf="!IsLogin">
+                      <a routerLink="/user/login" class="nav-link">بوابة الموظفين</a>
+                    </li>
+                  </ul>
+                </li>
+
+
+                <li class="nav-item">
+                  <a routerLink="/" class="nav-link dropdown-toggle"> المشاريع المدعومة</a>
+                  <ul class="dropdown-menu">
+
+                    <li class="nav-item">
+                      <a routerLink="Customer/Project2023" class="nav-link"> المشاريع المدعومة عام 2023 </a>
+                    </li>
+
+                    </ul>
+
+
+                </li>
+
+
+                <li class="nav-item">
+                  <a routerLink="/Contact" class="nav-link">تواصل معنا</a>
+                </li>
+              </ul>
+
+
+             </div>
+
+            <a class="navbar-brand" routerLink="/">
+              <img src="../../assets/img/vision2030.jpg" style="max-width: 75%;" alt="رؤية 2030">
+            </a>
+
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Header Area -->
+

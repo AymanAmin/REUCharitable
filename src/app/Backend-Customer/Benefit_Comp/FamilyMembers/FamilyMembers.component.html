@@ -1,0 +1,110 @@
+<div class="card" style="text-align: right;">
+  <div class="card-header">أفراد الاسرة(جميع أفراد الأسرة)</div>
+  <div class="card-body">
+    <form class="row" [formGroup]="FamilyMembersForm" (ngSubmit)="OnSubmit(0)">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="FamilyName">الاسم</label>
+          <input type="text" formControlName="FamilyName" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="RelationShip">صلة القراب</label>
+          <input type="text" formControlName="RelationShip" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Age">العمر</label>
+          <input type="text" formControlName="Age" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Gander">الجنس</label>
+          <select class="form-select form-select-sm" formControlName="Gander">
+            <option value="ذكر" selected="selected">ذكر</option>
+            <option value="انثى">انثى</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Level_Edu">المستوى التعليمي</label>
+          <input type="text" formControlName="Level_Edu" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Social_Status">الوضع الاجتماعي</label>
+          <input type="text" formControlName="Social_Status" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Health_Status">الحالة الصحي</label>
+          <input type="text" formControlName="Health_Status" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <button type="submit" style="margin-top: 33px;width: 100%;" [disabled]="!(FamilyMembersForm.valid && IsReady)" class="btn btn-primary">حفظ</button>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-md-2 table-responsive">
+        <hr/>
+        <table class="table ">
+          <thead style="background-color: #92d63dad;color: white;">
+          <tr>
+              <th>الاسم</th>
+              <th>صلة القراب</th>
+              <th>العمر</th>
+              <th>الجنس</th>
+              <th>المستوى التعليمي</th>
+              <th>الوضع الاجتماعي</th>
+              <th>الحالة الصحي</th>
+              <th>حذف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let member of FamilyMembersList">
+            <td>{{member.FamilyName}}</td>
+            <td>{{member.RelationShip}}</td>
+            <td>{{member.Age}}</td>
+            <td>{{member.Gander}}</td>
+            <td>{{member.Level_Edu}}</td>
+            <td>{{member.Social_Status}}</td>
+            <td>{{member.Health_Status}}</td>
+            <td><i (click)="OnSubmit(member.Id)" class="fa fa-trash" aria-hidden="true"></i></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+
+    </form>
+  </div>
+</div>

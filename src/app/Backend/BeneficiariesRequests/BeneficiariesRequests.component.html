@@ -1,0 +1,90 @@
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/home">الرئيسية</a></li>
+          <li class="breadcrumb-item active" aria-current="page">عرض الافراد المسجلين</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="gradient-custom">
+            <div class="row container justify-content-center align-items-center h-10">
+              <div class="col-12 col-lg-9 col-xl-12">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                  <div class="card-body p-4 p-md-5">
+                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-10" style="color: #76b430;"> عرض الافراد المسجلين</h3>
+                    <hr />
+                    <div class="row">
+                      <div class="col-md-3 mb-md-2">
+                        <div class="form-outline">
+                          <label class="form-label" for="Gander">حالة الطلب</label>
+                          <select class="form-select form-select-sm" [(ngModel)]="RequsetStatus">
+                            <option value="" selected="selected">الكل</option>
+                            <option value="طلب جديد">جديد</option>
+                            <option value="تحت الدراسه">تحت الدراسه</option>
+                            <option value="تم الدعم">تم الدعم</option>
+                            <option value="غير مكتمل">غير مكتمل</option>
+                            <option value="الدعم متوقف">الدعم متوقف</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-md-3 mb-md-2">
+                        <div class="form-outline">
+                          <label class="form-label" for="Gander">نوع الطلب</label>
+                          <select class="form-select form-select-sm" [(ngModel)]="RequsetType">
+                            <option value="" selected="selected">الكل</option>
+                            <option value="طلب دعم مقطوع"> دعم مقطوع</option>
+                            <option value="طلب دعم حالة مرضية"> دعم حالة مرضية</option>
+                            <option value="طلب دعم ترميم مسكن"> دعم ترميم مسكن</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                      <div *ngIf="FormList" class="row">
+                        <div class="col-md-12 mb-md-2 table-responsive">
+                          <hr/>
+                          <table class="table ">
+                            <thead style="background-color: #92d63dad;color: white;">
+                            <tr>
+                                <th>الاسم</th>
+                                <th>رقم الهوية</th>
+                                <th>رقم الجوال</th>
+                                <th>الجنسية</th>
+                                <th>نوع الطلب</th>
+                                <th>حالة الطلب</th>
+                                <th>الأجراءات</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let item of FormList | filter:RequsetStatus | filter: RequsetType">
+                              <td>{{item.Full_Name}}</td>
+                              <td>{{item.Identify_Id}}</td>
+                              <td>{{item.Phone}}</td>
+                              <td>{{item.Nationalty}}</td>
+                              <td>{{item.FormType}}</td>
+                              <td><span class="badge badge-{{item.StatuColor}}">{{item.StatusName}}</span></td>
+                              <td>
+                                <a  target="_blank" href="Report/SupportNeedyFamilies/{{item.CS_Code}}" class="ms-4"  ><i class="fa fa-print text-dark" aria-hidden="true"></i></a>
+                                <a class="ms-4" target="_blank" href="{{item.FormName}}" ><i class="fa fa-edit text-success" aria-hidden="true"></i></a>
+                                <span  target="_blank" (click)="Delete(item.CS_Code)" class="ms-4"  ><i class="fa fa-trash text-danger" aria-hidden="true"></i></span>
+
+                              </td>
+                            </tr>
+                          </tbody>
+                          </table>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

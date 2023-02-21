@@ -1,0 +1,19 @@
+
+@page {
+  orphans: 4;
+  widows: 2;
+}
+
+@media print {
+  body,
+  ul,
+  p,
+  tr,
+  footer {
+    transform: scale(1);
+  }
+
+  .Prag_print {
+    break-inside: avoid;
+  }
+}

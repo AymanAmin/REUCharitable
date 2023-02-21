@@ -1,0 +1,81 @@
+<div class="card" style="text-align: right;">
+  <div class="card-header">الحسابات البنكية للمتقدم</div>
+  <div class="card-body">
+    <form class="row" [formGroup]="BankInfoForm" (ngSubmit)="OnSubmit()">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Bank_Name_1">إسم البنك</label>
+          <select class="form-select form-select-sm" formControlName="Bank_Name_1">
+            <option value="البنك الأهلي السعودي " selected="selected">البنك الأهلي السعودي </option>
+            <option value="البنك السعودي البريطاني">البنك السعودي البريطاني</option>
+            <option value="البنك السعودي الفرنسي"> البنك السعودي الفرنسي</option>
+            <option value="البنك السعودي للاستثمار">البنك السعودي للاستثمار</option>
+            <option value="البنك العربي الوطني">البنك العربي الوطني</option>
+            <option value="بنك البلاد " selected="selected">بنك البلاد</option>
+            <option value="بنك الجزيرة " selected="selected">بنك الجزيرة</option>
+            <option value="بنك الخليج الدولي " selected="selected">بنك الخليج الدولي</option>
+            <option value="بنك الرياض " selected="selected">بنك الرياض</option>
+            <option value="مصرف الراجحي">مصرف الراجحي</option>
+            <option value="مصرف الأنماء">مصرف الأنماء </option>
+          </select>
+          
+        </div>
+      </div>
+
+      
+
+      <div class="col-md-9 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Bank_No_1">رقم الحساب</label>
+          <input type="text" formControlName="Bank_No_1"  class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Bank_Name_2">إسم البنك</label>
+          <select class="form-select form-select-sm" formControlName="Bank_Name_2">
+            <option value="البنك الأهلي السعودي " selected="selected">البنك الأهلي السعودي </option>
+            <option value="البنك السعودي البريطاني">البنك السعودي البريطاني</option>
+            <option value="البنك السعودي الفرنسي"> البنك السعودي الفرنسي</option>
+            <option value="البنك السعودي للاستثمار">البنك السعودي للاستثمار</option>
+            <option value="البنك العربي الوطني">البنك العربي الوطني</option>
+            <option value="بنك البلاد " selected="selected">بنك البلاد</option>
+            <option value="بنك الجزيرة " selected="selected">بنك الجزيرة</option>
+            <option value="بنك الخليج الدولي " selected="selected">بنك الخليج الدولي</option>
+            <option value="بنك الرياض " selected="selected">بنك الرياض</option>
+            <option value="مصرف الراجحي">مصرف الراجحي</option>
+            <option value="مصرف الأنماء">مصرف الأنماء </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-9 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Bank_No_2">رقم الحساب</label>
+          <input type="text" formControlName="Bank_No_2" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-12 mt-md-3">
+        <button type="submit" [disabled]="!(BankInfoForm.valid && IsReady)" class="btn btn-primary">حفظ</button>
+      </div>
+
+    </form>
+  </div>
+</div>

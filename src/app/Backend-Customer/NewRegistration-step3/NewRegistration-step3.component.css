@@ -1,0 +1,47 @@
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+}
+.card-registration .select-arrow {
+  top: 13px;
+}
+
+.form-label {
+  color: black;
+}
+
+.registration-step {
+  border-radius: 50%;
+  background: #76b430;
+  border: 1px solid;
+  color: white;
+  font-weight: bold;
+  /* height: 50px; */
+  /* text-align: center; */
+  /* vertical-align: middle; */
+  padding: 2%;
+  margin-bottom: 5%;
+}
+
+.current-step {
+  background: #dbefc3;
+    color: #76b42f;
+}
+
+.btn-primary {
+  background: #76b430;
+}
+
+.form-control {
+  height: 35px;
+}
+
+.form-select {
+  height: 35px;
+}
+
+.py-5{
+  padding-top: 0px !important;
+}

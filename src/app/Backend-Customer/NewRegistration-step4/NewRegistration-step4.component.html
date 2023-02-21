@@ -1,0 +1,75 @@
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/">الرئيسية</a></li>
+          <li class="breadcrumb-item active" aria-current="page">تسجيل جهة جديدة</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="vh-100 gradient-custom">
+          <div class="container py-5 h-100">
+            <div class="row justify-content-center align-items-center h-100">
+              <div class="col-12 col-lg-9 col-xl-12">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                  <div class="card-body p-4 p-md-5">
+                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-10" style="color: #76b430;">تسجيل جهة جديدة</h3>
+                    <hr/><br/>
+                    <div class="row">
+                      <div class="col-md-2 registration-step">1. بيانات المستخدم</div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-2 registration-step">2. بيانات الجهة</div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-2 registration-step">3. بيانات البنك</div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-2 registration-step current-step">4. معلومات اخرى</div>
+                    </div>
+                    <form>
+                      <div class="row">
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label for="fileLetterOfAuthority" class="form-label">خطاب تفويض</label>
+                            <input class="form-control form-control-sm" id="fileLetterOfAuthority" type="file">
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label for="fileBankAccountCertificate" class="form-label">شهادة بنكية بالحساب</label>
+                            <input class="form-control form-control-sm" id="fileBankAccountCertificate" type="file">
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label for="fileInstitutionStatement" class="form-label">تصريح الجهة</label>
+                            <input class="form-control form-control-sm" id="fileInstitutionStatement" type="file">
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label for="fileCEOLetter" class="form-label">خطاب تعين المدير التنفيذي</label>
+                            <input class="form-control form-control-sm" id="fileCEOLetter" type="file">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <a routerLink="/Customer/New-Registration/step3" class="btn btn-warning btn-lg m-1">رجوع</a>
+                          <a routerLink="/Customer/New-Registration/step4" class="btn btn-primary btn-lg m-1">إنهاء</a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

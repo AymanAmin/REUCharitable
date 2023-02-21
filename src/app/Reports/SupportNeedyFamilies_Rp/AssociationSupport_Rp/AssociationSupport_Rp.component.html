@@ -1,0 +1,175 @@
+
+<div id="MyReport" class="container-fluid invoice-container" style="margin-top:200px;">
+  <!-- Header -->
+  <header>
+    <div class="row align-items-center">
+      <div class="col-sm-12 text-center mb-3 mb-sm-0"> <img id="logo" src="../../assets/img/logo1.jpeg"
+          style="width: 40%;" title="شعار المؤسسة" alt="شعار المؤسسة"> </div>
+      <div class="col-sm-12 text-center">
+        <h4 class="mb-0">طلب دعم الجمعيات والمؤسسات الخيرية</h4>
+        <p class="mb-0">طلب رقم - <span>{{AssociationSupportinfo.Id}}</span></p>
+      </div>
+    </div>
+    <hr>
+  </header>
+  <!-- Main Content -->
+  <main>
+
+ <!-- AssociationSupport Info -->
+    <div class="table-responsive Prag_print" *ngIf="AssociationSupportinfo">
+      <h4 class="text-4">البيانات الاساسية والحسابات البنكية</h4>
+      <table class="table table-bordered fs-10">
+        <thead>
+          <tr>
+            <td colspan="4" class=""><span class="fw-600">إسم الجمعية/ المؤسسة : </span> {{AssociationSupportinfo.AssociationName =='null'?'':AssociationSupportinfo.AssociationName}} <span
+                class="float-end">
+                <span class="fw-600">تاريخ التقديم</span>: {{AssociationSupportinfo.DateCreation =='null'?'':AssociationSupportinfo.DateCreation}}</span></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="fw-600 col-3">رقم الترخيص</td>
+            <td class="col-3">{{AssociationSupportinfo.LicenseNumber == 'null'?'':AssociationSupportinfo.LicenseNumber}}</td>
+            <td class="fw-600 col-3">تخصص الجمعية/ المؤسسة</td>
+            <td class="col-3">{{AssociationSupportinfo.AssemblySpecialty =='null'?'':AssociationSupportinfo.AssemblySpecialty}}</td>
+          </tr>
+          <tr>
+           <td class="fw-600">البريد الالكتروني للجمعية/ المؤسسة</td>
+            <td>{{AssociationSupportinfo.Email =='null'?'':AssociationSupportinfo.Email}}</td>
+            <td class="fw-600"> تاريخ التأسيس</td>
+            <td>{{AssociationSupportinfo.DateOfEstablishment =='null'?'':AssociationSupportinfo.DateOfEstablishment}}</td>
+          </tr>
+          <tr>
+            <td class="fw-600"> عدد المشاريع المنفذة العام السابق</td>
+            <td>{{AssociationSupportinfo.ProjectsLastYear =='null'?'':AssociationSupportinfo.ProjectsLastYear}}</td>
+            <td class="fw-600"> عدد المشاريع المخطط لها العام الحالى</td>
+            <td>{{AssociationSupportinfo.ProjectsNextYear =='null'?'':AssociationSupportinfo.ProjectsNextYear}}</td>
+          </tr>
+          <tr>
+            <td class="fw-600">إسم البنك</td>
+            <td>{{AssociationSupportinfo.Bank_Name_1 =='null'?'':AssociationSupportinfo.Bank_Name_1}}</td>
+            <td class="fw-600"> رقم الحساب</td>
+            <td>{{AssociationSupportinfo.Bank_No_1 =='null'?'':AssociationSupportinfo.Bank_No_1}}</td>
+              </tr>
+          <tr>
+            <td class="fw-600"> إسم البنك</td>
+            <td>{{AssociationSupportinfo.Bank_Name_2 =='null'?'':AssociationSupportinfo.Bank_Name_2}}</td>
+            <td class="fw-600"> رقم الحساب</td>
+            <td>{{AssociationSupportinfo.Bank_No_2 =='null'?'':AssociationSupportinfo.Bank_No_2}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <!--  Projects By Specialty -->
+     <div class="table table-responsive Prag_print" *ngIf="ProjectsBySpecialty.length > 0">
+      <h4 class="text-4 mt-4 mb-2"> بيانات المشاريع المنفذة حسب تخصص الجمعية/ المؤسسة </h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>اسم المشروع</th>
+            <th> المستفيدين من المشروع </th>
+            <th>مكان المشروع</th>
+            <th> تاريخ بداية المشروع </th>
+            <th> تاريخ نهاية المشروع </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of ProjectsBySpecialty">
+
+            <td>{{item.ProjectName =='null'?'':item.ProjectName}}</td>
+            <td>{{item.BeneficiariesFromProject =='null'?'':item.BeneficiariesFromProject}}</td>
+            <td>{{item.ProjectPlace =='null'?'':item.ProjectPlace}}</td>
+            <td>{{item.ProjectStartDate =='null'?'':item.ProjectStartDate}}</td>
+            <td>{{item.ProjectEndDate =='null'?'':item.ProjectEndDate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+<!-- Project Details   -->
+<div class="table-responsive Prag_print" *ngIf="ProjectDetails">
+  <h4 class="text-4">اسم البرنامج (المشروع) المراد دعمه</h4>
+  <table class="table table-bordered fs-10">
+    <thead>
+      <tr>
+        <td colspan="4" class=""><span class="fw-600"> عنوان المشروع :  </span> {{ProjectDetails.ProjectName =='null'?'':ProjectDetails.ProjectName}} <span
+            class="float-end">
+            <span class="fw-600">مدة التنفيذ :</span>: {{ProjectDetails.ProjectExecutionTime =='null'?'':ProjectDetails.ProjectExecutionTime}}</span></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="fw-600 col-3" >  اهداف المشروع</td>
+        <td class="col-3" colspan="5">{{ProjectDetails.ProjectGoals == 'null'?'':ProjectDetails.ProjectGoals}}</td>
+      </tr>
+      <tr >
+        <td class="fw-600 col-3" >مراحل تنفيذ المشروع</td>
+        <td class="col-3"colspan="5" >{{ProjectDetails.ProjectStages =='null'?'':ProjectDetails.ProjectStages}}</td>
+      </tr>
+      <tr>
+        <td class="fw-600">الفئة المستهدفة لبرنامج المشروع</td>
+        <td>{{ProjectDetails.ProjectTargetGroup =='null'?'':ProjectDetails.ProjectTargetGroup}}</td>
+        <td class="fw-600">العدد المستهدف</td>
+        <td>{{ProjectDetails.ProjectTargetNumber =='null'?'':ProjectDetails.ProjectTargetNumber}}</td>
+      </tr>
+      <tr>
+        <td class="fw-600"> اسم مدير البرامج (المشاريع) المسؤول عن التنفيذ</td>
+        <td colspan="3">{{ProjectDetails.ProjectManager =='null'?'':ProjectDetails.ProjectManager}}</td>
+
+    </tbody>
+  </table>
+</div>
+
+
+
+    <!-- Association Support-->
+    <div class="table table-responsive Prag_print" *ngIf="AssociationSupport.length > 0">
+      <h4 class="text-4 mt-4 mb-2">الميزانية التقديرية للمشروع</h4>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>بند المشروع</th>
+            <th>الاسعار التقريبية</th>
+            <th> نسبة مساهمة الجمعية/ المؤسسة من الميزانية المقترحة</th>
+            <th> مبلغ المساهمة طبقا للنسبة</th>
+            <th>الملاحظات</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of AssociationSupport">
+
+            <td>{{item.ProjectItem =='null'?'':item.ProjectItem}}</td>
+            <td>{{item.ApproximatePrices =='null'?'':item.ApproximatePrices}}</td>
+            <td>{{item.PercentageOfBudget =='null'?'':item.PercentageOfBudget}}</td>
+            <td>{{item.AmountPercentageOfBudget =='null'?'':item.AmountPercentageOfBudget}}</td>
+            <td >{{item.Notes =='null'?'':item.Notes}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+        <!-- AS_Attachment Data -->
+        <div class="table-responsive Prag_print" *ngIf="AS_Attachment.length > 0">
+          <h4 class="text-4 mt-4 mb-2">المرفقات</h4>
+
+          <ol>
+              <li *ngFor="let item of AS_Attachment">
+                <a href="{{item.FilePath}}">{{item.Type == null?'ملفات اخرى':item.Type}}</a>
+              </li>
+            </ol>
+        </div>
+
+  </main>
+  <!-- Footer -->
+  <footer class="text-center">
+    <hr>
+    <img src="../../../assets/img/footer-report.png" />
+    <hr>
+    <div class="btn-group btn-group-sm d-print-none"> <a href="javascript:window.print()"
+        class="btn btn-light border text-black-50 shadow-none"><i class="fa fa-print"></i> Print</a> </div>
+  </footer>
+</div>

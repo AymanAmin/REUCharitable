@@ -1,0 +1,20 @@
+.page-title-area::before {
+  background-color: white !important;
+}
+
+.page-title-area .page-title-content h2 {
+  color: black !important;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.form-group {
+  text-align: right;
+  padding-top: 10px;
+}
+
+.ErrorMessage {
+  color: red;
+}

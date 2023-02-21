@@ -1,0 +1,188 @@
+<div class="row mb-3 "  *ngIf="UpdateStat">
+    <div class="col-md-7"></div>
+    <div class="col-md-5" style="text-align: left;">
+        <button type="button" (click)="ChangeStatus(2)" class="btn btn-info text-white">تمت الدراسة</button>
+        <button type="button" (click)="ChangeStatus(4)" class="btn btn-danger mx-2">غير مكتمل</button>
+        <button type="button" (click)="ChangeStatus(5)" class="btn btn-dark mx-2">الدعم متوقف</button>
+    </div>
+</div>
+<div class="row col-md-2 mb-3 mx-2" style="float: left;" *ngIf="UpdateStat2">
+    <button type="button" (click)="ChangeStatus(3)" class="btn btn-warning">تمت الصرف</button>
+</div>
+<div class="card" style="text-align: right;">
+    <div class="card-header">البيانات الاساسية للمستفيد او المستفيدة
+        <span style="float: left;font-weight: bolder;">تاريخ التقديم
+            : <span>{{CreationDate|date :'medium'}}</span></span>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 text-danger">
+                <strong>ملاحظة : </strong> الرجاء تعبئة جميع النماذج في الطلب الخاص بكم حتى يتم النظر فيه.
+            </div>
+        </div>
+        <form class="row" [formGroup]="BasicInfoForm" (ngSubmit)="OnSubmit()">
+
+            <div class="form-group col-12 col-md-12">
+                <div *ngIf="IsShowMessageUpdate" class="alert alert-danger" role="alert">
+                    تم تحديث بيانات بنجاح : نفيدكم بأنه تم ايقاف الدعم حالياً وسوف يتم مراجعة طلباتكم في حال اعادته .
+                </div>
+                <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+                    حدث خطاء
+                </div>
+            </div>
+            <div class="form-group col-12 col-md-12">
+                <div *ngIf="IsShowMessageInsert" class="alert alert-danger" role="alert">
+                    تم إضافة بنجاح : نفيدكم بأنه تم ايقاف الدعم حالياً وسوف يتم مراجعة طلباتكم في حال اعادته .
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Full_Name">الاسم بالكامل</label>
+                    <input type="text" formControlName="Full_Name" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Identify_Id">رقم الهوية/الاقامة</label>
+                    <input type="text" formControlName="Identify_Id" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-md-2">
+                <label class="form-label select-label" for="Gander">الجنس</label>
+                <select class="form-select form-select-sm" formControlName="Gander">
+                    <option value="ذكر" selected="selected">ذكر</option>
+                    <option value="انثى">انثى</option>
+                </select>
+            </div>
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Nationalty">الجنسية</label>
+                    <input type="text" formControlName="Nationalty" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="age">العمر</label>
+                    <input type="text" formControlName="age" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="BirthDate">تاريخ الميلاد</label>
+                    <input type="date" formControlName="BirthDate" class="text-center form-control form-control-sm" />
+                </div>
+            </div>
+
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Email"> البريد الالكتروني</label>
+                    <input type="email" formControlName="Email" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-md-2">
+                <label class="form-label select-label" for="Social_Situation">الحالة الاجتماعية</label>
+                <select class="form-select form-select-sm" formControlName="Social_Situation">
+                    <option value="متزوج" selected="selected">متزوج</option>
+                    <option value="اعزب">اعزب</option>
+                    <option value="مطلق">مطلق</option>
+                    <option value="أرمل">أرمل</option>
+                    <option value="طفل">طفل</option>
+                </select>
+            </div>
+
+
+            <div class="col-md-3 mb-md-2">
+                <label class="form-label select-label" for="Career">المهنة</label>
+                <select class="form-select form-select-sm" formControlName="Career">
+                    <option value="موظف قطاع خاص" selected="selected">موظف قطاع خاص</option>
+                    <option value="موظف قطاع عام">موظف قطاع عام</option>
+                    <option value="متقاعد">متقاعد</option>
+                    <option value="عاطل">عاطل</option>
+                </select>
+            </div>
+
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Salary">الدخل الشهري</label>
+                    <input type="text" formControlName="Salary" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Income_Source">مصدر الدخل </label>
+                    <input type="text" formControlName="Income_Source" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Family_Role">دوره بالاسرة</label>
+                    <select class="form-select form-select-sm" formControlName="Family_Role">
+                        <option value="عائل" selected="selected">عائل</option>
+                        <option value="غير عائل">غير عائل</option>
+                        <option value="أخرى">أخرى</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Phone">رقم الجوال</label>
+                    <input type="text" formControlName="Phone" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Housing_Status">حالة السكن</label>
+                    <select class="form-select form-select-sm" formControlName="Housing_Status">
+                        <option value="ملك" selected="selected">ملك</option>
+                        <option value="إيجار">إيجار</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Housing_Type">نوع السكن</label>
+                    <select class="form-select form-select-sm" formControlName="Housing_Type">
+                        <option value="فيلا" selected="selected">فيلا</option>
+                        <option value="منزل شعبي">منزل شعبي</option>
+                        <option value="شقة">شقة</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="city">المدينة</label>
+                    <input type="text" formControlName="city" class="form-control form-control-sm" />
+                </div>
+            </div>
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Neighborhood">الحي</label>
+                    <input type="text" formControlName="Neighborhood" class="form-control form-control-sm" />
+                </div>
+            </div>
+            <div class="col-md-12 mt-md-3">
+                <button type="submit" [disabled]="!BasicInfoForm.valid" class="btn btn-primary">حفظ</button>
+            </div>
+        </form>
+    </div>
+</div>

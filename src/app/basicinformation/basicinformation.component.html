@@ -1,0 +1,186 @@
+
+<div class="card" style="text-align: right;">
+  <div class="card-header">البيانات الاساسية لمقدم الطلب
+    <span style="float: left;font-weight: bolder;">تاريخ التقديم
+      : <span>10/04/2022</span></span>
+  </div>
+
+
+  <div class="card-body">
+      <form class="row" [formGroup]="BasicInfoForm" (ngSubmit)="OnSubmit()">
+
+        <div class="form-group col-12 col-md-12">
+          <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+            تم تحديث بيانات بنجاح
+          </div>
+          <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+            حدث خطاء
+          </div>
+        </div>
+        <div class="form-group col-12 col-md-12">
+          <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+            تم إضافة بنجاح
+          </div>
+        </div>
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Full_Name">الاسم بالكامل</label>
+            <input type="text" formControlName="Full_Name" class="form-control form-control-sm" />
+          </div>
+        </div>
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Identify_Id">رقم الهوية/الاقامة</label>
+            <input type="text" formControlName="Identify_Id" class="form-control form-control-sm" />
+          </div>
+        </div>
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <label class="form-label select-label" for="Gander">الجنس</label>
+          <select class="form-select form-select-sm" formControlName="Gander">
+            <option value="ذكر" selected="selected">ذكر</option>
+            <option value="انثى">انثى</option>
+          </select>
+        </div>
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Nationalty">الجنسية</label>
+            <input type="text" formControlName="Nationalty" class="form-control form-control-sm" />
+          </div>
+        </div>
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="age">العمر</label>
+            <input type="text" formControlName="age" class="form-control form-control-sm" />
+          </div>
+        </div>
+
+
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="BirthDate">تاريخ الميلاد</label>
+            <input type="date" formControlName="BirthDate" class="text-center form-control form-control-sm" />
+          </div>
+        </div>
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Email"> البريد الالكتروني</label>
+            <input type="email" formControlName="Email" class="form-control form-control-sm" />
+          </div>
+        </div>
+
+
+
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <label class="form-label select-label" for="Social_Situation">الحالة الاجتماعية</label>
+          <select class="form-select form-select-sm" formControlName="Social_Situation">
+            <option value="متزوج" selected="selected">متزوج</option>
+            <option value="اعزب">اعزب</option>
+            <option value="مطلق">مطلق</option>
+            <option value="أرمل">أرمل</option>
+            <option value="طفل">طفل</option>
+          </select>
+        </div>
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="familynmber">عدد فراد الاسره</label>
+            <input type="text" formControlName="familynmber" class="form-control form-control-sm" />
+          </div>
+        </div>
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Family_Role">دوره بالاسرة</label>
+            <select class="form-select form-select-sm" formControlName="Family_Role">
+              <option value="عائل" selected="selected">عائل</option>
+              <option value="غير عائل">غير عائل</option>
+              <option value="أخرى">أخرى</option>
+            </select>
+          </div>
+        </div>
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Career">المهنة</label>
+            <input type="text" formControlName="Career" class="form-control form-control-sm" />
+          </div>
+        </div>
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Salary">الدخل الشهري</label>
+            <input type="text" formControlName="Salary" class="form-control form-control-sm" />
+          </div>
+        </div>
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Income_Source">مصدر الدخل </label>
+            <input type="text" formControlName="Income_Source" class="form-control form-control-sm" />
+          </div>
+        </div>
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Phone">رقم الجوال</label>
+            <input type="text" formControlName="Phone" class="form-control form-control-sm" />
+          </div>
+        </div>
+
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="city">المدينة</label>
+            <input type="text" formControlName="city" class="form-control form-control-sm" />
+          </div>
+        </div>
+
+
+        <div class="col-md-3 mb-md-2">
+          <div class="form-outline">
+            <label class="form-label" for="Neighborhood">الحي السكني</label>
+            <input type="text" formControlName="Neighborhood" class="form-control form-control-sm" />
+          </div>
+        </div>
+
+
+
+
+        <div class="col-md-12 mt-md-3">
+          <button type="submit" [disabled]="!BasicInfoForm.valid" class="btn btn-primary">حفظ</button>
+        </div>
+
+      </form>
+  </div>
+</div>

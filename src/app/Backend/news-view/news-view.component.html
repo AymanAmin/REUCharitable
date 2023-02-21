@@ -1,0 +1,54 @@
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/home">الرئيسية</a></li>
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/news/viewlist">قائمة الاخبار</a></li>
+          <li class="breadcrumb-item active" aria-current="page">الاخبار</li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="section" id="blog">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-4" *ngFor="let news of LastNews |
+              paginate: {id: 'listing_pagination',
+              itemsPerPage: 6,
+              currentPage: page,
+              totalItems: tatalRecords }">
+                  <div class="blog-grid">
+                      <div class="blog-img">
+                          <div class="date">{{news.dateCreation | date:'yyyy-MMM-dd'}}</div>
+                          <a routerLink="../../../news/deatils/{{news.id}}">
+                              <img src="{{news.img}}" title="" alt="">
+                          </a>
+                      </div>
+                      <div class="blog-info">
+                          <h5><a href="#">{{news.title}}</a></h5>
+                          <p>{{news.details | slice:0:120}}</p>
+                          <div class="btn-bar">
+                              <a routerLink="../../../backend/news/update/{{news.id}}" class="px-btn-arrow">
+                                  <span> عرض </span>
+                                  <i class="arrow"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-lg-12">
+                <!-- Pagination area -->
+                <pagination-controls id='listing_pagination' [maxSize]="5" [directionLinks]="true"
+                                [autoHide]="true"
+                                [responsive]="true"
+                                previousLabel="السابق"
+                                nextLabel="التالي"
+                                screenReaderPaginationLabel="الصفحات"
+                                screenReaderPageLabel="الصفحة" (pageChange)="page = $event"></pagination-controls>
+
+              </div>
+          </div>
+      </div>
+  </section>

@@ -1,0 +1,123 @@
+<div class="card" style="text-align: right;">
+  <div class="card-header">المرفقات</div>
+  <div class="card-body">
+    <form class="row" [formGroup]="PatientFilesForm">
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم إضافة الملف بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Identify">الهوية/ الإقامة</label>
+          <input formControlName="Identify" (change)="onFileChange($any($event).target.files,'Identify')"
+           accept="application/pdf" type="file" class="form-control">
+        </div>
+      </div>
+
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Proof_of_Residence">إثبات السكن</label>
+          <input formControlName="Proof_of_Residence" (change)="onFileChange($any($event).target.files,'Proof_of_Residence')"
+           accept="application/pdf" type="file" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+
+          <label class="form-label" for="Clan_leader_idefntication" style="vertical-align: middle;"> مستند المعرف بعد التوقيع
+            <a target="_blank" href="../../assets/Clan_leader_idefntication_/نموذج - تعريف من رئيس مركز الأمارة - مؤسسة عبد الله ركيب الرمال لوالديه.pdf" > (تحميل)</a>
+          </label>
+          <input formControlName="Clan_leader_idefntication"
+            (change)="onFileChange($any($event).target.files,'Clan_leader_idefntication')" accept="application/pdf" type="file"
+            class="form-control">
+        </div>
+      </div>
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Other_Files">ملفات اخرى</label>
+          <input formControlName="Other_Files" (change)="onFileChange($any($event).target.files,'Other_Files')" accept="application/pdf" type="file" class="form-control">
+        </div>
+      </div>
+
+
+
+    </form>
+
+    <div class="col-md-12 mb-md-2 table-responsive">
+      <hr />
+      <table class="table ">
+        <thead style="background-color: #92d63dad;color: white;">
+          <tr>
+            <th>الرقم</th>
+            <th>الملف</th>
+            <th>النوع</th>
+            <th>التاريخ</th>
+            <th>حذف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let file of FileList">
+            <td>#{{file.Id}}</td>
+            <td><a target="_blank" href="{{file.FilePath}}">عرض الملف</a></td>
+            <td>{{file.Type}}</td>
+            <td>{{file.DateCreation}}</td>
+            <td><i (click)="DeleteFile(file.Id)" class="fa fa-trash" aria-hidden="true"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+    <form class="row" [formGroup]="PatientMassageForm" (ngSubmit)="OnSubmit()">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+      <div class="col-md-12 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label card-header" for="PatientMassage">رسالة المستفيد للمؤسسة</label>
+          <textarea rows="3" class="form-control" style="height: 100px;" [(ngModel)]="Massage"  formControlName="PatientMassage"></textarea>
+        </div>
+      </div>
+
+ <div class="col-md-12 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" [(ngModel)]="Endorsement_value" formControlName="Endorsement">
+          <label class="form-check-label" for="Endorsement">
+            أقر انا الموقع ادناه بأن جميع البيانات التي قدمتها صحيحة مرفق صوره من(بطاقة الأحوال - دفتر العائلة)وعلمت ان
+            نظام دراسة مثل هذه الحالات سيتم من قبل المسؤولين بالمؤسسة وسوف يبلغوني بنتيجة الدراسة دون الحاجه الى الاتصال
+            والمتايعه.
+          </label>
+        </div>
+      </div>
+      <div class="col-md-12 mt-md-3">
+        <button type="submit" [disabled]="!(PatientMassageForm.valid && IsReady && Endorsement_value)" class="btn btn-primary">حفظ</button>
+      </div>
+
+
+    </form>
+  </div>
+</div>

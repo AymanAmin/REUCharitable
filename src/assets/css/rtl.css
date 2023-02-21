@@ -1,0 +1,503 @@
+body {
+    direction: rtl;
+    text-align: right;
+}
+.nivo-header-style-one .social-icon {
+    float: left;
+}
+.nivo-header-style-one .social-icon li:last-child {
+    padding-left: 0;
+    padding-right: 5px;
+}
+.nivo-header-style-one .header-wrap .header-information li a::before {
+    right: -11px;
+    left: unset;
+}
+.nivo-header-style-one .header-wrap .header-information li a{
+    padding-right: unset;
+    padding-left: 15px;
+}
+.nivo-header-style-one .header-wrap .header-information li a i{
+    margin-left: 5px;
+    margin-right: 0;
+}
+.nivo-nav-one .others-option {
+    margin-left: 0;
+    margin-right: 0;
+}
+.nivo-header-style-one .others-options {
+    margin-left: 45px;
+    margin-right: 0;
+}
+.nivo-header-style-one .search-overlay.search-popup .search-form .search-button {
+    left: 0;
+    right: unset;
+}
+.nivo-header-style-one .search-overlay.search-popup .search-form .search-input {
+    padding-left: 0;
+    padding-right: 10px;
+}
+.navbar-brand {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+.navbar-nav.ml-auto {
+    margin-right: auto;
+}
+.main-nav nav .navbar-nav .nav-item .dropdown-menu{
+    right: 0;
+    left: unset;
+}
+.nivo-nav-one .main-nav nav .navbar-nav .nav-item .dropdown-menu li a{
+    text-align: right;
+}
+.dropdown-toggle::after {
+    margin-right: .255em;
+    margin-left: 0;
+}
+.active-campaing-area.two {
+    overflow: hidden;
+}
+.default-btn::after {
+    right: auto;
+    left: 0;
+}
+.about-area.two .about-text {
+    margin-left: 0;
+    margin-right: 30px;
+}
+.get-started-today-area .get-started-list {
+    padding-right: 60px;
+    padding-left: 0;
+}
+.get-started-today-area .get-started-list img {
+   left: unset;
+    right: 0;
+}
+.single-good-causes.reasons {
+    text-align: right;
+    orphans: 60px;
+    padding-left: 0;
+    padding-right: 60px;
+}
+.single-good-causes.reasons i {
+    right: 0;
+    left: unset;
+}
+.single-good-causes i::after {
+    right: -30px;
+    left: unset;
+}
+.single-good-causes:hover i::after {
+    top: -11px;
+    right: -13px;
+    left: unset;
+}
+.single-campaing .campaing-text .progress .progress-bar:after{
+    left: -12px;
+    right: unset;
+}
+.single-campaing .campaing-text .progress .progress-value{
+    left: -45px;
+    right: unset;
+}
+.single-campaing .campaing-text ul li.left-site {
+    float: left;
+}
+.single-event .event-text ul li i {
+    padding-left: 10px;
+    padding-right: 0;
+    float: right;
+}
+.single-event .event-text span {
+    left: -10px;
+    right: unset;
+}
+.single-event .event-text {
+    padding: 30px 15px 20px 20px;
+}
+.single-event .event-img .shape-11 {
+    right: -10px;
+    left: unset;
+}
+.our-event-area .col-lg-12.col-xl-6.pr-0 {
+    padding-right: 15px !important;
+    padding-left: 0 !important;
+}
+.our-event-area .col-lg-12.col-xl-6.pl-0 {
+    padding-left: 15px !important;
+    padding-right: 0 !important;
+}
+.single-news .news-text ul li {
+    padding-left: 20px;
+    padding-right: 0;
+}
+.single-news .news-img .date {
+    right: 0;
+    left: unset;
+}
+.footer-top-area .single-widget ul.address li {
+    padding-left: 0;
+    padding-right: 40px;
+}
+.footer-top-area .single-widget ul.address li i{
+    right: 0;
+    left: unset;
+}
+.footer-bottom-area .terms-conditions {
+    text-align: left;
+}
+.footer-bottom-area .terms-conditions li::before {
+    left: -12px;
+    right: unset;
+}
+.go-top {
+    right: unset;
+    left: 15px;
+}
+.subscribe .subscribe-submit{
+    left: 0;
+    right: unset;
+}
+.single-event .event-text {
+    padding: 20px;
+}
+.single-event .event-text h3{
+    margin-top: -7px;
+}
+banner-area {
+    overflow: hidden;
+}
+.banner-area .shape.shape-1 {
+    left: unset;
+    right: 0;
+}
+.banner-area .shape.shape-2 {
+    left: unset;
+    right: 30px;
+}
+.banner-area .shape.shape-3 {
+    left: unset;
+    right: 240px;
+}
+.banner-area .shape.shape-4 {
+    left: unset;
+    right: 20px;
+}
+.banner-area .shape.shape-5 {
+    left: unset;
+    right: 420px;
+}
+.good-causes-area {
+    overflow: hidden;
+}
+.good-causes-area .shape.shape-1{
+    left: 10px;
+    right: unset;
+}
+.good-causes-area .shape.shape-2 {
+    right: unset;
+    left: 45px;
+}
+.good-causes-area .shape.shape-3 {
+    right: unset;
+    left: 240px;
+}
+.good-causes-area .shape.shape-5 {
+    right: unset;
+    left: 0;
+}
+.active-campaing-area {
+    overflow: hidden;
+}
+.active-campaing-area .shape.shape-1{
+    left: unset;
+    right: 0;
+}
+.about-area .about-text {
+    margin-left: 0;
+    margin-right: 30px;
+}
+.widget-area .widget_search form button{
+    left: 0;
+    right: unset;
+}
+.widget-area .widget_zovio_posts_thumb .item .thumb {
+    float: right;
+    margin-left: 15px;
+    margin-right: 0;
+}
+.widget-area .widget .widget-title::before{
+    right: 0;
+    left: unset;
+}
+.widget-area .widget_categories ul li{
+    padding-right: 17px;
+    padding-left: 0;
+}
+.widget-area .widget_categories ul li::before{
+    right: 0;
+    left: unset;
+    top: 10px;
+}
+.blog-details-desc .article-footer .article-share .social{
+    text-align: left;
+}
+.page-title-area .page-title-content ul li a i {
+    transform: rotate(180deg);
+    position: relative;
+    top: -1px;
+}
+.payment-method p {
+    padding-right: 0;
+    padding-left: 30px;
+}
+.single-campaing.two .campaing-text .progress .progress-value {
+    left: -90px;
+    right: unset;
+}
+.donate-area .payment-method p{
+    padding-right: 0;
+    padding-left: 30px;
+}
+.coming-soon-content .newsletter-form button{
+    right: unset;
+    left: 0;
+}
+.coming-soon-content .newsletter-form .input-newsletter{
+    padding-right: 15px;
+    padding-left: 0;
+}
+.post-navigation .navigation-links .nav-next{
+    text-align: left;
+}
+.comments-area .comment-body{
+    padding-right: 65px;
+    padding-left: 0;
+}
+.comments-area .comment-author .avatar{
+    right: -65px;
+    left: unset;
+}
+.comments-area .comments-title::before {
+    right: -25px;
+    left: unset;
+}
+.comments-area .comment-respond .comment-reply-title::before{
+    right: -25px;
+    left: unset;
+}
+blockquote::before{
+    right: 50px;
+    left: unset;
+}
+blockquote::after{
+    right: 0;
+    left: unset;
+}
+.about-area ul li i {
+    padding-left: 10px;
+    padding-right: 0;
+    float: right;
+}
+.nivo-header-style-one .search-overlay.search-popup {
+    left: 0;
+    right: unset;
+}
+.pr-0, .px-0 {
+    padding-left: 0!important;
+}
+.blog-details-desc .article-footer .article-tags span {
+    margin-left: 5px;
+    margin-right: 0;
+}
+.faq-accordion .accordion .accordion-title {
+    padding: 12px 50px 12px 20px;
+}
+.faq-accordion .accordion .accordion-title i {
+    right: 0;
+    left: auto;
+}
+.coming-soon-content #timer div:first-child {
+    margin-right: 0;
+    margin-left: 35px;
+}
+.coming-soon-content #timer div:last-child {
+    margin-left: 0;
+    margin-right: 35px;
+}
+.blog-details-desc .article-content .entry-meta ul li {
+    margin-left: 21px;
+    margin-right: 0;
+}
+.blog-details-desc .article-content .entry-meta ul li:last-child {
+    margin-left: 0;
+}
+.blog-details-desc .article-content .entry-meta ul li::before {
+    left: -15px;
+    right: auto;
+}
+.comments-area .children {
+    margin-right: 40px;
+    margin-left: 0;
+}
+[type=email], [type=number], [type=tel], [type=url] {
+    direction: unset;
+}
+#validator-newsletter {
+    text-align: right;
+}
+.list-unstyled {
+    text-align: right;
+}
+
+/** Responsive Area
+==============================**/
+@media only screen and (max-width: 767px) {
+    .nivo-header-style-one .social-icon {
+        float: unset;
+    }
+    .about-area.two .about-text {
+        margin-right: 0;
+    }
+    .get-started-today-area .get-started-list {
+        padding-right: 54px;
+    }
+    .single-good-causes i::after {
+        right: 0;
+        left: unset;
+    }
+    .our-event-area .col-lg-12.col-xl-6.pr-0 {
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+    }
+    .our-event-area .col-lg-12.col-xl-6.pl-0 {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    .event-img {
+        padding-right: 0;
+    }
+    .single-event .event-text{
+        margin-left: 0 !important;
+    }
+    .footer-bottom-area .terms-conditions {
+        text-align: center;
+    }
+    .about-area .about-text {
+        margin-right: 0;
+    }
+    .comments-area .comment-body {
+        padding-right: 0;
+    }
+    .comments-area .comment-author .avatar {
+        right: 0;
+    }
+    .comments-area .children {
+        margin-left: 0;
+    }
+    #validator-newsletter {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+    .offset-sm-3 {
+        margin-left: 0;
+        margin-right: 25%;
+    }
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+    .offset-md-3 {
+        margin-left: 0;
+        margin-right: 25%;
+    }
+    .offset-sm-3 {
+        margin-left: 0;
+        margin-right: 25%;
+    }
+    .about-area .about-text {
+        margin-right: 0;
+    }
+    .about-area.two .about-text {
+        margin-right: 0;
+    }
+    .our-event-area .col-lg-12.col-xl-6.pr-0 {
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+    }
+    .our-event-area .col-lg-12.col-xl-6.pl-0 {
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+    }
+    .single-event .event-text {
+        margin-left: 0;
+    }
+    .event-img {
+        padding-right: 0;
+    }
+    .footer-bottom-area p {
+        text-align: right;
+    }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+    .nivo-nav-one .others-option .others-options {
+        margin-right: 0;
+        margin-left: 25px;
+    }
+    .about-area .about-text {
+        margin-right: 0;
+    }
+    .our-event-area .col-lg-12.col-xl-6.pr-0 {
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+    }
+    .our-event-area .col-lg-12.col-xl-6.pl-0 {
+        padding-right: 15px !important;
+        padding-left: 15px !important;
+    }
+    .event-img {
+        padding-right: 0;
+    }
+    .single-event .event-text {
+        margin-left: 0;
+    }
+    .about-area.two .about-text {
+        margin-right: 0;
+    }
+    .widget-area .widget_zovio_posts_thumb .item .info .title {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .mean-container a.meanmenu-reveal {
+        left: 0 !important;
+        right: auto !important;
+        padding: 28px 15px 0 15px;
+    }
+    .mobile-nav .logo {
+        right: 15px;
+    }
+    .mean-container .mean-bar {
+        height: 76px;
+    }
+    .mobile-nav .logo {
+        top: 20px;
+        width: 85px;
+    }
+    .mean-container .mean-nav ul li a.mean-expand {
+        text-align: left;
+        left: 0;
+        right: auto;
+
+    }
+    .mean-container .mean-nav ul li a {
+        text-align: right;
+    }
+    .mean-container .mean-nav ul li a {
+        width: 93%;
+    }
+}

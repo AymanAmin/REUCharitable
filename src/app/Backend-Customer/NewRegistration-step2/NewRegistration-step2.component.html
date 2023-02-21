@@ -1,0 +1,105 @@
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/">الرئيسية</a></li>
+          <li class="breadcrumb-item active" aria-current="page">تسجيل جهة جديدة</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="vh-100 gradient-custom">
+          <div class="container py-5 h-100">
+            <div class="row justify-content-center align-items-center h-100">
+              <div class="col-12 col-lg-9 col-xl-12">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                  <div class="card-body p-4 p-md-5">
+                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-10" style="color: #76b430;">تسجيل جهة جديدة</h3>
+                    <hr/><br/>
+                    <div class="row">
+                      <div class="col-md-2 registration-step">1. بيانات المستخدم</div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-2 registration-step current-step">2. بيانات الجهة</div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-2 registration-step">3. بيانات البنك</div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-2 registration-step">4. معلومات اخرى</div>
+                    </div>
+                    <form [formGroup]="NewRegisterForm" (ngSubmit)="OnSubmit()">
+                      <div class="row">
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="firstName">إسم الجهة</label>
+                            <input type="text" formControlName="name" class="form-control form-control-sm" />
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <label class="form-label select-label">نوع الجهة</label>
+                          <select class="form-select form-select-sm" formControlName="InstitutionType">
+                            <option value="1">تعليمية</option>
+                            <option value="2">كفالة</option>
+                            <option value="3">حفر ابار</option>
+                          </select>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="permitNo">رقم التصريح</label>
+                            <input type="text" formControlName="permitNo" class="form-control form-control-sm" />
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="createDate">تاريخ التأسيس</label>
+                            <input type="text" formControlName="createDate" class="form-control form-control-sm" />
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="mainInstitution ">الجهة الرئيسية</label>
+                            <input type="text" formControlName="mainInstitution" class="form-control form-control-sm" />
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="address ">العنوان</label>
+                            <input type="text" formControlName="address" class="form-control form-control-sm" />
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="CEOName ">اسم المدير التنفيذي</label>
+                            <input type="text" formControlName="CEOName" class="form-control form-control-sm" />
+                          </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="CEOPhone ">جوال المدير التنفيذي</label>
+                            <input type="text" formControlName="CEOPhone" class="form-control form-control-sm" />
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <a routerLink="/Customer/New-Registration/step1" class="btn btn-warning btn-lg m-1">رجوع</a>
+                          <button type="submit" class="btn btn-primary btn-lg">متابعة</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

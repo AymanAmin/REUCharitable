@@ -1,0 +1,75 @@
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/home">الرئيسية</a></li>
+          <li class="breadcrumb-item active" aria-current="page">تحديث بيانات المؤسسة</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="card m-auto">
+          <div class="card-body">
+            <form class="row" [formGroup]="MainInfoFormData" (ngSubmit)="OnSubmit()">
+              <div class="form-group col-12 col-md-12">
+                <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+                  تم تحديث بيانات الخبر بنجاح
+                </div>
+                <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+                  حدث خطاء
+                </div>
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+                  تم إضافة الخبر بنجاح
+                </div>
+              </div>
+              <div class="form-group col-6 col-md-6">
+                <label for="name" class="form-label">رقم الجوال</label>
+                <input type="text" class="form-control" formControlName="F_phone">
+              </div>
+
+              <div class="form-group col-6 col-md-6">
+                <label for="name" class="form-label">2رقم الجوال</label>
+                <input type="text" class="form-control" formControlName="F_phone2">
+              </div>
+              <div class="form-group col-6 col-md-6">
+                <label for="name" class="form-label">الايميل</label>
+                <input type="text" class="form-control" formControlName="F_email">
+              </div>
+              <div class="form-group col-6 col-md-6">
+                <label for="name" class="form-label">العنوان</label>
+                <input type="text" class="form-control" formControlName="F_location">
+              </div>
+
+              <div class="form-group col-6 col-md-6">
+                <label for="name" class="form-label">رابط تويتر</label>
+                <input type="text" class="form-control" formControlName="F_twitter">
+              </div>
+              <div class="form-group col-6 col-md-6">
+                <label for="name" class="form-label">رابط اللنكدان</label>
+                <input type="text" class="form-control" formControlName="F_linkedin">
+              </div>
+
+              <div class="form-group col-6 col-md-6">
+                <label for="name" class="form-label">رابط اليوتيوب</label>
+                <input type="text" class="form-control" formControlName="F_youtube">
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <label for="name" class="form-label">نبذه عن المؤسسة</label>
+                <textarea type="text" class="form-control" formControlName="F_about"></textarea>
+              </div>
+
+              <div class="form-group col-12 pt-lg-5">
+                <button type="submit" [disabled]="!MainInfoFormData.valid" class="btn btn-primary">حفظ</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

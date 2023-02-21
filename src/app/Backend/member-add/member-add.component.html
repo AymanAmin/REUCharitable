@@ -1,0 +1,74 @@
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/home">الرئيسية</a></li>
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/member/list">قائمة الاعضاء</a></li>
+          <li class="breadcrumb-item active" aria-current="page">إضافة عضو</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="col-8 m-auto">
+        <div class="card m-auto">
+          <div class="card-body">
+            <form class="row" [formGroup]="AddMemberForm" (ngSubmit)="OnSubmit()">
+              <div class="form-group col-12 col-md-12">
+                <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+                  تم تحديث بيانات العضو بنجاح
+                </div>
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+                  تم إضافة العضو بنجاح
+                </div>
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <label for="name" class="form-label">اسم العضو</label>
+                <input type="text" class="form-control" formControlName="memberName">
+                <span class="ErrorMessage" *ngIf="!AddMemberForm.get('memberName')?.valid &&
+                (AddMemberForm.get('memberName')?.touched || userSubmitted )">
+                  الرجاء كتابة الاسم
+                </span>
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <label for="name" class="form-label">المسمى الوظيفي </label>
+                <input type="text" class="form-control" formControlName="memberPosition">
+                <span class="ErrorMessage" *ngIf="!AddMemberForm.get('memberPosition')?.valid &&
+                (AddMemberForm.get('memberPosition')?.touched || userSubmitted )">
+                  الرجاء كتابة المسمى الوظيفي
+                </span>
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <label for="name" class="form-label">صورة العضو</label>
+                <input formControlName="memberImg" accept="image/*" id="file" type="file" class="form-control"
+                 (change)="onFileChange($any($event).target.files)">
+                 <span class="ErrorMessage" *ngIf="!AddMemberForm.get('memberImg')?.valid &&
+                (AddMemberForm.get('memberImg')?.touched || userSubmitted )">
+                  الرجاء كتابة اختيار صورة
+                </span>
+              </div>
+
+              <div class="form-group col-12 pt-lg-5">
+                <button type="submit" class="btn btn-primary">حفظ</button>
+                <button type="reset" class="btn btn-secondary mr-5">الغاء</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4 m-auto">
+        <div class="card m-auto">
+          <div class="card-body">
+            <div class="form-group col-12 col-md-12">
+              <img [src]="imageSrc" *ngIf="imageSrc" style=" width:100%;object-fit: cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,133 @@
+/* Container holding the image and the text */
+.ImageContainer {
+  position: relative;
+  text-align: center;
+  color:rgb(248, 246, 245);
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Top right text */
+.top-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 10px;
+  right: 16px;
+  left: 18px;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  transform: translate(-50%, -50%);
+}
+
+
+
+@media only screen and (min-width: 901px) {
+.headerText {
+  font-size: 35px;
+  text-align: justify;
+  padding-right: 3%;
+  padding-left: 10%;
+  padding-bottom: 4%;
+  color:rgb(248, 246, 245);
+}
+
+.inlineText {
+  font-size: 20px;
+  text-align: justify;
+  padding-right: 3%;
+  padding-left: 30%;
+  padding-bottom: 7%;
+  color:white;
+}
+}
+
+
+
+@media only screen and (max-width: 900px)
+{
+.blockquote {
+    padding: 20px !important;
+}
+
+.blockquote {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+}
+@media screen and (max-width: 900px) {
+  .ImageSlide {
+    margin-top: 50px;
+    height:680px !important;
+  }
+
+  .headerText {
+    text-align: justify;
+    font-size: 18px;
+    text-align: right;
+    padding-right: 2%;
+    padding-left: 2%;
+  }
+
+  .inlineText {
+    text-align: justify;
+    text-align: right;
+    padding-right: 2%;
+    padding-left: 3%;
+    color:rgb(248, 246, 245);
+  }
+
+}
+
+
+
+
+
+
+
+.backgroundText {
+  text-align:justify;
+  background-color: #527e1f96;
+  color:rgb(248, 246, 245);
+  padding-right: 2%;
+
+}
+
+.vedioplayer {
+  position: relative;
+  text-align: center;
+  color:rgb(248, 246, 245);
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+
+.h4, h4 {
+  font-size: calc(1rem + .1vw);
+}
+
+

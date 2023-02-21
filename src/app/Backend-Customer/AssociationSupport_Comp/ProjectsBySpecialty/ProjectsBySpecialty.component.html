@@ -1,0 +1,108 @@
+<div class="card" style="text-align: right;">
+  <div class="card-header">بيانات المشاريع المنفذة حسب تخصص الجمعية/ المؤسسة </div>
+  <div class="card-body">
+    <form class="row" [formGroup]="ProjectsBySpecialtyForm" (ngSubmit)="OnSubmit(0)">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ProjectName">اسم المشروع</label>
+          <input type="text" formControlName="ProjectName" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="BeneficiariesFromProject">المستفيدين من المشروع</label>
+          <input type="text" formControlName="BeneficiariesFromProject" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ProjectPlace">مكان المشروع</label>
+          <input type="text" formControlName="ProjectPlace" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+
+      
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ProjectStartDate">تاريخ بداية المشروع</label>
+          <input type="date" formControlName="ProjectStartDate" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ProjectEndDate">تاريخ نهاية المشروع</label>
+          <input type="date" formControlName="ProjectEndDate" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+
+
+
+      
+
+
+
+
+
+
+
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <button type="submit" style="margin-top: 33px;width: 100%;" [disabled]="!(ProjectsBySpecialtyForm.valid && IsReady)" class="btn btn-primary">حفظ</button>
+        </div>
+      </div>
+
+
+      <div class="col-md-12 mb-md-2 table-responsive">
+        <hr/>
+        <table class="table ">
+          <thead style="background-color: #92d63dad;color: white;">
+          <tr>
+              <th>اسم المشروع</th>
+              <th>المستفيدين من المشروع</th>
+              <th>مكان المشروع</th>
+              <th class="text-center">تاريخ بداية المشروع</th>
+              <th class="text-center">تاريخ نهاية المشروع</th>
+              <th class="text-center">حذف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let project of ProjectList">
+            <td>{{project.ProjectName}}</td>
+            <td>{{project.BeneficiariesFromProject}}</td>
+            <td>{{project.ProjectPlace}}</td>
+            <td class="text-center">{{project.ProjectStartDate}}</td>
+            <td class="text-center">{{project.ProjectEndDate}}</td>
+            <td class="text-center"><i (click)="OnSubmit(project.Id)" class="fa fa-trash" aria-hidden="true"></i></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+
+
+      
+
+    </form>
+  </div>
+</div>

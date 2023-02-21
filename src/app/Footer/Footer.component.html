@@ -1,0 +1,145 @@
+  <!-- Start Footer Top Area -->
+  <section class="footer-top-area ptb-100-70">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-sm-6 col-md-6">
+          <div class="single-widget">
+            <a href="../../">
+              <img src="../../assets/img/Logo.png" style="width:100 ;" alt="شعار الجمعية">
+            </a>
+          </div>
+        </div>
+
+
+
+
+        <div class="col-lg-3 col-sm-6 col-md-6">
+          <div class="single-widget">
+            <h2 style="color:#94f12196;"> عن المؤسسة</h2>
+            <ul>
+              <li>
+                <a routerLink="/CEOSpeech">كلمة الرئيس</a>
+              </li>
+              <li>
+                <a routerLink="/OrganizationChart">الهيكل التنظيمي </a>
+              </li>
+              <li>
+                <a routerLink="/registration-certificate"> شهادة تسجيل الجمعية</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6 col-md-6">
+          <div class="single-widget">
+            <h2 style="color:#94f12196;"> الرئيسية</h2>
+            <ul>
+              <li>
+                <a routerLink="/">الرئيسية</a>
+              </li>
+              <li>
+                <a routerLink="/News">اخر الاخبار</a>
+              </li>
+              <li>
+                <a routerLink="/YearlyReports">التقارير السنوية</a>
+              </li>
+
+              <li>
+                <a href="#" onclick="Logout()" *ngIf="IsLogin" (click)="Logout()">تسجيل خروج</a>
+              </li>
+
+            </ul>
+
+
+          </div>
+          </div>
+
+
+
+
+          <div class="col-lg-3 col-sm-6 col-md-6">
+            <div class="single-widget">
+              <h2 style="color:#94f12196;"> الخدمات</h2>
+              <ul>
+                <li>
+                  <a routerLink="Customer/SupportNeedyFamilies">طلب دعم مقطوع</a>
+                </li>
+                <li>
+                  <a routerLink="/Customer/AssociationSupport">طلب دعم الجمعيات والمؤسسات</a>
+                </li>
+                <li>
+                  <a routerLink="/Customer/RestorationHomeForm">طلب دعم ترميم مسكن </a>
+                </li>
+                <li>
+                  <a routerLink="/Customer/InstitutionBenefitForm">طلب دعم حالة مرضية </a>
+                </li>
+              </ul>
+            </div>
+            </div>
+
+
+
+            <div class="col-lg-4 col-sm-6 col-md-6 text-center">
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="col-lg-4 col-sm-6 col-md-6 text-center">
+              <div class="single-widget">
+                <h2 style="color:#94f12196;">تواصل معنا</h2>
+                <ul class="social-icon">
+
+                  <li>
+                    <a href="{{company?.twitter}}">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{company?.linkedin}}">
+                      <i class="fab fa-linkedin"></i>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="{{company?.youtube}}">
+                      <i class="fab fa-youtube"></i>
+                    </a>
+                  </li>
+
+                </ul>
+                <ul class="address">
+                  <li>
+                    {{company?.location}}
+                  </li>
+                  <li>
+                    <a href="mailto:{{company?.email}}">{{company?.email}}</a>
+                  </li>
+                  <li>
+                  </li>
+                  <li>
+                    <a href="tel:{{company?.phone}}">{{company?.phone}}</a>  -  <a href="tel:{{company?.phone2}}">{{company?.phone2}}</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+
+
+
+      </div>
+    </div>
+  </section>
+  <!-- End Footer Top Area -->
+
+
+
+
+
+

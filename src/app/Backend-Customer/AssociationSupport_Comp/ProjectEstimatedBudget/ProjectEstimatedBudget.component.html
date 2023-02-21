@@ -1,0 +1,100 @@
+<div class="card" style="text-align: right;">
+  <div class="card-header">الميزانية التقديرية للمشروع </div>
+  <div class="card-body">
+    <form class="row" [formGroup]="PEBForm" (ngSubmit)="OnSubmit(0)">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ProjectItem">بند المشروع</label>
+          <input type="text" formControlName="ProjectItem" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ApproximatePrices">الاسعار التقريبية</label>
+          <input type="text" formControlName="ApproximatePrices" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="PercentageOfBudget">نسبة مساهمة الجمعية/ المؤسسة من الميزانية المقترحة</label>
+          <input type="text" formControlName="PercentageOfBudget" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="AmountPercentageOfBudget">مبلغ المساهمة طبقا للنسبة</label>
+          <input type="text" formControlName="AmountPercentageOfBudget" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Notes">ملاحظات / رساله للمؤسسه</label>
+          <textarea rows="3" class="form-control" style="height: 100px;" formControlName="Notes"></textarea>
+        </div>
+      </div>
+
+
+<!--
+      <div class="col-md-12 mt-md-3">
+        <div class="form-outline">
+          <label class="message" style="text-align: right;" for="PatientMassage">رسالة المستفيد للمؤسسة</label>
+          <div></div>
+          <textarea rows="3" class="form-control" style="height: 100px;" formControlName="PatientMassage"></textarea>
+        </div>
+      </div>
+-->
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <button type="submit" style="margin-top: 33px;width: 100%;" [disabled]="!(PEBForm.valid && IsReady)" class="btn btn-primary">إضافة</button>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-md-2 table-responsive">
+        <hr/>
+        <table class="table ">
+          <thead style="background-color: #92d63dad;color: white;">
+          <tr>
+              <th>بنود المشروع</th>
+              <th class="text-center">الاسعار التقريبية</th>
+              <th class="text-center">نسبة المساهمة من الميزانية</th>
+              <th class="text-center">مبلغ المساهمة طبقا للنسبة</th>
+              <th class="text-center">الملاحظات</th>
+              <th class="text-center">حذف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pEB of PEBList">
+            <td>{{pEB.ProjectItem}}</td>
+            <td class="text-center">{{pEB.ApproximatePrices}}</td>
+            <td class="text-center">{{pEB.PercentageOfBudget}}</td>
+            <td class="text-center">{{pEB.AmountPercentageOfBudget}}</td>
+            <td class="text-center">{{pEB.Notes}}</td>
+            <td class="text-center"><i (click)="OnSubmit(pEB.Id)" class="fa fa-trash" aria-hidden="true"></i></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+
+    </form>
+  </div>
+</div>

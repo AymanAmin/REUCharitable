@@ -1,0 +1,117 @@
+<div class="card" style="text-align: right;">
+  <div class="card-header">الخدمات المقدمة للمستفيد من مؤسسة عبد الله ركيب الرمال لوالديه</div>
+  <div class="card-body">
+    <form class="row" [formGroup]="OurServicesForm" (ngSubmit)="OnSubmit()">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="Financial_Support">
+          <label class="form-check-label" for="Financial_Support">
+            مساندة مالية
+          </label>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="BillS">
+          <label class="form-check-label" for="BillS">
+            سداد 50% من الفواتير
+          </label>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="House_Rent">
+          <label class="form-check-label" for="House_Rent">
+            إيجار منزل
+          </label>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="Food_Gift">
+          <label class="form-check-label" for="Food_Gift">
+             سلة غذائية
+          </label>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="Medical_Supplies">
+          <label class="form-check-label" for="Medical_Supplies">
+            مستلزمات طبية
+          </label>
+        </div>
+      </div>
+
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="BillS_Serves">
+          <label class="form-check-label" for="BillS_Serves">
+            فواتير خدمات
+          </label>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="Physiotherapy">
+          <label class="form-check-label" for="Physiotherapy">
+            علاج طبيعي
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="WinterClothing">
+          <label class="form-check-label" for="WinterClothing">
+            كسوة الشتاء
+          </label>
+        </div>
+      </div>
+
+
+      
+      <div class="col-md-12 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="OtherServices">خدمات اخرى</label>
+          <input type="text" formControlName="OtherServices" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-12 mt-md-3">
+        <button type="submit" [disabled]="!(OurServicesForm.valid && IsReady)" class="btn btn-primary">حفظ</button>
+      </div>
+
+    </form>
+  </div>
+</div>

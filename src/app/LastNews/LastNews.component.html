@@ -1,0 +1,75 @@
+<!-- Start Latest News Area -->
+<section class="blog-area pb-100">
+  <div class="container">
+
+    <div class="vedioplayer mb-5" >
+      
+    <!--  <video controls style="width: 90%;">
+        <source src="../../assets/Media/vid1.mp4" type="video/mp4" width="90%" />
+      </video>-->
+
+      <iframe width="100%" height="500px" src="https://www.youtube.com/embed/WHXCR3dPmHE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p style="color: black;">مقتطفات من حفل مؤسسة عبد الله بن ركيب الرمال لوالديه و الذي نظمه سعادة رئيس مجلس أمناء المؤسسة البروفيسور عبد الله الشمري بمناسبة اليوم الوطني السعودي</p>
+    </div>
+<br>
+      <div class="section-title">
+          <span><h2>أخر الاخبار</h2></span>
+      </div>
+      <div class="row">
+          <div class="col-lg-4 col-md-8" *ngFor="let news of LastNews | slice:0:2">
+              <div class="single-news">
+                  <div class="news-img">
+                      <a routerLink="news/deatils/{{news.id}}" style="width: 100%;">
+                          <img src="{{news.img}}" alt="News" style="width: 100%;">
+                      </a>
+                      <div class="date">
+                          <span>{{news.dateCreation | date:'yyyy-MMM-dd'}}</span>
+                      </div>
+                  </div>
+                  <div class="news-text">
+                      <ul>
+                          <li>
+                              <i style="color: #76b430;" aria-hidden="true" class="fas fa-user"></i>
+                              بواسطة
+
+                              <a href="#">{{news.publishBy}}</a>
+                          </li>
+                          <li>
+                              <i class="fas fa-eye" style="color: #76b430;"></i>
+                              &nbsp;<a href="#"> {{news.numberOfViews}} المشاهدة </a>
+                          </li>
+                      </ul>
+                      <h3>
+                          <a routerLink="news/deatils/{{news.id}}">{{news.title}}</a>
+                      </h3>
+                      <p>{{news.details | slice:0:120}}</p>
+                      <a class="read-more" routerLink="news/deatils/{{news.id}}">عرض المزيد
+          </a>
+                  </div>
+              </div>
+
+          </div>
+
+          <div class="col-lg-1 col-md-1"></div>
+          <div class="col-lg-3 col-md-3"  style="max-height: 455px;overflow-y: scroll;overflow-x: hidden; ">
+            <a class="twitter-timeline" href="https://twitter.com/arp_org_sa?ref_src=twsrc%5Etfw">Tweets by arp_org_sa</a>
+          </div>
+
+
+          <div class ="col-md-12">
+          <p>لمشاهدة جميع الاخبار <a routerLink="/News" style="color:#76b430">اضغط هنا</a></p>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+</section>
+<!-- End Latest News Area -->

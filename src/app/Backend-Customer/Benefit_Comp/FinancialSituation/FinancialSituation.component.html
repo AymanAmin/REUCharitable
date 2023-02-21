@@ -1,0 +1,74 @@
+<div class="card" style="text-align: right;">
+  <div class="card-header">الوضع المالي</div>
+  <div class="card-body">
+    <form class="row" [formGroup]="FinancialSituationForm"(ngSubmit)="OnSubmit()">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+
+      <div class="col-md-2 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Salary">الراتب</label>
+          <input type="text" formControlName="Salary" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-2 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Retirement">التقاعد</label>
+          <input type="text" formControlName="Retirement" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-2 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Social_Insurance">التأمينات الاجتماعية</label>
+          <input type="text" formControlName="Social_Insurance" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-2 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Social_Insurance_2">الضمان الاجتماعي</label>
+          <input type="text" formControlName="Social_Insurance_2" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-2 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Subsidies">الإعانات</label>
+          <input type="text" formControlName="Subsidies" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-2 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Other_Money_Sources">أخرى</label>
+          <input type="text" formControlName="Other_Money_Sources" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+
+
+
+
+      <div class="col-md-12 mt-md-3">
+        <button type="submit" [disabled]="!(FinancialSituationForm.valid && IsReady)" class="btn btn-primary">حفظ</button>
+      </div>
+
+    </form>
+  </div>
+  </div>
+

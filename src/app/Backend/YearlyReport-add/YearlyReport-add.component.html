@@ -1,0 +1,78 @@
+<!-- Start Page Title Area -->
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/backend/home">الرئيسية</a></li>
+          <li class="breadcrumb-item active" aria-current="page">التقارير السنوية</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="card m-auto" style="padding: 20px;">
+          <div class="card-body">
+            <div class="row">
+              <div class="form-group col-8 col-md-8">
+
+                <label for="" class="form-label">الاسم : </label>
+                <span>{{fileName}}</span>
+                <br />
+
+                <label for="" class="form-label mt-1">الحجم : </label>
+                <span> {{fileSize}}</span> KB
+                <br />
+
+                <label for="" class="form-label mt-1">النوع : </label>
+                <span> {{fileType}}</span>
+                <br />
+                <form class="row" [formGroup]="AddFileForm" (ngSubmit)="uploadFile()">
+                  <div class="form-group col-8 col-md-8">
+                    <input formControlName="img" accept="application/pdf" id="file" type="file" class="form-control"
+                      (change)="onFileChange($any($event).target.files)">
+                  </div>
+                  <div class="form-group col-4 col-md-4">
+                    <button type="submit" class="savebtn" [hidden]="!AddFileForm.valid">تحميل
+                      الملف</button>
+                  </div>
+                </form>
+              </div>
+              <div class="form-group col-4 col-md-4">
+                <img class="img-gallery" [src]="fileSrc" *ngIf="fileSrc"
+                  style="float: left;height: 200px; width:200px;object-fit: contain;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-3 m-auto pt-3" *ngFor="let file of file_list |
+      paginate: {id: 'listing_pagination',
+      itemsPerPage: 8,
+      currentPage: page,
+      totalItems: tatalRecords}">
+        <div class="card">
+          <div class="card-body">
+            <a target="blank"
+              href="{{file.imageSrc}}">
+              <img class="img-gallery"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/PDF_file_icon.svg/1200px-PDF_file_icon.svg.png"
+                style="width: 100%;">
+            </a>
+            <p>{{file.name}}</p>
+            <a (click)="deleteFile(file.id)" class="card-link">حذف</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 pt-5">
+        <pagination-controls id='listing_pagination' [maxSize]="5" [directionLinks]="true" [autoHide]="true"
+          [responsive]="true" previousLabel="السابق" nextLabel="التالي" screenReaderPaginationLabel="الصفحات"
+          screenReaderPageLabel="الصفحة" (pageChange)="page = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</div>

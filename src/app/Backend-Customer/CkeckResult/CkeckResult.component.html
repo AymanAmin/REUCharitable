@@ -1,0 +1,78 @@
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/">الرئيسية</a></li>
+          <li class="breadcrumb-item active" aria-current="page">تسجيل جهة جديدة</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="gradient-custom">
+            <div class="row container justify-content-center align-items-center h-10">
+              <div class="col-12 col-lg-9 col-xl-12">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                  <div class="card-body p-4 p-md-5">
+                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-10" style="color: #76b430;">العثور علي سجل</h3>
+                    <hr />
+                    <form [formGroup]="CheckForm" (ngSubmit)="OnSubmit()">
+                      <div class="row">
+                        <div class="col-md-5 mb-6">
+                          <div class="form-outline">
+                            <label class="form-label" for="Identify_Id">رقم الهوية</label>
+                            <input type="text" formControlName="Identify_Id" class="form-control form-control-sm" />
+                          </div>
+                        </div>
+                        <div class="col-md-5 mb-6">
+                          <div class="form-outline">
+                            <label class="form-label" for="Phone">رقم الجوال</label>
+                            <input type="text" formControlName="Phone" class="form-control form-control-sm" />
+                          </div>
+                        </div>
+                        <div class="col-md-2 mt-md-2" >
+                          <button type="submit" style="width:100%;text-align: center;margin-top: 25px;" [disabled]="!(CheckForm.valid)" class="btn btn-primary">بحث</button>
+                        </div>
+                      </div>
+                      <div *ngIf="FormList" class="row">
+                        <div class="col-md-12 mb-md-2 table-responsive">
+                          <hr/>
+                          <table class="table ">
+                            <thead style="background-color: #92d63dad;color: white;">
+                            <tr>
+                                <th>الاسم</th>
+                                <th>الجنس</th>
+                                <th>رقم الهوية</th>
+                                <th>رقم الجوال</th>
+                                <th>الجنسية</th>
+                                <th> الحالة</th>
+                                <th>حذف</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let item of FormList">
+                              <td>{{item.Full_Name}}</td>
+                              <td>{{item.Gander}}</td>
+                              <td>{{item.Identify_Id}}</td>
+                              <td>{{item.Phone}}</td>
+                              <td>{{item.Nationalty}}</td>
+                              <td><span class="badge badge-{{item.StatuColor}}">{{item.StatusName}}</span></td>
+                              <td><a target="_blank" href="{{item.FormName}}" >عرض</a></td>
+                            </tr>
+                          </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

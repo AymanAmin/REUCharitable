@@ -1,0 +1,144 @@
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/">الرئيسية</a></li>
+          <li class="breadcrumb-item active" aria-current="page">تسجيل جهة جديدة</li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="vh-100 gradient-custom">
+          <div class="container py-5 h-100">
+            <div class="row justify-content-center align-items-center h-100">
+              <div class="col-12 col-lg-9 col-xl-12">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                  <div class="card-body p-4 p-md-5">
+                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-10" style="color: #76b430;">تسجيل جهة جديدة</h3>
+                    <hr /><br />
+                    <div class="row">
+                      <div class="col-md-2 registration-step current-step">1. بيانات المستخدم</div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-2 registration-step">2. بيانات الجهة</div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-2 registration-step">3. بيانات البنك</div>
+                      <div class="col-md-1"></div>
+                      <div class="col-md-2 registration-step">4. معلومات اخرى</div>
+                    </div>
+                    <form [formGroup]="NewRegisterForm" (ngSubmit)="OnSubmit()">
+                      <div class="row">
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="fullName">الاسم بالكامل</label>
+                            <input type="text" formControlName="fullName" class="form-control form-control-sm" />
+                            <span class="ErrorMessage" *ngIf="!NewRegisterForm.get('fullName')?.valid &&
+                              (NewRegisterForm.get('fullName')?.touched || userSubmitted )">
+                              الرجاء كتابة الاسم
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="email">البريد الالكتروني</label>
+                            <input type="email" formControlName="email" class="form-control form-control-sm" />
+                            <span class="ErrorMessage" *ngIf="!NewRegisterForm.get('email')?.valid &&
+                              (NewRegisterForm.get('email')?.touched || userSubmitted)">
+                              <span *ngIf="NewRegisterForm.get('email')?.hasError('required')">
+                                الرجاء كتابة الايميل
+                              </span>
+                              <span *ngIf="NewRegisterForm.get('email')?.hasError('email')">
+                                الرجاء كتابة الايميل بصورة صحيحة
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="phone">رقم الجوال</label>
+                            <input type="text" formControlName="phone" class="form-control form-control-sm" />
+                            <span class="ErrorMessage" *ngIf="!NewRegisterForm.get('phone')?.valid &&
+                              (NewRegisterForm.get('phone')?.touched || userSubmitted)">
+                              <span *ngIf="NewRegisterForm.get('phone')?.hasError('required')">
+                                الرجاء كتابة رقم الجوال
+                              </span>
+                              <span *ngIf="NewRegisterForm.get('phone')?.hasError('minlength') ||
+                                NewRegisterForm.get('phone')?.hasError('maxlength')">
+                                يجب ان يكون طول رقم الجوال 10 ارقام
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="userName">اسم المستخدم</label>
+                            <input type="text" formControlName="userName" class="form-control form-control-sm" />
+                            <span class="ErrorMessage" *ngIf="!NewRegisterForm.get('userName')?.valid &&
+                              (NewRegisterForm.get('userName')?.touched || userSubmitted )">
+                              الرجاء كتابة الاسم
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="password">كلمة المرور</label>
+                            <input type="text" formControlName="password" class="form-control form-control-sm" />
+                            <span class="ErrorMessage" *ngIf="!NewRegisterForm.get('password')?.valid &&
+                              (NewRegisterForm.get('password')?.touched || userSubmitted)">
+                              <span *ngIf="NewRegisterForm.get('password')?.hasError('required')">
+                                الرجاء كتابة كلمة المرور
+                              </span>
+                              <span *ngIf="NewRegisterForm.get('password')?.hasError('passwordStrength')">
+                                - ان تحتوي علي حرف كبير <br />
+                                - ان تحتوي علي حرف صغير <br />
+                                - ان تحتوي علي ارقام <br />
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                          <div class="form-outline">
+                            <label class="form-label" for="confirmPassword">تأكيد كلمة المرور</label>
+                            <input type="text" formControlName="confirmPassword" class="form-control form-control-sm" />
+                            <span class="ErrorMessage" *ngIf="(!NewRegisterForm.get('confirmPassword')?.valid &&
+                               NewRegisterForm.get('confirmPassword')?.touched)
+                              || (NewRegisterForm?.hasError('notmatched') || userSubmitted)">
+                              <span *ngIf="NewRegisterForm.get('confirmPassword')?.hasError('required')">
+                                الرجاء إعادة كتابة كلمة المرور
+                              </span>
+                              <span
+                                *ngIf="!NewRegisterForm.get('confirmPassword')?.hasError('required') && NewRegisterForm?.hasError('notmatched')">
+                                الرجاء التأكد من مطابقة كلمة المرور
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!--<div class="col-md-4 mb-4">
+                        <label class="form-label select-label">نوع الجهة</label>
+                        <select class="form-select form-select-lg">
+                          <option value="2">تعليمية</option>
+                          <option value="3">Subject 2</option>
+                          <option value="4">Subject 3</option>
+                        </select>
+                      </div>-->
+                      <div class="row">
+                        <div class="col-12">
+                          <button type="submit" class="btn btn-primary btn-lg">متابعة</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

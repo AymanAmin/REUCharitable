@@ -1,0 +1,126 @@
+<div class="card" style="text-align: right;">
+  <div class="card-header">احتياجات المريض</div>
+  <div class="card-body">
+    <form class="row" [formGroup]="PatientNeedsForm" (ngSubmit)="OnSubmit()">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Educational_Needs">الاحتياجات التعليمية</label>
+          <select class="form-select form-select-sm" formControlName="Educational_Needs">
+            <option value="لا يحتاج" selected="selected">لا يحتاج</option>
+            <option value="معلم خاص"> معلم خاص</option>
+            <option value="مدرسة خاصة">مدرسة خاصة</option>
+            <option value="يحتاج نقل مدرسي">يحتاج نقل مدرسي</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="External_Meetings_Appointments">الجلسات والمواعيد الخارجية</label>
+          <select class="form-select form-select-sm" formControlName="External_Meetings_Appointments">
+            <option value="لا يحتاج" selected="selected">لا يحتاج</option>
+            <option value="نقل فقط">نقل فقط</option>
+            <option value="مسكن"> مسكن </option>
+            <option value="نقل مسكن">نقل مسكن</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Medical_Centers_Review">مراجعة المراكز العلاجية</label>
+          <select class="form-select form-select-sm" formControlName="Medical_Centers_Review">
+            <option value="بمفرده" selected="selected">بمفرده</option>
+            <option value="مع مرافق">مع مرافق</option>
+            <option value="عدة مرافقين">عدة مرافقين</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Difficulties_In_Hospital">صعوبات تعترضه بالمستشفى</label>
+          <select class="form-select form-select-sm" formControlName="Difficulties_In_Hospital">
+            <option value="ترتيب المواعيد" selected="selected">ترتيب المواعيد</option>
+            <option value="طول فترة المواعيد">طول فترة المواعيد</option>
+            <option value="تكاليف العلاج">تكاليف العلاج</option>
+            <option value="تحويل لمستشفى">تحويل لمستشفى</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Health_Medical_Needs">احتياجاته الصحية والطبية</label>
+          <select class="form-select form-select-sm" formControlName="Health_Medical_Needs">
+            <option value="لا يحتاج" selected="selected">لا يحتاج</option>
+            <option value="ممرض">ممرض</option>
+            <option value="كشف طبي">كشف طبي</option>
+            <option value="إشراف طبي مستمر">إشراف طبي مستمر</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Support_Services">الخدمات المساندة</label>
+          <select class="form-select form-select-sm" formControlName="Support_Services">
+            <option value="لا يحتاج" selected="selected">لا يحتاج</option>
+            <option value="علاج طبيعي">علاج طبيعي</option>
+            <option value="تدريبات نطق">تدريبات نطق</option>
+            <option value="عيادة نفسية">عيادة نفسية</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Auxiliary_Devices">الاجهزة المساعدة</label>
+          <select class="form-select form-select-sm" formControlName="Auxiliary_Devices">
+            <option value="لا يحتاج" selected="selected">لا يحتاج</option>
+            <option value="يحتاج عربية">يحتاج عربية</option>
+            <option value="اخرى">اخرى</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Psychological_Support">الدعم النفسي</label>
+          <select class="form-select form-select-sm" formControlName="Psychological_Support">
+            <option value="لا يحتاج" selected="selected">لا يحتاج</option>
+            <option value="يحتاج">يحتاج</option>
+            <option value="اخرى">اخرى</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Other_Needs">احتياجات أخرى</label>
+          <textarea rows="3" class="form-control" style="height: 100px;" formControlName="Other_Needs"></textarea>
+        </div>
+      </div>
+
+      <div class="col-md-12 mt-md-3">
+        <button type="submit" [disabled]="!(PatientNeedsForm.valid && IsReady)" class="btn btn-primary">حفظ</button>
+      </div>
+
+    </form>
+  </div>
+</div>

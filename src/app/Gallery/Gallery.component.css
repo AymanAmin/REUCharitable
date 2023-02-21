@@ -1,0 +1,32 @@
+@import url('https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lightgallery.css');
+@import url('https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css');
+body {
+  margin: 0;
+}
+@media only screen and (min-width: 901px){
+.gallery-item {
+  margin: 5px;
+  width: 24% !important;
+}
+.imageView{
+  height: auto;
+}
+}
+
+@media only screen and (max-width: 900px){
+  .gallery-item{
+    width: 100% !important;
+    margin: 5px;
+  }
+  .imageView{
+    height: 240px !important;
+  }
+  }
+
+.lg-outer{
+  text-align:right;
+}
+
+.imageView {width: 100% !important;height: 240px !important;object-fit: cover;}
+
+

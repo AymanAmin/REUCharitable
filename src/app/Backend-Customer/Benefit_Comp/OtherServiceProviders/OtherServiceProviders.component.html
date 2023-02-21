@@ -1,0 +1,87 @@
+<div class="card" style="text-align: right;">
+  <div class="card-header">الجهات الأخرى التي تقدم خدمات أو مساعدات للمستفيد أو عائلته ان وجد</div>
+  <div class="card-body">
+    <form class="row" [formGroup]="OtherServiceProvidersForm" (ngSubmit)="OnSubmit()">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="Al_Ber_Charity_Association">
+          <label class="form-check-label" for="Al_Ber_Charity_Association">
+            جمعية البر الخيرية
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="Medical_Authority">
+          <label class="form-check-label" for="Medical_Authority">
+            الهيئة الطبية
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="Al_Rajhi_Charitable_Society">
+          <label class="form-check-label" for="Al_Rajhi_Charitable_Society">
+            جمعية الراجحي الخيرية
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="Sanad_Association_Riyadh">
+          <label class="form-check-label" for="Sanad_Association_Riyadh">
+            جمعية سند (الرياض)
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="Comprehensive_Rehabilitation_Center">
+          <label class="form-check-label" for="Comprehensive_Rehabilitation_Center">
+            مركز التأهيل الشامل
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" formControlName="Social_Insurance">
+          <label class="form-check-label" for="Social_Insurance">
+            الضمان الاجتماعي
+          </label>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="OtherServicesProvider">جهات اخرى</label>
+          <input type="text" formControlName="OtherServicesProvider" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-12 mt-md-3">
+        <button type="submit" [disabled]="!(OtherServiceProvidersForm.valid && IsReady)" class="btn btn-primary">حفظ</button>
+      </div>
+
+    </form>
+  </div>
+</div>

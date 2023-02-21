@@ -1,0 +1,151 @@
+<div class="card" style="text-align: right;">
+  <div class="card-header">الحالة الصحية للمريض</div>
+  <div class="card-body">
+    <form class="row" [formGroup]="PatientHealthForm" (ngSubmit)="OnSubmit()">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Disease_Type">نوع المرض</label>
+          <input type="text" formControlName="Disease_Type" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-2 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Injury_Date">تاريخ الاصابة</label>
+          <input type="date" formControlName="Injury_Date" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Hostiptal_Name">اسم المستشفى</label>
+          <input type="text" formControlName="Hostiptal_Name" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-2 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="City">المدينة</label>
+          <input type="text" formControlName="City" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-2 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="File_No">رقم الملف</label>
+          <input type="text" formControlName="File_No" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Remedies">العلاجات التي خضع لها</label>
+          <select class="form-select form-select-sm" formControlName="Remedies">
+            <option value="لم يخضع" selected="selected">لم يخضع</option>
+            <option value="علاج جراحي">علاج جراحي</option>
+            <option value="علاج كيمائي">علاج كيمائي</option>
+            <option value="علاج إشعاتي">علاج إشعاتي</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Current_Remedies">العلاجات التي يتلقاها حاليا</label>
+          <select class="form-select form-select-sm" formControlName="Current_Remedies">
+            <option value="لم يوجد" selected="selected">لا يوجد</option>
+            <option value="علاجات مساعدة">علاجات مساعدة</option>
+            <option value="جلسات كيمائية">جلسات كيمائية</option>
+            <option value="جلسات إشعاتية">جلسات إشعاتية</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Patient_Condition">حالة المريض أثناء الزيارة</label>
+          <select class="form-select form-select-sm" formControlName="Patient_Condition">
+            <option value="جيدة" selected="selected">جيدة</option>
+            <option value="متوسطة">متوسطة</option>
+            <option value="يبدو عليه التعب">يبدو عليه التعب</option>
+            <option value="ملازم الفراش">ملازم الفراش</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Self_Service">خدمة المريض لنفسه</label>
+          <select class="form-select form-select-sm" formControlName="Self_Service">
+            <option value="يخدم نفسه بنفسه" selected="selected">يخدم نفسه بنفسه</option>
+            <option value="يحتاج بعض المساعدة">يحتاج بعض المساعدة</option>
+            <option value="لا يستطيع خدمة نفسه">لا يستطيع خدمة نفسه</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Home_Care">يتلقى خدمات صحية منزلية</label>
+          <select class="form-select form-select-sm" formControlName="Home_Care">
+            <option value="لا يتلقى" selected="selected">لا يتلقى</option>
+            <option value="خدمات تمريضية">خدمات تمريضية</option>
+            <option value="كشف طبي دوري">كشف طبي دوري</option>
+            <option value="خدمات نفسيه">خدمات نفسيه</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Senses_Speech_Integrity">سلامة الحواس والنطق</label>
+          <select class="form-select form-select-sm" formControlName="Senses_Speech_Integrity">
+            <option value="سليم" selected="selected">سليم</option>
+            <option value="مشكلات سمعية">مشكلات سمعية</option>
+            <option value="مشكلات بصرية">مشكلات بصرية</option>
+            <option value="مشكلات بالنطق">مشكلات بالنطق</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Other_Diseases">أمراض أخرى يعاني منها</label>
+          <select class="form-select form-select-sm" formControlName="Other_Diseases">
+            <option value="لا يوجد" selected="selected">لا يوجد</option>
+            <option value="أمراض مزمنة">أمراض مزمنة</option>
+            <option value="أمراض معدية">أمراض معدية</option>
+            <option value="أمراض طارئة">أمراض طارئة</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Brief_Medical_Description">وصف مختصر للحالة</label>
+          <textarea rows="3" class="form-control" style="height: 100px;" formControlName="Brief_Medical_Description"></textarea>
+        </div>
+      </div>
+
+      <div class="col-md-12 mt-md-3">
+        <button type="submit" [disabled]="!(PatientHealthForm.valid && IsReady)" class="btn btn-primary">حفظ</button>
+      </div>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,267 @@
+﻿body, h1, h2, h3, h4, h5, h6, p, li {
+    font-family: 'Tajawal', sans-serif !important;
+}
+
+.navbar-brand {
+    width: 200px !important;
+}
+
+.preloader {
+    background-color: #76b430 !important;
+}
+
+.footer-bottom-area {
+    background-color: #76b430 !important;
+}
+
+.page-title-area .page-title-content ul li {
+    color: #76b430 !important;
+}
+
+blockquote p {
+    color: #76b430 !important;
+    text-align: justify;
+}
+
+blockquote::after {
+    background-color: #76b430 !important;
+}
+
+.nivo-header-style-one .header-wrap {
+    background-color: #76b430;
+}
+
+.active {
+    color: #76b430 !important;
+}
+
+.go-top {
+    background-color: #76b430 !important;
+}
+
+.nivo-nav-one .main-nav nav .navbar-nav .nav-item a:hover {
+    color: #76b430 !important;
+}
+
+.default-btn {
+    background-color: #76b430 !important;
+}
+
+.hero-slider-area .owl-theme .owl-dots .owl-dot:hover span {
+    background: #76b430 !important;
+}
+
+.hero-slider-area .owl-theme .owl-dots .owl-dot.active span {
+    background: #76b430 !important;
+}
+
+.section-title span {
+    color: #76b430 !important;
+}
+
+.shape-icon {
+    padding: 10px !important;
+}
+
+.single-good-causes:hover {
+    box-shadow: 0 0 20px 3px rgba(147, 215, 61, 0.39);
+}
+
+.page-title-area {
+    padding-top: 160px;
+    padding-bottom: 50px;
+    background-color: #76b430;
+}
+
+.single-contact-box:hover i {
+    background-color: #76b430;
+}
+
+.single-contact-box i {
+    border: 1px dashed #76b430;
+    color: #76b430;
+}
+
+.nivo-nav-one .main-nav nav .navbar-nav .nav-item .dropdown-menu li a:focus {
+    color: #76b430;
+}
+
+.default-btn::before {
+    background-color: #94d83e;
+}
+
+.default-btn::after {
+    background-color: #94d83e;
+}
+
+.footer-top-area .single-widget ul.address li i {
+    background-color: #94d83e;
+}
+
+.footer-top-area .single-widget .social-icon li a i {
+    background-color: #94d83e;
+}
+
+.single-testimonial img {
+   box-shadow: 0 3px 0px 2px #94d83e87;
+}
+
+.footer-top-area .single-widget .social-icon li a i:hover {
+    color: #76b430;
+}
+
+blockquote cite {
+    display: block;
+}
+
+.read-more:hover {
+    color: #76b430;
+}
+.read-more::before {
+    background-color: #76b430;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #76b430;
+}
+
+.single-news .news-img .date {
+    background-color: #76b430;
+}
+
+.single-news:hover .news-text h3 a {
+    color: #76b430;
+}
+
+.single-news:hover .read-more {
+    color: #76b430;
+}
+
+.single-news .news-text ul li a:hover {
+    color: #76b430;
+}
+
+.pagenavigation-area .page-link:hover {
+    border: 1px solid #93d73e;
+}
+
+.pagenavigation-area .page-item.active .page-link {
+    background-color: #93d73e;
+    border-color: #94d83e;
+}
+
+.pagenavigation-area .page-link:hover {
+    background-color: #93d73e;
+    border: 1px solid #93d73e;
+}
+
+.pagenavigation-area .page-link {
+    color: #93d73e;
+}
+
+.nivo-header-style-one .header-wrap .header-information li a:hover {
+  color: #b1e373;
+}
+
+.footer-top-area .single-widget ul li a:hover {
+  color: #92d63d;
+}
+
+.ngx-pagination .current {
+  background: #76b430 !important;
+}
+.page-title-area::before {
+  background-color: white !important;
+}
+
+.page-title-area .page-title-content h2 {
+  color: black !important;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.form-group {
+  text-align: right;
+  padding-top: 10px;
+}
+
+.ErrorMessage {
+  color: red;
+}
+
+.IconSize {
+  font-size: xx-large;
+}
+
+.card-link{
+  cursor: pointer;
+  text-align: right;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(31, 214, 77, 0.301);
+  cursor: pointer;
+}
+
+.widget-area .widget_search form button {
+  background: #76b430 !important;
+}
+
+.widget-area .widget_categories ul li::before {
+  background: #76b430;
+}
+
+  .widget-area .widget .widget-title::before {
+    background: #76b430;
+  }
+
+  .form-control:focus {
+    border: 1px solid #92d63d;
+  }
+
+  .single-news .news-img img {
+    width: 100%;
+    height: 200px !important;
+    object-fit: cover;
+}
+
+section {
+  background-color: white;
+}
+
+.card.user-card {
+  background-color: white;
+}
+.badge-success {
+  color: #fff;
+  background-color: #28a745;
+}
+.badge-info {
+  color: #fff;
+  background-color: #17a2b8;
+}
+.badge-secondary {
+  color: #fff;
+  background-color: #6c757d;
+}
+.badge-dark {
+  color: #fff;
+  background-color: #343a40;
+}
+.badge-warning {
+  color: #212529;
+  background-color: #ffc107;
+}
+.badge-danger {
+  color: #fff;
+  background-color: #dc3545;
+}
+.badge-primary {
+  color: #fff;
+  background-color: #007bff;
+}

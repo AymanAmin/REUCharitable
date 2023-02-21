@@ -1,0 +1,12 @@
+.searchField {
+  background-color: transparent;
+  height: 50px;
+  padding: 6px 18px;
+  border: 1px solid #c7c7c7;
+  width: 100%;
+  display: block;
+  outline: 0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  color: black;
+}

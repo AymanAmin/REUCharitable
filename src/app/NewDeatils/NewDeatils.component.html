@@ -1,0 +1,117 @@
+<!-- Start Page Title Area -->
+<div class="page-title-area">
+  <div class="container">
+      <div class="page-title-content">
+          <h2>عرض الخبر</h2>
+          <ul>
+              <li>
+                  <a routerLink="/">الرئيسية
+
+                      <i class="fa fa-chevron-right"></i>
+                  </a>
+              </li>
+              <li>عرض الخبر</li>
+          </ul>
+      </div>
+  </div>
+</div>
+<!-- End Page Title Area -->
+
+<!-- Start Blog Details Area -->
+<section class="blog-details-area ptb-100">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+        <div class="blog-details-desc">
+          <div class="article-image">
+            <img src="{{CurrentNews?.img}}" alt="image">
+          </div>
+
+          <div class="article-content">
+
+            <div class="entry-meta">
+              <ul>
+                <li><span style="border:1px #76b430 solid ;color: #76b430;padding: 4px 20px;font-weight: bold;">تاريخ النشر</span> &nbsp;
+                  <a href="#" style="margin-right: -10px;background-color:#76b430;color:white;padding: 5px 20px;">{{CurrentNews?.dateCreation | date:'yyyy-MMM-dd'}}</a></li>
+              </ul>
+            </div>
+
+          </div>
+          <div class="project-slider-wrap">
+            <div class="project-slider owl-carousel owl-theme">
+              <div class="single-project-item">
+                <img src="../../assets/img/project/8.jpg" alt="">
+              </div>
+              <div class="single-project-item">
+                <img src="../../assets/img/project/9.jpg" alt="">
+              </div>
+              <div class="single-project-item">
+                <img src="../../assets/img/project/10.jpg" alt="">
+              </div>
+              <div class="single-project-item">
+                <img src="../../assets/img/project/11.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="article-content projects-details">
+            <h2> {{CurrentNews?.title}}</h2>
+            <p style="color: rgb(194, 59, 59);"> {{CurrentNews?.NewsDate}} </p><hr/>
+            <p> {{CurrentNews?.details}}</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-12">
+        <aside class="widget-area" id="secondary">
+          <div class="widget widget_search">
+            <form class="search-form">
+              <label>
+                <span class="screen-reader-text">ابحث عن:</span>
+                <input type="search" class="search-field"
+                [(ngModel)]="searchedKeyword"
+                [ngModelOptions]="{standalone: true}"
+                placeholder="اكتب هنا ..."  />
+              </label>
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+
+          <section class="widget widget_zovio_posts_thumb">
+            <h3 class="widget-title">اخر الاخبار</h3>
+
+            <article class="item" *ngFor="let news of LastNews | slice:0:3 | filter: searchedKeyword" > <!--  -->
+              <a routerLink="../../../news/deatils/{{news?.id}}" class="thumb">
+                <span class="fullimage cover bg1" role="img"><img src="{{news.img}}" /></span>
+              </a>
+              <div class="info">
+                <time datetime="2019-06-30">{{news?.dateCreation | date:'yyyy-MMM-dd'}}</time>
+                <h4 class="title usmall">
+                  <a routerLink="../../../news/deatils/{{news?.id}}">{{news?.title}}</a>
+                </h4>
+              </div>
+
+              <div class="clear"></div>
+            </article>
+
+          </section>
+
+          <section class="widget widget_categories">
+            <h3 class="widget-title">الارشيف</h3>
+
+            <ul>
+              <li><a href="#">May 2019</a></li>
+              <li><a href="#">April 2019</a></li>
+              <li><a href="#">June 2019</a></li>
+              <li><a href="#">julay 2019</a></li>
+            </ul>
+          </section>
+
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- End Blog Details Area -->

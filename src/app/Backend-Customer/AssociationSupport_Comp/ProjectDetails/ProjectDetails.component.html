@@ -1,0 +1,72 @@
+<div class="card" style="text-align: right;">
+  <div class="card-header">اسم البرنامج (المشروع) المراد دعمه </div>
+  <div class="card-body">
+    <form class="row" [formGroup]="ProjectDetailsForm" (ngSubmit)="OnSubmit()">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ProjectName">عنوان المشروع</label>
+          <input type="text" formControlName="ProjectName" class="form-control form-control-sm" />
+        </div>
+      </div>
+      <div class="col-md-6 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ProjectExecutionTime">مدة التنفيذ</label>
+          <input type="text" formControlName="ProjectExecutionTime" class="form-control form-control-sm" />
+        </div>
+      </div>
+      <div class="col-md-6 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ProjectGoals">اهداف المشروع</label>
+          <input type="text" formControlName="ProjectGoals" class="form-control form-control-sm" />
+        </div>
+      </div>
+      <div class="col-md-6 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ProjectStages">مراحل تنفيذ المشروع</label>
+          <input type="text" formControlName="ProjectStages" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ProjectTargetGroup">الفئة المستهدفة لبرنامج المشروع</label>
+          <input type="text" formControlName="ProjectTargetGroup" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ProjectTargetNumber">العدد المستهدف</label>
+          <input type="text" formControlName="ProjectTargetNumber" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ProjectManager">اسم مدير البرامج (المشاريع) المسؤول عن التنفيذ</label>
+          <input type="text" formControlName="ProjectManager" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-12 mt-md-3">
+        <button type="submit" [disabled]="!(ProjectDetailsForm.valid && IsReady)" class="btn btn-primary">حفظ</button>
+      </div>
+
+    </form>
+  </div>
+</div>

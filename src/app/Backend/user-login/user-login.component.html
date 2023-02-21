@@ -1,0 +1,33 @@
+<!-- Start Page Title Area -->
+<div class="page-title-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 m-auto mt-2">
+        <div class="card m-auto">
+          <div class="card-body">
+            <form class="row" #loginForm='ngForm' (ngSubmit)="OnLogin(loginForm)">
+              <div class="form-group col-12 col-md-12">
+                <div *ngIf="IsShowError" class="alert alert-danger" role="alert">
+                  الرجاء التحقق من بيانات الدخول
+                </div>
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <label for="email" class="form-label">الايميل</label>
+                <input type="email" class="form-control" ngModel name="email" required>
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <label for="passwrod" class="form-label">كلمة المرور</label>
+                <input type="password" class="form-control" ngModel name="password" required>
+              </div>
+              <div class="form-group col-12 pt-lg-5">
+                <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">تسجيل دخول</button>
+                <button type="reset" class="btn btn-secondary mr-5">الغاء</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Page Title Area -->

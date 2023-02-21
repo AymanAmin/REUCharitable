@@ -1,0 +1,101 @@
+
+<div class="card" style="text-align: right;">
+  <div class="card-header">المعرفين على الحالة</div>
+  <div class="card-body">
+
+    <div class="row">
+      <div class="col-12 text-danger">
+       <strong>ملاحظة : </strong>
+       <br>
+       1-أذكر ثلاث اشخاص ولابد ان يكون احد هؤلاء الاشخاص معرف رسمي عن الاسره.
+       <br>
+       2-الرجاء تحميل ملف ( مستند المعرف بعد التوقيع) وتعبئته من قبل شيح القبيلة أو العمدة أو أمام المسجد ثم إرفاقة.
+      </div>
+  </div>
+    <form class="row" [formGroup]="RelatedPersonForm" (ngSubmit)="OnSubmit(0)">
+
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+          تم تحديث بيانات بنجاح
+        </div>
+        <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+          حدث خطاء
+        </div>
+      </div>
+      <div class="form-group col-12 col-md-12">
+        <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+          تم إضافة بنجاح
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="Name">الأسم</label>
+          <input type="text" formControlName="Name" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="NationalAddress">العنوان الوطني </label>
+          <input type="text" formControlName="NationalAddress" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="PhoneNumber">رقم الجوال</label>
+          <input type="text" formControlName="PhoneNumber" class="form-control form-control-sm" />
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <label class="form-label" for="ٌRelatedPerson">نوع المعرف</label>
+          <select class="form-select form-select-sm" formControlName="RelatedPerson">
+            <option value="شيخ قبيله" selected="selected">شيخ القبيلة</option>
+            <option value="عمدة">عمدة</option>
+            <option value="أمام المسجد القريب من السكن">أمام المسجد القريب من السكن</option>
+            <option value="غير ذللك">غير ذلك</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <button type="submit" style="margin-top: 33px;width: 100%;" [disabled]="!(RelatedPersonForm.valid && IsReady && NumberOfPerson < 3)" class="btn btn-primary">حفظ</button>
+        </div>
+      </div>
+
+      <div class="col-md-12 mb-md-2 table-responsive">
+        <hr/>
+        <table class="table ">
+          <thead style="background-color: #92d63dad;color: white;">
+          <tr>
+              <th>الاسم</th>
+              <th> العنوان الوطني</th>
+              <th>رقم الجوال</th>
+              <th>نوع المعرف</th>
+              <th>حذف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let member of RelatedPersonList">
+            <td>{{member.Name}}</td>
+            <td>{{member.NationalAddress}}</td>
+            <td>{{member.PhoneNumber}}</td>
+            <td>{{member.RelatedPerson}}</td>
+            <td><i (click)="OnSubmit(member.Id)" class="fa fa-trash" aria-hidden="true"></i></td>
+          </tr>
+        </tbody>
+        </table>
+      </div>
+
+    </form>
+
+
+  </div>
+
+
+</div>
+

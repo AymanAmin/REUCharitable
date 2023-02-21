@@ -1,0 +1,120 @@
+<div class="row mb-3 " *ngIf="UpdateStat">
+    <div class="col-md-9"></div>
+    <div class="col-md-3" style="text-align: left;">
+        <button type="button" (click)="ChangeStatus(2)" class="btn btn-info text-white">تمت الدراسة</button>
+        <button type="button" (click)="ChangeStatus(4)" class="btn btn-danger mx-2">غير مكتمل</button>
+    </div>
+</div>
+<div class="row col-md-2 mb-3 mx-2" style="float: left;" *ngIf="UpdateStat2">
+    <button type="button" (click)="ChangeStatus(3)" class="btn btn-warning">تمت الدعم </button>
+</div>
+<div class="card" style="text-align: right;">
+    <div class="card-header">البيانات الاساسية والحسابات البنكية </div>
+    <div class="card-body">
+        <form class="row" [formGroup]="BasicBankInfoForm" (ngSubmit)="OnSubmit()">
+
+            <div class="form-group col-12 col-md-12">
+                <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+                    تم تحديث بيانات بنجاح
+                </div>
+                <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+                    حدث خطاء
+                </div>
+            </div>
+            <div class="form-group col-12 col-md-12">
+                <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+                    تم إضافة بنجاح
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="AssociationName">إسم الجمعية/ المؤسسة</label>
+                    <input type="text" formControlName="AssociationName" class="form-control form-control-sm" />
+                </div>
+            </div>
+            <div class="col-md-6 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="LicenseNumber">رقم الترخيص</label>
+                    <input type="text" formControlName="LicenseNumber" class="form-control form-control-sm" />
+                </div>
+            </div>
+            <div class="col-md-6 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="AssemblySpecialty">تخصص الجمعية/ المؤسسة</label>
+                    <input type="text" formControlName="AssemblySpecialty" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Email">البريد الالكتروني للجمعية/ المؤسسة</label>
+                    <input type="email" formControlName="Email" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+
+
+            <div class="col-md-6 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="DateOfEstablishment">تاريخ التأسيس</label>
+                    <input type="date" formControlName="DateOfEstablishment"
+                        class="form-control form-control-sm text-center" />
+                </div>
+            </div>
+
+
+
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Bank_Name_1">إسم البنك</label>
+                    <input type="text" formControlName="Bank_Name_1" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+            <div class="col-md-9 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Bank_No_1">رقم الحساب</label>
+                    <input type="text" formControlName="Bank_No_1" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Bank_Name_2">إسم البنك</label>
+                    <input type="text" formControlName="Bank_Name_2" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+            <div class="col-md-9 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="Bank_No_2">رقم الحساب</label>
+                    <input type="text" formControlName="Bank_No_2" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+
+            <div class="col-md-6 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="ProjectsLastYear">عدد المشاريع المنفذة العام السابق</label>
+                    <input type="number" formControlName="ProjectsLastYear" class="form-control form-control-sm" />
+                </div>
+            </div>
+            <div class="col-md-6 mb-md-2">
+                <div class="form-outline">
+                    <label class="form-label" for="ProjectsNextYear">عدد المشاريع المخطط لها العام الحالى</label>
+                    <input type="number" formControlName="ProjectsNextYear" class="form-control form-control-sm" />
+                </div>
+            </div>
+
+
+
+            <div class="col-md-12 mt-md-3">
+                <button type="submit" [disabled]="!(BasicBankInfoForm.valid && IsReady)"
+                    class="btn btn-primary">حفظ</button>
+            </div>
+
+        </form>
+    </div>
+</div>
