@@ -18,6 +18,7 @@
 <!-- End Page Title Area -->
 
 <!-- Start Contact Box Area -->
+
 <section class="contact-box ptb-100-70">
   <div class="container">
     <div class="row">
@@ -62,6 +63,23 @@
 <!-- End Contact Box Area -->
 
 <!-- Start Contact Area -->
+<div class="card-body">
+  <form class="row" [formGroup]="ContactForm" (ngSubmit)="OnSubmit()">
+
+    <div class="form-group col-12 col-md-12">
+      <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
+        تم تحديث بيانات بنجاح
+      </div>
+      <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
+        حدث خطاء
+      </div>
+    </div>
+    <div class="form-group col-12 col-md-12">
+      <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
+        تم إضافة بنجاح
+      </div>
+    </div>
+
 <section class="contact-area pb-100">
         <div class="container">
             <div class="section-title">
@@ -72,36 +90,43 @@
                     <div class="contact-form">
                         <div id="contactForm">
             <div class="row">
+
               <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
-                  <input type="text" name="name" id="name" class="form-control" required data-error="الرجاء ادخال الاسم" placeholder="الاسم كامل">
+                  <input type="text" name="UserName" id="UserName" class="form-control" required data-error="الرجاء ادخال الاسم" placeholder="الاسم كامل">
                   <div class="help-block with-errors"></div>
                 </div>
               </div>
+
+
               <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
-                  <input type="email" name="email" id="email" class="form-control" required data-error="الرجاء ادخال البريد الاكتروني" placeholder="البريد الالكتروني">
+                  <input type="email" name="Email" id="Email" class="form-control" required data-error="الرجاء ادخال البريد الاكتروني" placeholder="البريد الالكتروني">
                   <div class="help-block with-errors"></div>
                 </div>
               </div>
+
               <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
-                  <input type="text" name="phone_number" id="phone_number" required data-error="الرجاء ادخال رقم الجوال" class="form-control" placeholder="رقم الجوال">
+                  <input type="text" name="Mobile" id="Mobile" required data-error="الرجاء ادخال رقم الجوال" class="form-control" placeholder="رقم الجوال">
                   <div class="help-block with-errors"></div>
                 </div>
               </div>
+
               <div class="col-lg-6 col-sm-6">
                 <div class="form-group">
-                  <input type="text" name="msg_subject" id="msg_subject" class="form-control" required data-error="الرجاء ادخال الموضوع" placeholder="الموضوع">
+                  <input type="text" name="Subject" id="Subject" class="form-control" required data-error="الرجاء ادخال الموضوع" placeholder="الموضوع">
                   <div class="help-block with-errors"></div>
                 </div>
               </div>
+
               <div class="col-12">
                 <div class="form-group">
-                  <textarea name="message" class="form-control" id="message" cols="30" rows="8" required data-error="الرجاء ادخال رسالة" placeholder="نص الرسالة"></textarea>
+                  <textarea name="InquiryText" class="form-control" id="InquiryText" cols="30" rows="8" required data-error="الرجاء ادخال رسالة" placeholder="نص الرسالة"></textarea>
                   <div class="help-block with-errors"></div>
                 </div>
               </div>
+
               <div class="col-lg-12 col-md-12">
                 <button type="submit" class="default-btn">
                   <span>إرسال الرسالة</span>
@@ -109,6 +134,7 @@
                 <div id="msgSubmit" class="h3 text-center hidden"></div>
                 <div class="clearfix"></div>
               </div>
+
             </div>
           </div>
                     </div>
@@ -122,4 +148,7 @@
             </div>
         </div>
     </section>
+    </form>
+    </div>
+
     <!-- End Contact Area -->
