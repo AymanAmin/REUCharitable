@@ -27,9 +27,17 @@ export class ContactComponent implements OnInit {
 
   ngOnInit()
   {
+    this.getCompanyInfo();
     this.CreateForm();
-
   }
+
+  getCompanyInfo() {
+    this.http.get(environment.baseUrl + '/api/CompanyInfo/GetData.ashx').subscribe(
+      data => {
+        this.company = JSON.parse(JSON.stringify(data));
+        //console.log("companyInfo : "+data);
+      });
+    }
 
   CreateForm() {
     this.Contact = new FormGroup({
@@ -42,16 +50,13 @@ export class ContactComponent implements OnInit {
   }
 
   OnSubmit() {
+    var Email = this.Contact.get('Email')?.value;
+    var UserName = this.Contact.get('UserName')?.value;
+    var Mobile = this.Contact.get('Mobile')?.value;
+    var Subject = this.Contact.get('Subject')?.value;
+    var InquiryText = this.Contact.get('InquiryText')?.value;
 
-    var formData: any = new FormData();
-
-    formData.append("UserName", this.Contact.get('UserName')?.value);
-    formData.append("Mobile", this.Contact.get('Mobile')?.value);
-    formData.append("Subject", this.Contact.get('Subject')?.value);
-    formData.append("InquiryText", this.Contact.get('InquiryText')?.value);
-
-
-    this.http.post(environment.baseUrl + '/API/Contact/SendEmail.ashx', formData).subscribe(
+    this.http.get(environment.baseUrl + '/API/Contact/SendEmail.ashx?Email='+Email+'&UserName='+UserName +'&Mobile='+Mobile +'&Subject='+Subject +'&InquiryText='+InquiryText).subscribe(
       (response) => {
         if (response != "0") {
           this.IsShowMessageUpdate = true;
@@ -64,20 +69,6 @@ export class ContactComponent implements OnInit {
       },
       (error) => console.log(error)
     )
-  }
-
-
-
-  fillData(Data: any) {
-    var Contact = Data[0];
-    if (Contact)
-      this.Contact.patchValue({
-        UserName: Contact.UserName,
-        Email: Contact.Email,
-        Mobile: Contact.Mobile,
-        Subject: Contact.Subject,
-        InquiryText: Contact.age,
-      });
   }
 
 }

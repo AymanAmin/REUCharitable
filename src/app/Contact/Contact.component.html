@@ -27,7 +27,7 @@
           <i class="fa fa-map-marker"></i>
           <div class="contect-title">
             <h3>العنوان</h3>
-            <p>{{company.location}}</p>
+            <p>{{company?.location}}</p>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
           <i class="fa fa-envelope"></i>
           <div class="contect-title">
             <h3>البريد الالكتروني</h3>
-            <a href="mailto:{{company.email}}>">{{company.email}}</a>
+            <a href="mailto:{{company?.email}}>">{{company?.email}}</a>
           </div>
         </div>
       </div>
@@ -45,17 +45,11 @@
           <i class="fa fa-phone"></i>
           <div class="contect-title">
             <h3>رقم التواصل</h3>
-            <a href="tel:{{company.phone}}">{{company.phone}}</a>
-            <a href="tel:{{company.phone2}}">{{company.phone2}}</a>
+            <a href="tel:{{company?.phone}}">{{company?.phone}}</a>
+            <a href="tel:{{company?.phone2}}">{{company?.phone2}}</a>
           </div>
         </div>
       </div>
-
-
-
-
-
-
     </div>
   </div>
 </section>
@@ -72,82 +66,86 @@
     </div>
     <div class="form-group col-12 col-md-12">
       <div *ngIf="IsShowMessageInsert" class="alert alert-success" role="alert">
-        تم إضافة بنجاح
+        تم إرسال الرسالة بنجاح
       </div>
     </div>
 
 
-<section class="contact-area pb-100">
-        <div class="container">
-            <div class="section-title">
-                <h3>للإستفسار او الاقتراح</h3>
-              </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="contact-form">
-                        <div id="contactForm">
-            <div class="row">
+    <section class="contact-area pb-100">
+      <div class="container">
+        <div class="section-title">
+          <h3>للإستفسار او الاقتراح</h3>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="contact-form">
+              <div id="contactForm">
+                <div class="row">
 
-              <div class="col-lg-6 col-sm-6">
-                <div class="form-group">
-                  <input type="text" name="UserName" id="UserName" class="form-control" required data-error="الرجاء ادخال الاسم" placeholder="الاسم كامل">
-                  <div class="help-block with-errors"></div>
+                  <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                      <input type="text" name="UserName" formControlName="UserName" class="form-control" required
+                        data-error="الرجاء ادخال الاسم" placeholder="الاسم كامل">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                      <input type="email" name="Email" formControlName="Email" class="form-control" required
+                        data-error="الرجاء ادخال البريد الاكتروني" placeholder="البريد الالكتروني">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                      <input type="text" name="Mobile" formControlName="Mobile" required
+                        data-error="الرجاء ادخال رقم الجوال" class="form-control" placeholder="رقم الجوال">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6 col-sm-6">
+                    <div class="form-group">
+                      <input type="text" name="Subject" formControlName="Subject" class="form-control" required
+                        data-error="الرجاء ادخال الموضوع" placeholder="الموضوع">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group">
+                      <textarea name="InquiryText" class="form-control" formControlName="InquiryText" cols="30" rows="8"
+                        required data-error="الرجاء ادخال رسالة" placeholder="نص الرسالة"></textarea>
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12">
+                    <button type="submit" [disabled]="!Contact.valid" class="btn btn-primary">
+                      <span>إرسال الرسالة</span>
+                    </button>
+                    <div id="Subject" class="h3 text-center hidden"></div>
+                    <div class="clearfix"></div>
+                  </div>
                 </div>
               </div>
-
-
-              <div class="col-lg-6 col-sm-6">
-                <div class="form-group">
-                  <input type="email" name="Email" id="Email" class="form-control" required data-error="الرجاء ادخال البريد الاكتروني" placeholder="البريد الالكتروني">
-                  <div class="help-block with-errors"></div>
-                </div>
-              </div>
-
-              <div class="col-lg-6 col-sm-6">
-                <div class="form-group">
-                  <input type="text" name="Mobile" id="Mobile" required data-error="الرجاء ادخال رقم الجوال" class="form-control" placeholder="رقم الجوال">
-                  <div class="help-block with-errors"></div>
-                </div>
-              </div>
-
-              <div class="col-lg-6 col-sm-6">
-                <div class="form-group">
-                  <input type="text" name="Subject" id="Subject" class="form-control" required data-error="الرجاء ادخال الموضوع" placeholder="الموضوع">
-                  <div class="help-block with-errors"></div>
-                </div>
-              </div>
-
-              <div class="col-12">
-                <div class="form-group">
-                  <textarea name="InquiryText" class="form-control" id="InquiryText" cols="30" rows="8" required data-error="الرجاء ادخال رسالة" placeholder="نص الرسالة"></textarea>
-                  <div class="help-block with-errors"></div>
-                </div>
-              </div>
-
-              <div class="col-lg-12 col-md-12">
-                <button type="submit" [disabled]="!Contact.valid" class="btn btn-primary">
-                  <span>إرسال الرسالة</span>
-                </button>
-                <div id="Subject" class="h3 text-center hidden"></div>
-                <div class="clearfix"></div>
-              </div>
-
-
-
             </div>
           </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-6">
-        <div class="map-area">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.2912380657294!2d46.75976931500203!3d24.819711984073127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0!2zMjTCsDQ5JzExLjAiTiA0NsKwNDUnNDMuMSJF!5e0!3m2!1sen!2ssa!4v1648548220233!5m2!1sen!2ssa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-                </div>
+          <div class="col-lg-6">
+            <div class="map-area">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.2912380657294!2d46.75976931500203!3d24.819711984073127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0!2zMjTCsDQ5JzExLjAiTiA0NsKwNDUnNDMuMSJF!5e0!3m2!1sen!2ssa!4v1648548220233!5m2!1sen!2ssa"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
+          </div>
         </div>
+      </div>
     </section>
-    </form>
-    </div>
+  </form>
+</div>
 
-    <!-- End Contact Area -->
+<!-- End Contact Area -->
