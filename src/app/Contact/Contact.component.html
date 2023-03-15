@@ -64,12 +64,9 @@
 
 <!-- Start Contact Area -->
 <div class="card-body">
-  <form class="row" [formGroup]="ContactForm" (ngSubmit)="OnSubmit()">
+  <form class="row" [formGroup]="Contact" (ngSubmit)="OnSubmit()">
 
     <div class="form-group col-12 col-md-12">
-      <div *ngIf="IsShowMessageUpdate" class="alert alert-info" role="alert">
-        تم تحديث بيانات بنجاح
-      </div>
       <div *ngIf="IsShowMessageError" class="alert alert-danger" role="alert">
         حدث خطاء
       </div>
@@ -79,6 +76,7 @@
         تم إضافة بنجاح
       </div>
     </div>
+
 
 <section class="contact-area pb-100">
         <div class="container">
@@ -128,12 +126,14 @@
               </div>
 
               <div class="col-lg-12 col-md-12">
-                <button type="submit" class="default-btn">
+                <button type="submit" [disabled]="!Contact.valid" class="btn btn-primary">
                   <span>إرسال الرسالة</span>
                 </button>
-                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                <div id="Subject" class="h3 text-center hidden"></div>
                 <div class="clearfix"></div>
               </div>
+
+
 
             </div>
           </div>

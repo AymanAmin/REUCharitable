@@ -21,18 +21,18 @@ export class ContactComponent implements OnInit {
 
   company:any;
 
-  ContactForm: FormGroup = new FormGroup({});
+  Contact: FormGroup = new FormGroup({});
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit()
   {
     this.CreateForm();
-    this.getBasicData();
+
   }
 
   CreateForm() {
-    this.ContactForm = new FormGroup({
+    this.Contact = new FormGroup({
       UserName: new FormControl(null, [Validators.required]),
       Email: new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
       Mobile: new FormControl(null, [Validators.required]),
@@ -44,19 +44,18 @@ export class ContactComponent implements OnInit {
   OnSubmit() {
 
     var formData: any = new FormData();
-    formData.append("CS_Code", this.CS_Code);
-    formData.append("UserName", this.ContactForm.get('UserName')?.value);
-    formData.append("Mobile", this.ContactForm.get('Mobile')?.value);
-    formData.append("Subject", this.ContactForm.get('Subject')?.value);
-    formData.append("InquiryText", this.ContactForm.get('InquiryText')?.value);
+
+    formData.append("UserName", this.Contact.get('UserName')?.value);
+    formData.append("Mobile", this.Contact.get('Mobile')?.value);
+    formData.append("Subject", this.Contact.get('Subject')?.value);
+    formData.append("InquiryText", this.Contact.get('InquiryText')?.value);
 
 
-    this.http.post(environment.baseUrl + '/api/CS/Set/ContactForm.ashx', formData).subscribe(
+    this.http.post(environment.baseUrl + '/API/Contact/SendEmail.ashx', formData).subscribe(
       (response) => {
         if (response != "0") {
           this.IsShowMessageUpdate = true;
           this.IsShowMessageError = false;
-          this.router.navigate([this.router.url + '/' + response]);
         }
         else {
           this.IsShowMessageUpdate = false;
@@ -67,26 +66,17 @@ export class ContactComponent implements OnInit {
     )
   }
 
-  getBasicData() {
 
-    this.http.get(environment.baseUrl + '/API/Contact/SendEmail.ashx?CS_Code='+this.CS_Code).subscribe(
-      data => {
-        var jsonInfo = JSON.stringify(data);
-        let MainInfoData = JSON.parse(jsonInfo);
-        this.fillData(MainInfoData);
-      }
-    )
-  }
 
   fillData(Data: any) {
-    var ContactForm = Data[0];
-    if (ContactForm)
-      this.ContactForm.patchValue({
-        UserName: ContactForm.UserName,
-        Email: ContactForm.Email,
-        Mobile: ContactForm.Mobile,
-        Subject: ContactForm.Subject,
-        InquiryText: ContactForm.age,
+    var Contact = Data[0];
+    if (Contact)
+      this.Contact.patchValue({
+        UserName: Contact.UserName,
+        Email: Contact.Email,
+        Mobile: Contact.Mobile,
+        Subject: Contact.Subject,
+        InquiryText: Contact.age,
       });
   }
 
