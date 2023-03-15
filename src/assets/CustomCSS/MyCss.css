@@ -265,3 +265,8 @@ section {
   color: #fff;
   background-color: #007bff;
 }
+
+.footer-top-area .single-widget {
+  margin-bottom: 30px;
+  text-align: center;
+}
