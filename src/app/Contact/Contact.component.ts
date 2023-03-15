@@ -20,7 +20,7 @@ export class ContactComponent implements OnInit {
     this.http.get(environment.baseUrl + '/api/CompanyInfo/GetData.ashx').subscribe(
       data => {
         this.company = JSON.parse(JSON.stringify(data));
-        console.log("companyInfo : "+this.company);
+        //console.log("companyInfo : "+this.company);
       }
     )
   }
