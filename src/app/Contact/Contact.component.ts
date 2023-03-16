@@ -74,7 +74,10 @@ message:boolean=false;
 
         }
       },
-      (error) => console.log(error)
+      (error) =>{
+        this.IsShowMessageUpdate = false;
+          this.IsShowMessageError = true;
+           console.log(error);}
     )
 
   }
