@@ -63,10 +63,9 @@ message:boolean=false;
       (response) => {
         if (response != "0") {
           this.IsShowMessageUpdate = true;
+          this.IsShowMessageError = false;
           this.message=true;
           this.Contact.reset({});
-          this.IsShowMessageError = false;
-
         }
         else {
           this.IsShowMessageUpdate = false;
