@@ -19,22 +19,25 @@ export class ContactComponent implements OnInit {
   userSubmitted: boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
 
+
   company:any;
 
   Contact: FormGroup = new FormGroup({});
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
-
+message:boolean=false;
   ngOnInit()
   {
     this.getCompanyInfo();
     this.CreateForm();
+
   }
 
   getCompanyInfo() {
     this.http.get(environment.baseUrl + '/api/CompanyInfo/GetData.ashx').subscribe(
       data => {
         this.company = JSON.parse(JSON.stringify(data));
+
         //console.log("companyInfo : "+data);
       });
     }
@@ -60,16 +63,27 @@ export class ContactComponent implements OnInit {
       (response) => {
         if (response != "0") {
           this.IsShowMessageUpdate = true;
+          this.message=true;
+          this.Contact.reset({});
           this.IsShowMessageError = false;
+
         }
         else {
           this.IsShowMessageUpdate = false;
           this.IsShowMessageError = true;
+
         }
       },
       (error) => console.log(error)
     )
+
   }
+  removeMessage(){
+    this.message=false;
+  }
+
+
+
 
 }
 
