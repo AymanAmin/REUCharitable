@@ -59,7 +59,7 @@ message:boolean=false;
     var Subject = this.Contact.get('Subject')?.value;
     var InquiryText = this.Contact.get('InquiryText')?.value;
 
-    this.http.get('http://www.store.riyadh.edu.sa:8050/arp/Contact/SendEmail.ashx?Email='+Email+'&UserName='+UserName +'&Mobile='+Mobile +'&Subject='+Subject +'&InquiryText='+InquiryText).subscribe(
+    this.http.get('https://store.riyadh.edu.sa:8050/arp/Contact/SendEmail.ashx?Email='+Email+'&UserName='+UserName +'&Mobile='+Mobile +'&Subject='+Subject +'&InquiryText='+InquiryText).subscribe(
       (response) => {
         if (response != "0") {
           this.IsShowMessageUpdate = true;
