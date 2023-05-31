@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/" version="1">
+	<title>Playlist</title>
+	<trackList>
+		<track>
+			<location>file:///C:/Users/Afnan/Downloads/%D9%81%D8%AF%D9%8A%D9%88%20%D8%A7%D9%84%D9%85%D9%88%D9%94%D8%B3%D8%B3%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B9%D8%AF%D9%8A%D9%84%209.MOV</location>
+			<duration>455320</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>0</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///C:/Users/Afnan/Documents/MEGAsync%20Downloads/%D9%81%D8%AF%D9%8A%D9%88%20%D8%A7%D9%84%D9%85%D9%88%D9%94%D8%B3%D8%B3%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B9%D8%AF%D9%8A%D9%84%209.MOV</location>
+			<duration>455320</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>1</vlc:id>
+			</extension>
+		</track>
+		<track>
+			<location>file:///C:/Users/Afnan/Downloads/%D9%81%D8%AF%D9%8A%D9%88%20%D8%A7%D9%84%D9%85%D9%88%D9%94%D8%B3%D8%B3%D8%A9%20%D8%A7%D9%84%D8%AA%D8%B9%D8%AF%D9%8A%D9%84%209.MOV</location>
+			<duration>455320</duration>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>2</vlc:id>
+			</extension>
+		</track>
+	</trackList>
+	<extension application="http://www.videolan.org/vlc/playlist/0">
+		<vlc:item tid="0"/>
+		<vlc:item tid="1"/>
+		<vlc:item tid="2"/>
+	</extension>
+</playlist>
