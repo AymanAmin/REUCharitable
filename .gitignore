@@ -44,3 +44,5 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+src/assets/Media/vid.mp4
+src/assets/Media/vid3.xspf
