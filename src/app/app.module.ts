@@ -80,6 +80,10 @@ import { GalleryVideoAddComponent } from './Backend/galleryVideo-add/galleryVide
 import { PoliciesComponent } from './policies/policies.component';
 import { SupportNeedyFamilies_RpComponent } from './Reports/SupportNeedyFamilies_Rp/SupportNeedyFamilies_Rp.component';
 import { AssociationSupport_RpComponent } from './Reports/SupportNeedyFamilies_Rp/AssociationSupport_Rp/AssociationSupport_Rp.component';
+import { Governance2022Component } from './Governance2022/Governance2022.component';
+import { CommitteesComponent } from './Committees/Committees.component';
+import { FinancialComponent } from './Financial/Financial.component';
+import { Governance2023Component } from './Governance2023/Governance2023.component';
 
 
 const appRoutes: Routes = [
@@ -134,6 +138,11 @@ const appRoutes: Routes = [
   { path: 'policies', component: PoliciesComponent },
   { path: 'Report/SupportNeedyFamilies/:id', component: SupportNeedyFamilies_RpComponent },
   { path: 'Report/AssociationSupport_Rp/:id', component: AssociationSupport_RpComponent},
+  { path: 'Governance2022', component: Governance2022Component },
+  { path: 'Governance2023', component: Governance2023Component },
+  { path: 'ServicesComponent', component: ServicesComponent },
+  { path: 'CommitteesComponent', component: CommitteesComponent },
+  { path: 'FinancialComponent', component: FinancialComponent },
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);
@@ -211,8 +220,11 @@ export const routing = RouterModule.forRoot(appRoutes);
     PoliciesComponent,
     SupportNeedyFamilies_RpComponent,
     AssociationSupport_RpComponent,
-
-  ],
+    Governance2022Component,
+    CommitteesComponent,
+    FinancialComponent,
+      Governance2023Component,
+   ],
 
 
   imports: [

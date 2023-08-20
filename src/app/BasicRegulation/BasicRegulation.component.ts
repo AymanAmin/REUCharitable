@@ -96,23 +96,8 @@ export class BasicRegulationComponent implements OnInit {
       {
         "Id": 18,
         "img": "../../assets/img/BasicRegulation/Basic-R (18).jpg"
-      },
-      {
-        "Id": 19,
-        "img": "../../assets/img/BasicRegulation/Basic-R (19).jpg"
-      },
-      {
-        "Id": 20,
-        "img": "../../assets/img/BasicRegulation/Basic-R (20).jpg"
-      },
-      {
-        "Id": 21,
-        "img": "../../assets/img/BasicRegulation/Basic-R (21).jpg"
-      },
-      {
-        "Id": 22,
-        "img": "../../assets/img/BasicRegulation/Basic-R (22).jpg"
       }
+
     ]
   }
 

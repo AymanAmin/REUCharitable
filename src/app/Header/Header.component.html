@@ -74,13 +74,22 @@
               <a routerLink="/Members" class="nav-link" onclick="hideMobileMenu()">مجلس الامناء</a>
             </li>
             <li class="nav-item">
-              <a routerLink="/BasicRegulation" class="nav-link" onclick="hideMobileMenu()">اللائحة الأساسية</a>
+              <a routerLink="/BasicRegulation" class="nav-link">اللائحة الأساسية</a>
             </li>
             <li class="nav-item" >
               <a routerLink="/policies" class="nav-link" onclick="hideMobileMenu()">اللوائح والسياسات</a>
             </li>
+            <li class="nav-item" >
+              <a routerLink="/CommitteesComponent" class="nav-link" onclick="hideMobileMenu()"> اللجان</a>
+            </li>
             <li class="nav-item">
               <a routerLink="/registration-certificate" class="nav-link" onclick="hideMobileMenu()">شهادة تسجيل المؤسسة</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/News" class="nav-link" onclick="hideMobileMenu()"> الاخبار</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/" class="nav-link" onclick="hideMobileMenu()"> الوظائف</a>
             </li>
             <li class="nav-item">
               <a routerLink="/Gallery" class="nav-link" onclick="hideMobileMenu()"> معرض الصور</a>
@@ -88,9 +97,7 @@
             <li class="nav-item">
               <a routerLink="/gallery-vid" class="nav-link" onclick="hideMobileMenu()">معرض الفديوهات</a>
             </li>
-            <li class="nav-item">
-              <a routerLink="/News" class="nav-link" onclick="hideMobileMenu()"> الاخبار</a>
-            </li>
+
             <li class="nav-item">
               <a routerLink="/YearlyReports" class="nav-link" onclick="hideMobileMenu()">التقارير السنوية</a>
             </li>
@@ -116,10 +123,28 @@
               <a routerLink="/user/login" class="nav-link" onclick="hideMobileMenu()">بوابة الموظفين</a>
             </li>
             <li class="nav-item">
+              <a routerLink="/Governance2022" class="nav-link" onclick="hideMobileMenu()">حوكمة 2022</a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/Governance2023" class="nav-link" onclick="hideMobileMenu()">حوكمة 2023</a>
+                </li>
+
+         <!--
+            <li class="nav-item">
               <a routerLink="Customer/Project2023" class="nav-link"> المشاريع المدعومة عام 2023 </a>
             </li>
+-->
             <li class="nav-item">
               <a routerLink="/News" class="nav-link" onclick="hideMobileMenu()">آخر الاخبار</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/" class="nav-link"> استبانة قياس رضا أصحاب العلاقه والقرارات المتخذة بخصوصها من مجلس الأمناء</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/" class="nav-link"> استبانة قياس رضا قياس رضاء المستفيدين  والعاملين</a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/" class="nav-link">طلب توظيف</a>
             </li>
             <li class="nav-item">
               <a routerLink="/Contact" class="nav-link" onclick="hideMobileMenu()">تواصل معنا</a>
@@ -134,14 +159,13 @@
     </div>
     <!-- Menu For Desktop Device -->
     <div class="nivo-nav-one">
+
       <div class="main-nav">
         <nav class="navbar navbar-expand-md navbar-light">
+          <a class="navbar-brand" routerLink="/">
+            <img src="../../assets/img/logo1.jpeg" style="max-width:60% ; margin-right: 50%;" alt="شعار المؤسسة">
+          </a>
           <div class="container">
-
-            <a class="navbar-brand" routerLink="/">
-              <img src="../../assets/img/logo1.jpeg" style="max-width: 80% ; margin-top:-10px;" alt="شعار المؤسسة">
-            </a>
-
             <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
               <ul class="navbar-nav m-auto">
                 <li class="nav-item">
@@ -165,11 +189,14 @@
                     </li>
 
                     <li class="nav-item">
-                      <a routerLink="/registration-certificate" class="nav-link">شهادة تسجيل المؤسسة</a>
+                      <a routerLink="/registration-certificate" class="nav-link">شهادة الترخيص</a>
                     </li>
 
                 <li class="nav-item">
                   <a routerLink="/policies" class="nav-link" onclick="hideMobileMenu()">  السياسات واللوائح </a>
+                  </li>
+                  <li class="nav-item" >
+                    <a routerLink="/CommitteesComponent" class="nav-link" onclick="hideMobileMenu()"> اللجان</a>
                   </li>
                   </ul>
                 </li>
@@ -178,6 +205,9 @@
                   <ul class="dropdown-menu">
                     <li class="nav-item">
                       <a routerLink="/News" class="nav-link"> الأخبار</a>
+                    </li>
+                    <li class="nav-item">
+                      <a routerLink="/" class="nav-link" onclick="hideMobileMenu()"> الوظائف</a>
                     </li>
                     <li class="nav-item">
                       <a routerLink="/Gallery" class="nav-link">معرض الصور</a>
@@ -223,6 +253,7 @@
                 </ul>
               </li>
 
+              <!---
                 <li class="nav-item">
                   <a routerLink="/" class="nav-link dropdown-toggle"> المشاريع المدعومة</a>
                   <ul class="dropdown-menu">
@@ -231,19 +262,44 @@
                     </li>
                     </ul>
                 </li>
+-->
 
+               <li class="nav-item">
+                  <a routerLink="/" class="nav-link dropdown-toggle"> أدلة الحوكمة</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a routerLink="/Governance2022" class="nav-link">حوكمة 2022</a>
+                      <a routerLink="/Governance2023" class="nav-link">حوكمة 2023</a>
+                    </li>
+                    </ul>
+                </li>
+
+
+
+                <li class="nav-item">
+                  <a routerLink="/" class="nav-link dropdown-toggle"> قياس الرضا</a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-item">
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSeY6N5oFgvH7gCL8dQ8h-fr9b3p0ocOejrF3mFHZgtOiaH0XA/viewform"target="_blank" class="nav-link"> استبانة قياس رضا أصحاب العلاقه والقرارات المتخذة بخصوصها من مجلس الأمناء</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4h8SR9JzQcAMT9QL25AUsXGw4-0Hf3Pvz60Tv7cmTFORf2A/viewform"target="_blank" class="nav-link"> استبانة قياس رضا المستفيدين  والعاملين</a>
+                    </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/" class="nav-link">طلب توظيف</a>
+                </li>
                 <li class="nav-item">
                   <a routerLink="/Contact" class="nav-link">تواصل معنا</a>
                 </li>
               </ul>
              </div>
 
-
-            <a class="navbar-brand" routerLink="/">
-              <img src="../../assets/img/vision2030.jpg" style="max-width: 95%; margin-left: 50%;" alt="رؤية 2030">
-            </a>
-
           </div>
+          <a class="navbar-brand" routerLink="/">
+            <img src="../../assets/img/vision2030.jpg" style="max-width: 80%; margin-left: 50%;" alt="رؤية 2030">
+          </a>
         </nav>
       </div>
     </div>
