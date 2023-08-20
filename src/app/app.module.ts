@@ -84,6 +84,7 @@ import { Governance2022Component } from './Governance2022/Governance2022.compone
 import { CommitteesComponent } from './Committees/Committees.component';
 import { FinancialComponent } from './Financial/Financial.component';
 import { Governance2023Component } from './Governance2023/Governance2023.component';
+import { Project2022Component } from './Project2022/Project2022.component';
 
 
 const appRoutes: Routes = [
@@ -143,6 +144,7 @@ const appRoutes: Routes = [
   { path: 'ServicesComponent', component: ServicesComponent },
   { path: 'CommitteesComponent', component: CommitteesComponent },
   { path: 'FinancialComponent', component: FinancialComponent },
+  { path: 'Project2022Component', component: Project2022Component },
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);
@@ -223,7 +225,8 @@ export const routing = RouterModule.forRoot(appRoutes);
     Governance2022Component,
     CommitteesComponent,
     FinancialComponent,
-      Governance2023Component,
+    Governance2023Component,
+   Project2022Component,
    ],
 
 
