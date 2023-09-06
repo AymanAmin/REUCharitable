@@ -74,6 +74,7 @@ export class BasicinformationComponent implements OnInit {
     this.http.post(environment.baseUrl + '/api/CS/Set/BasicInfoData.ashx', formData).subscribe(
       (response) => {
         if (response != "0") {
+          console.log("response: " + response);
           this.IsShowMessageUpdate = true;
           this.IsShowMessageError = false;
           this.router.navigate(['/Customer/InstitutionBenefitForm/' + response]);
