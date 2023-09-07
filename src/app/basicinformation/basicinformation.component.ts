@@ -70,27 +70,17 @@ export class BasicinformationComponent implements OnInit {
     formData.append("city", this.BasicInfoForm.get('city')?.value);
     formData.append("Neighborhood", this.BasicInfoForm.get('Neighborhood')?.value);
 
-
-
     this.http.post(environment.baseUrl + '/api/CS/Set/BasicInfoData.ashx', formData).subscribe(
       (response) => {
-        if (response != "0") {
-
-          if (response == "1001") {
-            this.UserExisted = true;
-          }
-          else {
+        console.log(response);
+        if (response == 1001) {
+          this.UserExisted = true;
+        }
+        else if (response != "0") {
             this.UserExisted = false;
             this.IsShowMessageUpdate = true;
             this.IsShowMessageError = false;
             this.router.navigate(['/Customer/InstitutionBenefitForm/' + response]);
-          }
-
-          console.log("response: " + response);
-          this.IsShowMessageUpdate = true;
-          this.IsShowMessageError = false;
-          this.router.navigate(['/Customer/InstitutionBenefitForm/' + response]);
-
         }
         else {
           this.IsShowMessageUpdate = false;
@@ -99,7 +89,7 @@ export class BasicinformationComponent implements OnInit {
       },
       (error) => console.log(error)
     )
-  }
+    }
 
   getBasicData() {
     this.http.get(environment.baseUrl + '/api/CS/Get/BasicInfoData.ashx?CS_Code='+this.CS_Code).subscribe(
@@ -130,8 +120,6 @@ export class BasicinformationComponent implements OnInit {
         Phone: BasicInfoData.Phone,
         city: BasicInfoData.city,
         Neighborhood: BasicInfoData.Neighborhood,
-
-
       });
   }
 

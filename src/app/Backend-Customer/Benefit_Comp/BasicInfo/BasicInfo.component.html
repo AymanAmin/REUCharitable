@@ -35,6 +35,11 @@
                     تم إضافة بنجاح : نفيدكم بأنه تم ايقاف الدعم حالياً وسوف يتم مراجعة طلباتكم في حال اعادته .
                 </div>
             </div>
+            <div class="form-group col-12 col-md-12">
+            <div *ngIf="UserExisted" class="alert alert-danger" role="alert">
+                تم التقديم مسبقا (<a href="../../Customer/CheckResultComponent"> اضغط هنا </a> لمراجعة ملفك)
+               </div>
+            </div>
 
             <div class="col-md-3 mb-md-2">
                 <div class="form-outline">

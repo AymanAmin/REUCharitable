@@ -13,7 +13,8 @@ export class BasicInfoComponent implements OnInit {
 
   IsShowMessageUpdate: boolean = false;
   IsShowMessageInsert: boolean = false;
-  IsShowMessageError: boolean = false;
+  IsShowMessageError: boolean = false; 
+  UserExisted: boolean = false;
   userSubmitted: boolean = false;
   UpdateStat: boolean = false;
   UpdateStat2: boolean = false;
@@ -78,11 +79,16 @@ export class BasicInfoComponent implements OnInit {
     formData.append("UpdateStatus", false);
     this.http.post(environment.baseUrl + '/api/CS/Set/BasicInfoData.ashx', formData).subscribe(
       (response) => {
+        console.log(response);
+        if (response == 1001) {
+          this.UserExisted = true;
+        }
+        else 
         if (response != "0") {
+            this.UserExisted = false;
           this.IsShowMessageUpdate = true;
           this.IsShowMessageError = false;
           this.router.navigate([this.router.url.replace(this.CS_Code,"") + '/' + response]);
-          console.log("call ");
         }
         else {
           this.IsShowMessageUpdate = false;
