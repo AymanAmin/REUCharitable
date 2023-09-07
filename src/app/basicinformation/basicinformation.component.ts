@@ -75,6 +75,7 @@ export class BasicinformationComponent implements OnInit {
     this.http.post(environment.baseUrl + '/api/CS/Set/BasicInfoData.ashx', formData).subscribe(
       (response) => {
         if (response != "0") {
+
           if (response == "1001") {
             this.UserExisted = true;
           }
@@ -84,6 +85,12 @@ export class BasicinformationComponent implements OnInit {
             this.IsShowMessageError = false;
             this.router.navigate(['/Customer/InstitutionBenefitForm/' + response]);
           }
+
+          console.log("response: " + response);
+          this.IsShowMessageUpdate = true;
+          this.IsShowMessageError = false;
+          this.router.navigate(['/Customer/InstitutionBenefitForm/' + response]);
+
         }
         else {
           this.IsShowMessageUpdate = false;
