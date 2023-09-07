@@ -17,6 +17,7 @@ export class BasicinformationComponent implements OnInit {
   IsShowMessageInsert: boolean = false;
   IsShowMessageError: boolean = false;
   userSubmitted: boolean = false;
+  UserExisted: boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
 
   BasicInfoForm: FormGroup = new FormGroup({});
@@ -74,9 +75,15 @@ export class BasicinformationComponent implements OnInit {
     this.http.post(environment.baseUrl + '/api/CS/Set/BasicInfoData.ashx', formData).subscribe(
       (response) => {
         if (response != "0") {
-          this.IsShowMessageUpdate = true;
-          this.IsShowMessageError = false;
-          this.router.navigate(['/Customer/InstitutionBenefitForm/' + response]);
+          if (response == "1001") {
+            this.UserExisted = true;
+          }
+          else {
+            this.UserExisted = false;
+            this.IsShowMessageUpdate = true;
+            this.IsShowMessageError = false;
+            this.router.navigate(['/Customer/InstitutionBenefitForm/' + response]);
+          }
         }
         else {
           this.IsShowMessageUpdate = false;
@@ -88,7 +95,6 @@ export class BasicinformationComponent implements OnInit {
   }
 
   getBasicData() {
-
     this.http.get(environment.baseUrl + '/api/CS/Get/BasicInfoData.ashx?CS_Code='+this.CS_Code).subscribe(
       data => {
         var jsonInfo = JSON.stringify(data);

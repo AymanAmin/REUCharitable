@@ -41,6 +41,8 @@ export class HomeFileComponent implements OnInit {
     this.PatientFilesForm = new FormGroup({
       Identify: new FormControl(null, [Validators.required]),
       Proof_of_Residence: new FormControl(null),
+      Family_Report: new FormControl(null, [Validators.required]),
+      Bank_Statement: new FormControl(null),
       Other_Files: new FormControl(null),
     });
 

@@ -43,6 +43,14 @@
 
       <div class="col-md-3 mb-md-2">
         <div class="form-outline">
+          <label class="form-label" for="Bank_Statement">كشف حساب بنكي</label>
+          <input formControlName="Bank_Statement" (change)="onFileChange($any($event).target.files,'Bank_Statement')"
+          accept="application/pdf" type="file" class="form-control">
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
 
           <label class="form-label" for="Clan_leader_idefntication" style="vertical-align: middle;"> مستند المعرف بعد التوقيع
             <a target="_blank" href="../../assets/Clan_leader_idefntication_/نموذج - تعريف من رئيس مركز الأمارة - مؤسسة عبد الله ركيب الرمال لوالديه.pdf" > (تحميل)</a>

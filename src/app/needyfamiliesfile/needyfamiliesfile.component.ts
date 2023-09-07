@@ -42,7 +42,9 @@ export class NeedyfamiliesfileComponent implements OnInit {
       Identify: new FormControl(null, [Validators.required]),
       Family_Report: new FormControl(null, [Validators.required]),
       Proof_of_Residence: new FormControl(null),
+      Bank_Statement: new FormControl(null),
       Clan_leader_idefntication:new FormControl(null),
+
       Other_Files: new FormControl(null),
     });
 
