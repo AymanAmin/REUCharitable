@@ -143,18 +143,22 @@ export class BasicInfoComponent implements OnInit {
     formData.append("StatusValue", value);
 
     this.http.post(environment.baseUrl + '/api/CS/Set/BasicInfoData.ashx', formData).subscribe(
-      (response) => {
-        if (response != "0") {
-          this.IsShowMessageUpdate = true;
-          this.IsShowMessageError = false;
-          this.router.navigate([this.router.url + '/' + response]);
-          window.location.reload();
-        }
-        else {
-          this.IsShowMessageUpdate = false;
-          this.IsShowMessageError = true;
-        }
-      },
+        (response) => {
+            console.log(response);
+            if (response == 1001) {
+              this.UserExisted = true;
+            }
+            else if (response != "0") {
+                this.UserExisted = false;
+                this.IsShowMessageUpdate = true;
+                this.IsShowMessageError = false;
+                this.router.navigate(['/Customer/InstitutionBenefitForm/' + response]);
+            }
+            else {
+              this.IsShowMessageUpdate = false;
+              this.IsShowMessageError = true;
+            }
+          },
       (error) => console.log(error)
     )
   }
