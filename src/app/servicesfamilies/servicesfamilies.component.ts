@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -18,6 +18,7 @@ export class ServicesfamiliesComponent implements OnInit {
   IsReady:boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   OurServicesForm: FormGroup = new FormGroup({});
+  @Input() Step:string = "";
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -95,8 +96,7 @@ export class ServicesfamiliesComponent implements OnInit {
     formData.append("BillS_Serves", this.OurServicesForm.get('BillS_Serves')?.value);
     formData.append("PatientMassage", this.OurServicesForm.get('PatientMassage')?.value);
     formData.append("WinterClothing", this.OurServicesForm.get('WinterClothing')?.value);
-
-
+    formData.append("Step", this.Step);
 
     console.log(formData);
     this.http.post(environment.baseUrl + '/api/CS/Set/OurServicesData.ashx', formData).subscribe(
@@ -104,6 +104,7 @@ export class ServicesfamiliesComponent implements OnInit {
         if (response != "0") {
           this.IsShowMessageUpdate = true;
           this.IsShowMessageError = false;
+          window.location.reload();
           //this.router.navigate(['/Customer/InstitutionBenefitForm/' + response]);
         }
         else {

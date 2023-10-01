@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -23,6 +23,7 @@ export class BasicInfoComponent implements OnInit {
   CreationDate: string = new Date().toISOString().slice(0, 10);
 
   BasicInfoForm: FormGroup = new FormGroup({});
+  @Input() Step:string = "";
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -77,6 +78,7 @@ export class BasicInfoComponent implements OnInit {
     formData.append("city", this.BasicInfoForm.get('city')?.value);
     formData.append("FormName", this.router.url);
     formData.append("UpdateStatus", false);
+    formData.append("Step", this.Step);
     this.http.post(environment.baseUrl + '/api/CS/Set/BasicInfoData.ashx', formData).subscribe(
       (response) => {
         console.log(response);
@@ -88,6 +90,7 @@ export class BasicInfoComponent implements OnInit {
             this.UserExisted = false;
           this.IsShowMessageUpdate = true;
           this.IsShowMessageError = false;
+          window.location.reload();
           this.router.navigate([this.router.url.replace(this.CS_Code,"") + '/' + response]);
         }
         else {

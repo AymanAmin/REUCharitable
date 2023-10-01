@@ -15,19 +15,19 @@
       <img class="ImageSlide" src="../../assets/img/تعميم.jpeg" alt="Snow" style="width:90% ; ">
  ------------------------------------------>
 
-      <app-BasicInfo></app-BasicInfo>
+      <app-BasicInfo *ngIf="current_step == BasicInfo_step || viewAll" [Step]="BasicInfo_step"></app-BasicInfo>
 
-      <app-BankInfo></app-BankInfo>
+      <app-BankInfo *ngIf="current_step == BankInfo_step || viewAll" [Step]="BankInfo_step"></app-BankInfo>
 
-      <app-FinancialSituation></app-FinancialSituation>
+      <app-FinancialSituation *ngIf="current_step == FinancialSituation_step || viewAll" [Step]="FinancialSituation_step"></app-FinancialSituation>
 
-      <app-FamilyMembers></app-FamilyMembers>
+      <app-FamilyMembers *ngIf="current_step == FamilyMembers_step || viewAll" [Step]="FamilyMembers_step"></app-FamilyMembers>
 
-      <app-related-person></app-related-person>
+      <app-related-person *ngIf="current_step == related_person_step || viewAll" [Step]="related_person_step"></app-related-person>
 
-      <app-servicesfamilies></app-servicesfamilies>
+      <app-servicesfamilies *ngIf="current_step == servicesfamilies_step || viewAll" [Step]="servicesfamilies_step"></app-servicesfamilies>
 
-      <app-needyfamiliesfile></app-needyfamiliesfile>
+      <app-needyfamiliesfile *ngIf="current_step == needyfamiliesfile_step || viewAll" [Step]="needyfamiliesfile_step"></app-needyfamiliesfile>
 
 
     </div>

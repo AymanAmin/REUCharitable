@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -18,6 +18,7 @@ export class BankInfoComponent implements OnInit {
   IsReady:boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   BankInfoForm: FormGroup = new FormGroup({});
+  @Input() Step:string = "";
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -70,12 +71,14 @@ export class BankInfoComponent implements OnInit {
     formData.append("Bank_No_1", this.BankInfoForm.get('Bank_No_1')?.value);
     formData.append("Bank_Name_2", this.BankInfoForm.get('Bank_Name_2')?.value);
     formData.append("Bank_No_2", this.BankInfoForm.get('Bank_No_2')?.value);
+    formData.append("Step", this.Step);
 
     this.http.post(environment.baseUrl + '/api/CS/Set/BankInfoData.ashx', formData).subscribe(
       (response) => {
         if (response != "0") {
           this.IsShowMessageUpdate = true;
           this.IsShowMessageError = false;
+          window.location.reload();
           this.router.navigate([this.router.url + '/' + response]);
         }
         else {
