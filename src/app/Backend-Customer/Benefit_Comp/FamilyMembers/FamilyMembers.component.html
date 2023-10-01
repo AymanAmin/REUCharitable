@@ -105,6 +105,12 @@
         </table>
       </div>
 
+      <div class="col-md-3 mb-md-2">
+        <div class="form-outline">
+          <button type="button" [disabled]="!(FamilyMembersList.length > 0)" (click)="NextStep()" style="margin-top: 33px;width: 100%;" class="btn btn-primary">التالي</button>
+        </div>
+      </div>
+
     </form>
   </div>
 </div>

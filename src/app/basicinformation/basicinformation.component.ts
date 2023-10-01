@@ -46,7 +46,6 @@ export class BasicinformationComponent implements OnInit {
       Phone: new FormControl(null, [Validators.required]),
       Email: new FormControl('',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
       Neighborhood: new FormControl(null),
-
     });
   }
 

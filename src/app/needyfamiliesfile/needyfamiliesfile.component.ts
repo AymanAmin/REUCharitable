@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -22,6 +22,7 @@ export class NeedyfamiliesfileComponent implements OnInit {
   PatientMassageForm: FormGroup = new FormGroup({});
   FileList: any;
   Massage: any = "";
+  @Input() Step:string = "";
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -145,6 +146,7 @@ export class NeedyfamiliesfileComponent implements OnInit {
 
     formData.append("CS_Code", this.CS_Code);
     formData.append("PatientMassage", this.PatientMassageForm.get('PatientMassage')?.value);
+    formData.append("Step", this.Step);
 
     console.log(formData);
     this.http.post(environment.baseUrl + '/api/CS/Set/PatientMassage.ashx', formData).subscribe(
@@ -152,6 +154,7 @@ export class NeedyfamiliesfileComponent implements OnInit {
         if (response != "0") {
           this.IsShowMessageUpdate = true;
           this.IsShowMessageError = false;
+          window.location.reload();
           //this.router.navigate(['/Customer/PatientFilesForm/' + response]);
         }
         else {

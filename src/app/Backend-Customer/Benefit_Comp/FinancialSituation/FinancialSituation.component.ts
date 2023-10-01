@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -18,6 +18,7 @@ export class FinancialSituationComponent implements OnInit {
   IsReady:boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   FinancialSituationForm: FormGroup = new FormGroup({});
+  @Input() Step:string = "";
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -80,15 +81,15 @@ export class FinancialSituationComponent implements OnInit {
     formData.append("Social_Insurance", this.FinancialSituationForm.get('Social_Insurance')?.value);
     formData.append("Social_Insurance_2", this.FinancialSituationForm.get('Social_Insurance_2')?.value);
     formData.append("Subsidies", this.FinancialSituationForm.get('Subsidies')?.value);
-    formData.append("Other_Money_Sources", this.FinancialSituationForm.get('Other_Money_Sources')?.value);
-   ;
-    
+    formData.append("Other_Money_Sources", this.FinancialSituationForm.get('Other_Money_Sources')?.value); 
+    formData.append("Step", this.Step); 
   
     this.http.post(environment.baseUrl + '/api/CS/Set/FinancialSituationData.ashx', formData).subscribe(
       (response) => {
         if (response != "0") {
           this.IsShowMessageUpdate = true;
           this.IsShowMessageError = false;
+          window.location.reload();
           this.router.navigate([this.router.url + '/' + response]);
         }
         else {

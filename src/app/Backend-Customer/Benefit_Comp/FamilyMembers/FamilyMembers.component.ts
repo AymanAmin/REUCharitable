@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -18,6 +18,7 @@ export class FamilyMembersComponent implements OnInit {
   IsReady:boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   FamilyMembersForm: FormGroup = new FormGroup({});
+  @Input() Step:string = "";
 
   FamilyMembersList:any;
 
@@ -73,6 +74,7 @@ export class FamilyMembersComponent implements OnInit {
     formData.append("Level_Edu", this.FamilyMembersForm.get('Level_Edu')?.value);
     formData.append("Social_Status", this.FamilyMembersForm.get('Social_Status')?.value);
     formData.append("Health_Status", this.FamilyMembersForm.get('Health_Status')?.value);
+    formData.append("Step", this.Step);
 
     this.http.post(environment.baseUrl + '/api/CS/Set/FamilyMembersData.ashx', formData).subscribe(
       (response) => {
@@ -90,6 +92,25 @@ export class FamilyMembersComponent implements OnInit {
       },
       (error) => console.log(error)
     )
+  }
+
+  NextStep(){
+    var formData: any = new FormData();
+    formData.append("CS_Code", this.CS_Code);
+    formData.append("Step", this.Step);
+
+    this.http.post(environment.baseUrl + '/api/CS/Set/NextStep.ashx', formData).subscribe(
+        (response) => {
+          if (response != "0") {          
+            window.location.reload();
+          }
+          else {
+            this.IsShowMessageUpdate = false;
+            this.IsShowMessageError = true;
+          }
+        },
+        (error) => console.log(error)
+      )
   }
 
 }
