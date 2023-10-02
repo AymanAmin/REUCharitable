@@ -24,7 +24,9 @@ export class RestorationHomeFormComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.getBasicData();
+    console.log(this.CS_Code);
+    if(this.CS_Code != undefined)
+      this.getBasicData();
   }
 
   getBasicData() {

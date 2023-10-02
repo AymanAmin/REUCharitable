@@ -56,7 +56,7 @@ export class BasicInfoComponent implements OnInit {
   }
 
   OnSubmit() {
-    //console.log(this.BasicInfoForm.value);
+    console.log(this.Step);
     var formData: any = new FormData();
     formData.append("CS_Code", this.CS_Code);
     formData.append("Full_Name", this.BasicInfoForm.get('Full_Name')?.value);
@@ -90,8 +90,8 @@ export class BasicInfoComponent implements OnInit {
             this.UserExisted = false;
           this.IsShowMessageUpdate = true;
           this.IsShowMessageError = false;
-          window.location.reload();
-          this.router.navigate([this.router.url.replace(this.CS_Code,"") + '/' + response]);
+          window.location.replace(''+[this.router.url.replace(this.CS_Code,"") + '/' + response]);
+          //this.router.navigate([this.router.url.replace(this.CS_Code,"") + '/' + response]);
         }
         else {
           this.IsShowMessageUpdate = false;
@@ -136,7 +136,8 @@ export class BasicInfoComponent implements OnInit {
         Email: BasicInfoData.Email
       });
     }
-    this.CanUpdateStatus(BasicInfoData.StatusId);  
+    if(BasicInfoData && BasicInfoData.StatusId != undefined)
+        this.CanUpdateStatus(BasicInfoData.StatusId);  
   }
 
   ChangeStatus(value:any){
