@@ -1,6 +1,6 @@
 
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -23,6 +23,8 @@ export class HomeFileComponent implements OnInit {
   PatientMassageForm: FormGroup = new FormGroup({});
   FileList: any;
   Massage: any = "";
+
+  @Input() Step:string = "";
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -92,6 +94,7 @@ export class HomeFileComponent implements OnInit {
       formData.append("CS_Code", this.CS_Code);
       formData.append('file', file);
       formData.append('Type', Type);
+      formData.append("Step", this.Step);
 
       this.http.post(environment.baseUrl + '/api/CS/Set/PatientFilesData.ashx', formData).subscribe(
         (response) => {

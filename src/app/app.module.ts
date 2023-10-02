@@ -64,7 +64,7 @@ import { ProjectEstimatedBudgetComponent } from './Backend-Customer/AssociationS
 import { AS_AttachmentComponent } from './Backend-Customer/AssociationSupport_Comp/AS_Attachment/AS_Attachment.component';
 import { BeneficiariesRequestsComponent } from './Backend/BeneficiariesRequests/BeneficiariesRequests.component';
 import { AssociationRequestsComponent } from './Backend/AssociationRequests/AssociationRequests.component';
-import { RestorationHomeFormComponent } from './restoration-home-form/restoration-home-form.component';
+import { RestorationHomeFormComponent } from './restoration-home-form/RestorationHomeFormComponent';
 import { BasicinformationComponent } from './basicinformation/basicinformation.component';
 import { HomeInfoComponent } from './home-info/home-info.component';
 import { HomeFileComponent } from './home-file/home-file.component';

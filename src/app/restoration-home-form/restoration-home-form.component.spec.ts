@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RestorationHomeFormComponent } from './restoration-home-form.component';
+import { RestorationHomeFormComponent } from './RestorationHomeFormComponent';
 
 describe('RestorationHomeFormComponent', () => {
   let component: RestorationHomeFormComponent;

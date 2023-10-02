@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -19,7 +19,7 @@ export class HomeInfoComponent implements OnInit {
   CS_Code:string = this.route.snapshot.params['id'];
 
   BasicInfoForm: FormGroup = new FormGroup({});
-
+  @Input() Step:string = "";
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit()
@@ -57,6 +57,7 @@ export class HomeInfoComponent implements OnInit {
     formData.append("Housing_look", this.BasicInfoForm.get('Housing_look')?.value);
     formData.append("Housing_Cost", this.BasicInfoForm.get('Housing_Cost')?.value);
     formData.append("PatientMassage", this.BasicInfoForm.get('PatientMassage')?.value);
+    formData.append("Step", this.Step);
 
 
     this.http.post(environment.baseUrl + '/api/HouseRenovation/Set/HouseInfo.ashx', formData).subscribe(
