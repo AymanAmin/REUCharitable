@@ -17,25 +17,27 @@
         <img class="ImageSlide" src="../../assets/img/تعميم.jpeg" alt="Snow" style="width:90% ; ">
 
 ---------------------------------------->
-      <app-BasicInfo></app-BasicInfo>
+  
+      <app-BasicInfo *ngIf="current_step == BasicInfo_step || viewAll" [Step]="BasicInfo_step"></app-BasicInfo>
 
-      <app-BankInfo></app-BankInfo>
+      <app-BankInfo  *ngIf="current_step == BankInfo_step || viewAll" [Step]="BankInfo_step"></app-BankInfo>
+      
 
-      <app-FinancialSituation></app-FinancialSituation>
+      <app-FinancialSituation *ngIf="current_step == FinancialSituation_step || viewAll" [Step]="FinancialSituation_step"></app-FinancialSituation>
 
-      <app-FamilyMembers></app-FamilyMembers>
+      <app-FamilyMembers  *ngIf="current_step == FamilyMembers_step || viewAll" [Step]="FamilyMembers_step"></app-FamilyMembers>
 
-      <app-PatientHealth></app-PatientHealth>
+     <app-PatientHealth *ngIf="current_step == PatientHealth_step || viewAll" [Step]="PatientHealth_step"></app-PatientHealth>
 
-      <app-PatientNeeds></app-PatientNeeds>
+      <app-PatientNeeds *ngIf="current_step == PatientNeeds_step || viewAll" [Step]="PatientNeeds_step"></app-PatientNeeds>
 
-      <app-OtherPatientConditions></app-OtherPatientConditions>
+      <app-OtherPatientConditions *ngIf="current_step == OtherPatientConditions_step || viewAll" [Step]="OtherPatientConditions_step"></app-OtherPatientConditions>
 
-      <app-OurServices></app-OurServices>
+      <app-OurServices *ngIf="current_step == OurServices_step || viewAll" [Step]="OurServices_step"></app-OurServices>
 
-      <app-OtherServiceProviders></app-OtherServiceProviders>
+      <app-OtherServiceProviders  *ngIf="current_step == OtherServiceProviders_step || viewAll" [Step]="OtherServiceProviders_step"></app-OtherServiceProviders>
 
-      <app-PatientFiles></app-PatientFiles>
+      <app-PatientFiles  *ngIf="current_step == PatientFiles_step || viewAll" [Step]="PatientFiles_step"></app-PatientFiles>
       
 
     </div>

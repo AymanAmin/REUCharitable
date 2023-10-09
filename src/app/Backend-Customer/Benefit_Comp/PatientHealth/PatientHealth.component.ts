@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -17,6 +17,7 @@ export class PatientHealthComponent implements OnInit {
   IsReady:boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   PatientHealthForm: FormGroup = new FormGroup({});
+  @Input() Step:string = "";
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -33,7 +34,7 @@ export class PatientHealthComponent implements OnInit {
   CreateForm() {
     this.PatientHealthForm = new FormGroup({
       Disease_Type: new FormControl(null, [Validators.required]),
-      Injury_Date: new FormControl(null, [Validators.required]),
+      Injury_Date: new FormControl(null),
       Hostiptal_Name: new FormControl(null),
       City: new FormControl(null),
       File_No: new FormControl(null),
@@ -99,6 +100,7 @@ export class PatientHealthComponent implements OnInit {
     formData.append("Senses_Speech_Integrity", this.PatientHealthForm.get('Senses_Speech_Integrity')?.value);
     formData.append("Other_Diseases", this.PatientHealthForm.get('Other_Diseases')?.value);
     formData.append("Brief_Medical_Description", this.PatientHealthForm.get('Brief_Medical_Description')?.value);
+    formData.append("Step", this.Step);
 
     this.http.post(environment.baseUrl + '/api/CS/Set/PatientHealthData.ashx', formData).subscribe(
       (response) => {

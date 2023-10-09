@@ -62,6 +62,14 @@ export class HomeFileComponent implements OnInit {
         var jsonInfo = JSON.stringify(data);
         let dataList = JSON.parse(jsonInfo);
         this.fillData(dataList);
+
+        this.IsReady = false;
+        for(let i = 0 ; i < dataList.length; i++)
+        {
+          if(dataList[i].Type == "مستند التعريف")
+           this.IsReady = true;
+        }
+        console.log(dataList);
       }
     )
   }
@@ -94,7 +102,6 @@ export class HomeFileComponent implements OnInit {
       formData.append("CS_Code", this.CS_Code);
       formData.append('file', file);
       formData.append('Type', Type);
-      formData.append("Step", this.Step);
 
       this.http.post(environment.baseUrl + '/api/CS/Set/PatientFilesData.ashx', formData).subscribe(
         (response) => {
@@ -136,7 +143,6 @@ export class HomeFileComponent implements OnInit {
       },
       (error) => console.log(error)
     );
-
   }
 
   OnSubmit() {
@@ -145,6 +151,7 @@ export class HomeFileComponent implements OnInit {
 
     formData.append("CS_Code", this.CS_Code);
     formData.append("PatientMassage", this.PatientMassageForm.get('PatientMassage')?.value);
+    formData.append("Step", this.Step);
 
     console.log(formData);
     this.http.post(environment.baseUrl + '/api/CS/Set/PatientMassage.ashx', formData).subscribe(

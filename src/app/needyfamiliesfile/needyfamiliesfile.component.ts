@@ -62,6 +62,14 @@ export class NeedyfamiliesfileComponent implements OnInit {
         var jsonInfo = JSON.stringify(data);
         let dataList = JSON.parse(jsonInfo);
         this.fillData(dataList);
+
+        this.IsReady = false;
+        for(let i = 0 ; i < dataList.length; i++)
+        {
+          if(dataList[i].Type == "مستند التعريف")
+           this.IsReady = true;
+        }
+        console.log(dataList);
       }
     )
   }

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -18,6 +18,7 @@ export class OurServicesComponent implements OnInit {
   IsReady:boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   OurServicesForm: FormGroup = new FormGroup({});
+  @Input() Step:string = "";
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -43,6 +44,7 @@ export class OurServicesComponent implements OnInit {
       BillS_Serves: new FormControl(false),
       WinterClothing: new FormControl(false),
       OtherServices: new FormControl("")
+      
         });
   }
 
@@ -88,6 +90,7 @@ export class OurServicesComponent implements OnInit {
     formData.append("OtherServices", this.OurServicesForm.get('OtherServices')?.value);
     formData.append("BillS_Serves", this.OurServicesForm.get('BillS_Serves')?.value);
     formData.append("WinterClothing", this.OurServicesForm.get('WinterClothing')?.value);
+    formData.append("Step", this.Step);
     console.log(formData);
     this.http.post(environment.baseUrl + '/api/CS/Set/OurServicesData.ashx', formData).subscribe(
       (response) => {

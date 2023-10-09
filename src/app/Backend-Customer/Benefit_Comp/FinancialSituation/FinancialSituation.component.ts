@@ -36,8 +36,10 @@ export class FinancialSituationComponent implements OnInit {
   CreateForm() {
     this.FinancialSituationForm = new FormGroup(
         {
-      Salary: new FormControl(null, [Validators.required]),
-      Retirement: new FormControl(null, [Validators.required]),
+    
+      Net_Income: new FormControl(null, [Validators.required]),
+      Salary: new FormControl(null),
+      Retirement: new FormControl(null),
       Social_Insurance: new FormControl(null),
       Social_Insurance_2: new FormControl(null),
       Subsidies: new FormControl(null),

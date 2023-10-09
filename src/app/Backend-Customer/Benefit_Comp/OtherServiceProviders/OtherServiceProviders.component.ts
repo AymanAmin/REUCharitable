@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -17,6 +17,7 @@ export class OtherServiceProvidersComponent implements OnInit {
   IsReady:boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   OtherServiceProvidersForm: FormGroup = new FormGroup({});
+  @Input() Step:string = "";
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -81,6 +82,7 @@ export class OtherServiceProvidersComponent implements OnInit {
     formData.append("Comprehensive_Rehabilitation_Center", this.OtherServiceProvidersForm.get('Comprehensive_Rehabilitation_Center')?.value);
     formData.append("Social_Insurance", this.OtherServiceProvidersForm.get('Social_Insurance')?.value);
     formData.append("OtherServicesProvider", this.OtherServiceProvidersForm.get('OtherServicesProvider')?.value);
+    formData.append("Step", this.Step);
   
 
     //console.log(formData);

@@ -65,7 +65,8 @@ export class HomeInfoComponent implements OnInit {
         if (response != "0") {
           this.IsShowMessageUpdate = true;
           this.IsShowMessageError = false;
-          this.router.navigate([this.router.url + '/' + response]);
+          window.location.reload();
+          //this.router.navigate([this.router.url + '/' + response]);
         }
         else {
           this.IsShowMessageUpdate = false;

@@ -34,6 +34,7 @@ export class RestorationHomeFormComponent implements OnInit {
       data => {
         var jsonInfo = JSON.stringify(data);
         var MainInfoData = JSON.parse(jsonInfo);
+        console.log(MainInfoData[0].Step)
         const myArray = MainInfoData[0].Step.split("-");
 
         let last_step = parseInt(myArray[1]) + 1;

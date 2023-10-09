@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -17,6 +17,7 @@ export class OtherPatientConditionsComponent implements OnInit {
   IsReady:boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   OtherPatientConditionsForm: FormGroup = new FormGroup({});
+  @Input() Step:string = "";
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -70,6 +71,7 @@ export class OtherPatientConditionsComponent implements OnInit {
     formData.append("Special_Patient_Supplies", this.OtherPatientConditionsForm.get('Special_Patient_Supplies')?.value);
     formData.append("Patient_Travel_Outside", this.OtherPatientConditionsForm.get('Patient_Travel_Outside')?.value);
     formData.append("Nutrition_Food", this.OtherPatientConditionsForm.get('Nutrition_Food')?.value);
+    formData.append("Step", this.Step);
 
     this.http.post(environment.baseUrl + '/api/CS/Set/OtherPatientConditionsData.ashx', formData).subscribe(
       (response) => {

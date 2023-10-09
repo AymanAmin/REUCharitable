@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -18,6 +18,7 @@ export class PatientNeedsComponent implements OnInit {
   IsReady:boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   PatientNeedsForm: FormGroup = new FormGroup({});
+  @Input() Step:string = "";
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -86,6 +87,7 @@ export class PatientNeedsComponent implements OnInit {
     formData.append("Auxiliary_Devices", this.PatientNeedsForm.get('Auxiliary_Devices')?.value);
     formData.append("Psychological_Support", this.PatientNeedsForm.get('Psychological_Support')?.value);
     formData.append("Other_Needs", this.PatientNeedsForm.get('Other_Needs')?.value);
+    formData.append("Step", this.Step);
 
     this.http.post(environment.baseUrl + '/api/CS/Set/PatientNeedsData.ashx', formData).subscribe(
       (response) => {
