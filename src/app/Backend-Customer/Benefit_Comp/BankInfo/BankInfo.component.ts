@@ -79,7 +79,7 @@ export class BankInfoComponent implements OnInit {
           this.IsShowMessageUpdate = true;
           this.IsShowMessageError = false;
           window.location.reload();
-          this.router.navigate([this.router.url + '/' + response]);
+          //this.router.navigate([this.router.url + '/' + response]);
         }
         else {
           this.IsShowMessageUpdate = false;
