@@ -18,7 +18,8 @@ export class PatientNeedsComponent implements OnInit {
   IsReady:boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   PatientNeedsForm: FormGroup = new FormGroup({});
-  @Input() Step:string = "";
+ @Input() Step:string = "";
+
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -90,18 +91,19 @@ export class PatientNeedsComponent implements OnInit {
     formData.append("Step", this.Step);
 
     this.http.post(environment.baseUrl + '/api/CS/Set/PatientNeedsData.ashx', formData).subscribe(
-      (response) => {
-        if (response != "0") {
-          this.IsShowMessageUpdate = true;
-          this.IsShowMessageError = false;
-          this.router.navigate([this.router.url + '/' + response]);
-        }
-        else {
-          this.IsShowMessageUpdate = false;
-          this.IsShowMessageError = true;
-        }
-      },
-      (error) => console.log(error)
+        (response) => {
+            if (response != "0") {
+              this.IsShowMessageUpdate = true;
+              this.IsShowMessageError = false;
+              window.location.reload();
+              this.router.navigate([this.router.url + '/' + response]);
+            }
+            else {
+              this.IsShowMessageUpdate = false;
+              this.IsShowMessageError = true;
+            }
+          },
+          (error) => console.log(error)
     )
   }
 

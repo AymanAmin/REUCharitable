@@ -63,6 +63,7 @@ export class FinancialSituationComponent implements OnInit {
     var FinancialSituationData = Data[0];
     if (FinancialSituationData)
       this.FinancialSituationForm.patchValue({
+        Net_Income: FinancialSituationData.Net_Income,
         Salary: FinancialSituationData.Salary,
         Retirement: FinancialSituationData.Retirement,
         Social_Insurance: FinancialSituationData.Social_Insurance,
@@ -78,6 +79,7 @@ export class FinancialSituationComponent implements OnInit {
     console.log(this.FinancialSituationForm.value);
     var formData: any = new FormData();
     formData.append("CS_Code", this.CS_Code);
+    formData.append("Net_Income", this.FinancialSituationForm.get('Net_Income')?.value);
     formData.append("Salary", this.FinancialSituationForm.get('Salary')?.value);
     formData.append("Retirement", this.FinancialSituationForm.get('Retirement')?.value);
     formData.append("Social_Insurance", this.FinancialSituationForm.get('Social_Insurance')?.value);

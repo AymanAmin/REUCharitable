@@ -18,7 +18,7 @@ export class FamilyMembersComponent implements OnInit {
   IsReady:boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   FamilyMembersForm: FormGroup = new FormGroup({});
-  @Input() Step:string = "";
+  @Input() Step:string ="";
 
   FamilyMembersList:any;
 
@@ -77,20 +77,19 @@ export class FamilyMembersComponent implements OnInit {
     formData.append("Step", this.Step);
 
     this.http.post(environment.baseUrl + '/api/CS/Set/FamilyMembersData.ashx', formData).subscribe(
-      (response) => {
-        if (response != "0") {
-          this.IsShowMessageUpdate = true;
-          this.IsShowMessageError = false;
-          this.CreateForm();
-          this.getData();
-          //this.router.navigate(['/Customer/InstitutionBenefitForm/' + response]);
-        }
-        else {
-          this.IsShowMessageUpdate = false;
-          this.IsShowMessageError = true;
-        }
-      },
-      (error) => console.log(error)
+        (response) => {
+            if (response != "0") {
+              this.IsShowMessageUpdate = true;
+              this.IsShowMessageError = false;
+              window.location.reload();
+              this.router.navigate([this.router.url + '/' + response]);
+            }
+            else {
+              this.IsShowMessageUpdate = false;
+              this.IsShowMessageError = true;
+            }
+          },
+          (error) => console.log(error)
     )
   }
 

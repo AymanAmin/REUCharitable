@@ -74,18 +74,19 @@ export class OtherPatientConditionsComponent implements OnInit {
     formData.append("Step", this.Step);
 
     this.http.post(environment.baseUrl + '/api/CS/Set/OtherPatientConditionsData.ashx', formData).subscribe(
-      (response) => {
-        if (response != "0") {
-          this.IsShowMessageUpdate = true;
-          this.IsShowMessageError = false;
-          this.router.navigate([this.router.url + '/' + response]);
-        }
-        else {
-          this.IsShowMessageUpdate = false;
-          this.IsShowMessageError = true;
-        }
-      },
-      (error) => console.log(error)
+        (response) => {
+            if (response != "0") {
+              this.IsShowMessageUpdate = true;
+              this.IsShowMessageError = false;
+              window.location.reload();
+              this.router.navigate([this.router.url + '/' + response]);
+            }
+            else {
+              this.IsShowMessageUpdate = false;
+              this.IsShowMessageError = true;
+            }
+          },
+          (error) => console.log(error)
     )
   }
 

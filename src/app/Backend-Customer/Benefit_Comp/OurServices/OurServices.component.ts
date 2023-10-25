@@ -93,18 +93,19 @@ export class OurServicesComponent implements OnInit {
     formData.append("Step", this.Step);
     console.log(formData);
     this.http.post(environment.baseUrl + '/api/CS/Set/OurServicesData.ashx', formData).subscribe(
-      (response) => {
-        if (response != "0") {
-          this.IsShowMessageUpdate = true;
-          this.IsShowMessageError = false;
-          this.router.navigate([this.router.url + '/' + response]);
-        }
-        else {
-          this.IsShowMessageUpdate = false;
-          this.IsShowMessageError = true;
-        }
-      },
-      (error) => console.log(error)
+        (response) => {
+            if (response != "0") {
+              this.IsShowMessageUpdate = true;
+              this.IsShowMessageError = false;
+              window.location.reload();
+              this.router.navigate([this.router.url + '/' + response]);
+            }
+            else {
+              this.IsShowMessageUpdate = false;
+              this.IsShowMessageError = true;
+            }
+          },
+          (error) => console.log(error)
     )
   }
 
