@@ -4,8 +4,16 @@
         <button type="button" (click)="ChangeStatus(2)" class="btn btn-info text-white">تمت الدراسة</button>
         <button type="button" (click)="ChangeStatus(4)" class="btn btn-danger mx-2">غير مكتمل</button>
         <button type="button" (click)="ChangeStatus(5)" class="btn btn-dark mx-2">الدعم متوقف</button>
-    </div>
+   <div class="col-md-12 mb-md-2">
+   <textarea rows="3" class="form-control" style="height: 100px ; "  [(ngModel)]="Staff_Note" ></textarea>
 </div>
+</div>
+</div>
+
+<div class="alert alert-info text-danger" role="alert" *ngIf="Staff_Note && !IsLogin">
+   {{Staff_Note}}
+  </div>
+
 <div class="row col-md-2 mb-3 mx-2" style="float: left;" *ngIf="UpdateStat2">
     <button type="button" (click)="ChangeStatus(3)" class="btn btn-warning">تمت الصرف</button>
 </div>
@@ -14,6 +22,7 @@
         <span style="float: left;font-weight: bolder;">تاريخ التقديم
             : <span>{{CreationDate|date :'medium'}}</span></span>
     </div>
+
     <div class="card-body">
         <div class="row">
             <div class="col-12 text-danger">

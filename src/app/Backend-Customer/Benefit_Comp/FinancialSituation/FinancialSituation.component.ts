@@ -20,6 +20,7 @@ export class FinancialSituationComponent implements OnInit {
   FinancialSituationForm: FormGroup = new FormGroup({});
   @Input() Step:string = "";
 
+
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {

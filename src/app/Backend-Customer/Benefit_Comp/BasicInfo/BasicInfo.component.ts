@@ -21,9 +21,14 @@ export class BasicInfoComponent implements OnInit {
   IsLogin: boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   CreationDate: string = new Date().toISOString().slice(0, 10);
-
   BasicInfoForm: FormGroup = new FormGroup({});
   @Input() Step:string = "";
+
+  Staff_NoteForm: FormGroup = new FormGroup({});
+  Massage: any = "";
+  Staff_Note: string  = "";
+  Endorsement_value: boolean = false;
+  IsReady: boolean = false;
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -53,9 +58,14 @@ export class BasicInfoComponent implements OnInit {
       Email: new FormControl(''),
       //Email: new FormControl('',[Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
     });
+
+
+
   }
 
+
   OnSubmit() {
+    //console.log(this.Staff_NoteForm.value);
     console.log(this.Step);
     var formData: any = new FormData();
     formData.append("CS_Code", this.CS_Code);
@@ -79,6 +89,9 @@ export class BasicInfoComponent implements OnInit {
     formData.append("FormName", this.router.url);
     formData.append("UpdateStatus", false);
     formData.append("Step", this.Step);
+
+    //formData.append("Staff_Note", this.Staff_NoteForm.get('Staff_Note')?.value);
+
     this.http.post(environment.baseUrl + '/api/CS/Set/BasicInfoData.ashx', formData).subscribe(
       (response) => {
         console.log(response);
@@ -114,6 +127,7 @@ export class BasicInfoComponent implements OnInit {
 
   fillData(Data: any) {
     var BasicInfoData =  Data[0]
+    this.Staff_Note = Data[0].Staff_Note;
     if (BasicInfoData){
         this.CreationDate = BasicInfoData.DateCreation;
         this.BasicInfoForm.patchValue({
@@ -145,6 +159,9 @@ export class BasicInfoComponent implements OnInit {
     formData.append("CS_Code", this.CS_Code);
     formData.append("UpdateStatus", true);
     formData.append("StatusValue", value);
+    formData.append("Staff_Note", this.Staff_Note);
+    //console.log( this.Staff_Note);
+   // return;
 
     this.http.post(environment.baseUrl + '/api/CS/Set/BasicInfoData.ashx', formData).subscribe(
         (response) => {
@@ -156,7 +173,8 @@ export class BasicInfoComponent implements OnInit {
                 this.UserExisted = false;
                 this.IsShowMessageUpdate = true;
                 this.IsShowMessageError = false;
-                this.router.navigate(['/Customer/InstitutionBenefitForm/' + response]);
+                window.location.reload();
+                //this.router.navigate(['/Customer/InstitutionBenefitForm/' + response]);
             }
             else {
               this.IsShowMessageUpdate = false;
@@ -175,6 +193,8 @@ export class BasicInfoComponent implements OnInit {
             this.UpdateStat = true;
         else if (StatusID == 2 && this.IsLogin)
             this.UpdateStat2 = true;
+            else if (StatusID == 4 && this.IsLogin)
+            this.UpdateStat = true;
     }
 
   CheckIfLogin(){
