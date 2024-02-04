@@ -100,6 +100,7 @@
       <table class="table table-bordered">
         <thead>
           <tr>
+            <th>صافي الدخل</th>
             <th>الراتب</th>
             <th>التقاعد</th>
             <th>التأمينات الاجتماعية</th>
@@ -110,6 +111,7 @@
         </thead>
         <tbody>
           <tr>
+            <td>{{FinancialSituation.Net_Income =='null'?'':FinancialSituation.Net_Income}}</td>
             <td>{{FinancialSituation.Salary =='null'?'':FinancialSituation.Salary}}</td>
             <td>{{FinancialSituation.Retirement =='null'?'':FinancialSituation.Retirement}}</td>
             <td>{{FinancialSituation.Social_Insurance =='null'?'':FinancialSituation.Social_Insurance}}</td>
