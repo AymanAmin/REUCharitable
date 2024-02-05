@@ -62,7 +62,7 @@
                           </thead>
                           <tbody>
                             <tr *ngFor="let item of FormList | filter:RequsetStatus | filter: RequsetType" [ngClass]="{d_none: item.StatusId == 6}">
-                              <td>{{item.Full_Name}} {{item.StatusId }}</td>
+                              <td>{{item.Full_Name}}</td>
                               <td>{{item.Identify_Id}}</td>
                               <td>{{item.Phone}}</td>
                               <td>{{item.Nationalty}}</td>
