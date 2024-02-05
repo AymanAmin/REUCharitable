@@ -61,17 +61,17 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr *ngFor="let item of FormList | filter:RequsetStatus | filter: RequsetType">
-                              <td>{{item.Full_Name}}</td>
+                            <tr *ngFor="let item of FormList | filter:RequsetStatus | filter: RequsetType" [ngClass]="{d_none: item.StatusId == 6}">
+                              <td>{{item.Full_Name}} {{item.StatusId }}</td>
                               <td>{{item.Identify_Id}}</td>
                               <td>{{item.Phone}}</td>
                               <td>{{item.Nationalty}}</td>
                               <td>{{item.FormType}}</td>
                               <td><span class="badge badge-{{item.StatuColor}}">{{item.StatusName}}</span></td>
-                              <td>
-                                <a  target="_blank" href="Report/SupportNeedyFamilies/{{item.CS_Code}}" class="ms-4"  ><i class="fa fa-print text-dark" aria-hidden="true"></i></a>
-                                <a class="ms-4" target="_blank" href="{{item.FormName}}" ><i class="fa fa-edit text-success" aria-hidden="true"></i></a>
-                                <span  target="_blank" (click)="Delete(item.CS_Code)" class="ms-4"  ><i class="fa fa-trash text-danger" aria-hidden="true"></i></span>
+                              <td style="width: 120px;">
+                                <a  target="_blank" href="Report/SupportNeedyFamilies/{{item.CS_Code}}" class="pe-2"  ><i class="fa fa-print text-dark" aria-hidden="true"></i></a>
+                                <a class="mx-2" target="_blank" href="{{item.FormName}}" ><i class="fa fa-edit text-success" aria-hidden="true"></i></a>
+                                <span  target="_blank" (click)="Delete(item.CS_Code)" class="ms-2"  ><i class="fa fa-trash text-danger" aria-hidden="true"></i></span>
 
                               </td>
                             </tr>

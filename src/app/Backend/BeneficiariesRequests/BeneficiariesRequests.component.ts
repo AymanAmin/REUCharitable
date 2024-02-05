@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 export class BeneficiariesRequestsComponent implements OnInit {
 
   FormList:any;
+  FinalFormList:any;
   RequsetStatus:any = "";RequsetType:any = "";
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -19,7 +20,6 @@ export class BeneficiariesRequestsComponent implements OnInit {
   }
 
   fillData(Data: any) {
-    console.log(Data);
     this.FormList = Data;
   }
 

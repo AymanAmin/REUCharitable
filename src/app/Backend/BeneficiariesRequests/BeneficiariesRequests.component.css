@@ -58,3 +58,7 @@
   background-color: gray !important;
   border-color: gray !important;
 }
+
+.d_none{
+  display: none;
+}
