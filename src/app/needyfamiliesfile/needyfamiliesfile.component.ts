@@ -90,6 +90,7 @@ export class NeedyfamiliesfileComponent implements OnInit {
 
   fillDataMassage(Data: any) {
     //console.log(Data[0].PatientMassage);
+    if(Data.length > 0)
     this.Massage = Data[0].PatientMassage;
   }
 

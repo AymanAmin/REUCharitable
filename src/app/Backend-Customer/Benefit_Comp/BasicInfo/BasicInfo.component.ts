@@ -66,7 +66,7 @@ export class BasicInfoComponent implements OnInit {
 
   OnSubmit() {
     //console.log(this.Staff_NoteForm.value);
-    console.log(this.Step);
+    //console.log(this.Step);
     var formData: any = new FormData();
     formData.append("CS_Code", this.CS_Code);
     formData.append("Full_Name", this.BasicInfoForm.get('Full_Name')?.value);
@@ -187,14 +187,17 @@ export class BasicInfoComponent implements OnInit {
 
   
     CanUpdateStatus(StatusID: any) {
+        //alert(StatusID);
         // Can Update Status
         this.CheckIfLogin();
         if (StatusID == 1 && this.IsLogin)
             this.UpdateStat = true;
         else if (StatusID == 2 && this.IsLogin)
             this.UpdateStat2 = true;
-            else if (StatusID == 4 && this.IsLogin)
+        else if (StatusID == 4 && this.IsLogin)
             this.UpdateStat = true;
+            else if (StatusID == 5 && this.IsLogin)
+       this.UpdateStat = true;
     }
 
   CheckIfLogin(){

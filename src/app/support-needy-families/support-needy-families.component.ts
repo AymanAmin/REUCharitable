@@ -37,8 +37,8 @@ export class SupportNeedyFamiliesComponent implements OnInit {
         const myArray = MainInfoData[0].Step.split("-");
 
         let last_step = parseInt(myArray[1]) + 1;
-        if(last_step == 8)
-         this.viewAll = true;
+        if(last_step == 8 || localStorage.getItem("token") != null)
+          this.viewAll = true;
 
          this.current_step = myArray[0] + "-"+ last_step;
       }
