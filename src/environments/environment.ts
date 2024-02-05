@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
- baseUrl:"https://arp.org.sa/"
- //baseUrl:"https://localhost:44310"
+ //baseUrl:"https://arp.org.sa/"
+ baseUrl:"https://localhost:44310"
 };
 
 /*

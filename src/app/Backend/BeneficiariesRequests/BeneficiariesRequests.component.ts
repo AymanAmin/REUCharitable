@@ -24,7 +24,7 @@ export class BeneficiariesRequestsComponent implements OnInit {
   }
 
   LoadData(){
-    this.http.get(environment.baseUrl + '/api/CS/Get/BeneficiariesRequests.ashx?RequsetStatus').subscribe(
+    this.http.get(environment.baseUrl + '/api/CS/Get/BeneficiariesRequests.ashx').subscribe(
       data => {
         var jsonInfo = JSON.stringify(data);
         let MainInfoData = JSON.parse(jsonInfo);
