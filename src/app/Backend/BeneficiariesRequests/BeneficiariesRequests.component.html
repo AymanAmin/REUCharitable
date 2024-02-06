@@ -68,11 +68,11 @@
                               <td>{{item.Nationalty}}</td>
                               <td>{{item.FormType}}</td>
                               <td><span class="badge badge-{{item.StatuColor}}">{{item.StatusName}}</span></td>
+
                               <td style="width: 120px;">
                                 <a  target="_blank" href="Report/SupportNeedyFamilies/{{item.CS_Code}}" class="pe-2"  ><i class="fa fa-print text-dark" aria-hidden="true"></i></a>
                                 <a class="mx-2" target="_blank" href="{{item.FormName}}" ><i class="fa fa-edit text-success" aria-hidden="true"></i></a>
                                 <span  target="_blank" (click)="Delete(item.CS_Code)" class="ms-2"  ><i class="fa fa-trash text-danger" aria-hidden="true"></i></span>
-
                               </td>
                             </tr>
                           </tbody>

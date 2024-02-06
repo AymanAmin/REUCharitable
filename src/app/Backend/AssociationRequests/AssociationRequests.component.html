@@ -31,6 +31,8 @@
                               <option value="تحت دراسة">تحت الدراسة</option>
                               <option value="تم الدعم">تم الدعم</option>
                               <option value="غير مكتمل">غير مكتمل</option>
+                              <option value="أرشيف">أرشيف</option>
+
                             </select>
                           </div>
                         </div>
@@ -55,23 +57,21 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let item of FormList | filter:RequsetStatus | filter: RequsetType">
+                          <tr *ngFor="let item of FormList | filter:RequsetStatus | filter: RequsetType" [ngClass]="{d_none: item.StatusId == 6}">
                             <td>{{item.AssociationName}}</td>
                             <td>{{item.LicenseNumber}}</td>
                             <td>{{item.AssemblySpecialty}}</td>
                             <td>{{item.DateCreation}}</td>
                             <td><span class="badge badge-{{item.StatuColor}}">{{item.StatusName}}</span></td>
                             <!--        <td></td>-->
-                            <td>
+                            <td style="width: 120px;">
                               <a target="_blank" href="Report/AssociationSupport_Rp/{{item.CS_Code}}" class="mx-5"><i
                                   class="fa fa-print text-dark" aria-hidden="true"></i> </a>
-
                               <a target="_blank" href="../Customer/AssociationSupport/{{item.CS_Code}}"><i
                                   class="fa fa-edit text-success" aria-hidden="true"></i></a>
                               <span (click)="Delete(item.CS_Code)" class="mx-5"><i class="fa fa-trash text-danger"
                                   aria-hidden="true"></i></span>
                             </td>
-
                           </tr>
                         </tbody>
                       </table>
