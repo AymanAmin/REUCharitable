@@ -3,7 +3,7 @@
   <div class="container">
 
     <div class="vedioplayer mb-5" >
-  <section class="about-area abouts-areas ptb-100 two" style="background: white;">
+    <section class="about-area abouts-areas ptb-100 two" style="background: white;">
         <div class="container">
           <div class="row align-items-baseline">
 
@@ -45,18 +45,17 @@
       <p class="mb-3">#برومو | #لقطات متنوعه من حفل البرفسور عبد الله ركيب الرمال لتكريم البرفسور فواز الشيحي بفندق الملينيوم #حائل الثلاثاء 02/12/1444 هـ الموافق 20/6/2023م</p>
     </div>
              </div>
-
   </div>
   </div>
 </section>
     </div>
 
-    <section>
+  <section>
       <div class="section-title">
           <span><h2>أخر الاخبار</h2></span>
       </div>
       <div class="row">
-          <div class="col-lg-4 col-md-8" *ngFor="let news of LastNews | slice:0:2">
+        <div class="col-lg-4 col-md-8" *ngFor="let news of LastNews | slice:0:2">
               <div class="single-news">
                   <div class="news-img">
                       <a routerLink="news/deatils/{{news.id}}" style="width: 100%;">
@@ -71,7 +70,6 @@
                           <li>
                               <i style="color: #76b430;" aria-hidden="true" class="fas fa-user"></i>
                               بواسطة
-
                               <a href="#">{{news.publishBy}}</a>
                           </li>
                           <li>
@@ -87,35 +85,37 @@
                      </a>
                   </div>
               </div>
-          </div>
-          <div class="col-lg-1 col-md-1"></div>
+         </div>
+
           <div class="col-lg-3 col-md-3"  style="max-height: 455px;overflow-y: scroll;overflow-x: hidden; ">
             <a class="twitter-timeline" href="https://twitter.com/arp_org_sa?ref_src=twsrc%5Etfw">Tweets by arp_org_sa</a>
           </div>
+
           <div class ="col-md-12">
           <p>لمشاهدة جميع الاخبار <a routerLink="/News" style="color:#76b430">اضغط هنا</a></p>
+          </div>
         </div>
-      </div>
   </section>
-<br><br><br><br>
 
-  <div class="content">
+<br><br>
 
-      <div class="card">
+
+
+<div class="card">
           <div class="firstinfo"><img src="../../assets/img/dr.ahad.jpg" />
               <div class="profileinfo">
+                <br>
                 <h1>الدكتور/ فهد عبدالله الشمري</h1>
-                <br>
-                <h3>المدير التنفيذي المكلف</h3>
-                <br>
-              <i class="fa fa-phone" aria-hidden="true"></i>  0555191988
-                <br><br>
-               <i class="fa fa-envelope" aria-hidden="true"></i>  info@arp.org.sa
+                <h2>المدير التنفيذي المكلف</h2>
 
+             <h4> <i class="fa fa-phone" aria-hidden="true"></i>  0555191988
+                <br>
+               <i class="fa fa-envelope" aria-hidden="true"></i>  info@arp.org.sa
+              </h4>
               </div>
           </div>
-      </div>
-  </div>
+        </div>
 
-
+</div>
+</section>
 <!-- End Latest News Area -->
