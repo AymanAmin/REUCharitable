@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -16,12 +16,14 @@ export class BaiscBankInfoComponent implements OnInit {
   IsShowMessageError: boolean = false;
   userSubmitted: boolean = false;
   IsReady:boolean = false;
+  @Input() ShowBank :boolean = true;
 
   UpdateStat: boolean = false;
   UpdateStat2: boolean = false;
   IsLogin: boolean = false;
   CS_Code:string = this.route.snapshot.params['id'];
   BasicBankInfoForm: FormGroup = new FormGroup({});
+
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -41,8 +43,8 @@ export class BaiscBankInfoComponent implements OnInit {
       LicenseNumber: new FormControl(null, [Validators.required]),
       AssemblySpecialty: new FormControl(null, [Validators.required]),
       DateOfEstablishment: new FormControl(null, [Validators.required]),
-      Bank_Name_1: new FormControl(null, [Validators.required]),
-      Bank_No_1: new FormControl('SA', [Validators.required]),
+      Bank_Name_1: new FormControl(null, this.ShowBank ? [Validators.required] : []),
+      Bank_No_1: new FormControl('SA', this.ShowBank ? [Validators.required] : []),
       Bank_Name_2: new FormControl(null),
       Bank_No_2: new FormControl('SA'),
       ProjectsLastYear: new FormControl(null),

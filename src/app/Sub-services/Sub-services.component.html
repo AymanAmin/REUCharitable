@@ -1,0 +1,41 @@
+<!-- Start Page Title Area -->
+<section class="organaization-area ptb-100">
+  <div class="page-title-area ">
+    <div class="container">
+        <div class="page-title-content">
+            <h2>عن المؤسسة</h2>
+
+        </div>
+    </div>
+  </div>
+  <!-- End Page Title Area -->
+<!---
+<section>
+<app-objectiv></app-objectiv>
+</section>
+--->
+<!-- Start Services Area-->
+<section class="good-causes-area two ptb-50-70">
+  <div class="container">
+    <div class="section-title">
+      <br> <br>
+
+    </div>
+    <div class="row">
+      <div *ngFor="let SubServices of ServicesList" class="col-lg-4 col-md-6">
+        <div class="single-good-causes two">
+          <i class="{{SubServices.Icon}}" [style.color]="SubServices.ColorIcon" style="font-size: 40px;"></i>
+          <h3>{{SubServices.Name}}</h3>
+          <p>{{SubServices.Deatils}}</p>
+          <a class="read-more" href="{{SubServices.Link}}">عرض المزيد
+          </a>
+          <div class="shape-icon">
+            <i class="{{SubServices.Icon}}" [style.color]="SubServices.ColorIcon" style="font-size: 40px;"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--End Services Area -->
+</section>

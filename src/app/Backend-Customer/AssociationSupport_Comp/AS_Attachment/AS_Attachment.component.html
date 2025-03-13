@@ -1,5 +1,5 @@
 <div class="card" style="text-align: right;">
-  <div class="card-header">ترفق الوثائق التالية مع الدراسة</div>
+  <div class="card-header">المرفقات</div>
   <div class="card-body">
     <form class="row" [formGroup]="PatientFilesForm">
 
@@ -17,16 +17,29 @@
         </div>
       </div>
 
-      <div class="col-md-6 mb-md-2">
+    
+      <div class="col-md-8 mb-md-2"*ngIf="ShowAttach" >
         <div class="form-outline">
-          <label class="form-label" for="MinistryOfHumanResourcesLicense">صورة من ترخيص وزارة الموارد البشرية ساري المفعول</label>
+            <strong>
+          <label class="form-label" for="Instruction Manual" style="vertical-align: middle; color: red;"> مرفق الدليل الارشادي لبرنامج الدعم المقدم من مؤسسة عبد الله ركيب الرمال لوالدية للجمعيات الصحية في المملكة
+            <a target="_blank" href="../../assets/Instruction Manual/دعم الجمعيات الصحية بالمملكة بالصور الواجهة.pdf" > (تحميل)</a>
+          </label>
+        </strong>
+      </div>
+    </div>
+
+
+      <div class="col-md-6 mb-md-3">
+        <div class="form-outline">
+          <label class="form-label" for="MinistryOfHumanResourcesLicense">صورة من ترخيص المركز الوطني لتنمية القطاع غير الربحي ساري المفعول</label>
           <input formControlName="MinistryOfHumanResourcesLicense" (change)="onFileChange($any($event).target.files,'MinistryOfHumanResourcesLicense')" accept="application/pdf" type="file" class="form-control">
         </div>
       </div>
 
+
       <div class="col-md-6 mb-md-2">
         <div class="form-outline">
-          <label class="form-label" for="CouncilFormationDecision">صورة من قرار تشكيل مجلس الإدارة</label>
+          <label class="form-label" for="CouncilFormationDecision">صورة من قرار تشكيل مجلس الإدارة            </label>
           <input formControlName="CouncilFormationDecision" (change)="onFileChange($any($event).target.files,'CouncilFormationDecision')" accept="application/pdf"  type="file" class="form-control">
         </div>
       </div>
@@ -38,12 +51,14 @@
         </div>
       </div>
 
-      <div class="col-md-6 mb-md-2">
+      <div class="col-md-6 mb-md-2 "*ngIf="ShowAttachment">
         <div class="form-outline">
           <label class="form-label" for="MeasurementMethods">طرق قياس معدل تنفيذ البرنامج محدده في نموذج مخصص لذلك</label>
           <input formControlName="MeasurementMethods" (change)="onFileChange($any($event).target.files,'MeasurementMethods')" accept="application/pdf" type="file" class="form-control">
         </div>
       </div>
+
+
 
     </form>
 

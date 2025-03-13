@@ -58,7 +58,6 @@
       <div class="mean-bar">
         <a onclick="ChangeClass()" class="meanmenu-reveal"
           style="right: 0px; left: auto; text-align: center; text-indent: 0px; font-size: 18px;"><span><span><span></span></span></span></a>
-
         <nav class="mean-nav">
           <ul class="navbar-nav m-auto" id="mobileMenu" style="display: none;">
             <li class="nav-item">
@@ -122,6 +121,11 @@
             <li class="nav-item">
               <a routerLink="/Customer/InstitutionBenefitForm" class="nav-link" onclick="hideMobileMenu()">نموذج رقم (4) - دعم حالة مرضية</a>
             </li>
+             <!--
+             <li class="nav-item">
+              <a routerLink="/Customer/HealthAssociationsSupport" class="nav-link">نموذج رقم (5) - دعم الجمعيات الصحية</a>
+             </li>
+            -->
             <li class="nav-item">
               <a routerLink="/Customer/CheckResultComponent" class="nav-link" onclick="hideMobileMenu()"> مستفيد موجود مسبقا</a>
             </li>
@@ -137,6 +141,7 @@
               <li class="nav-item">
                 <a routerLink="/Governance2023" class="nav-link" onclick="hideMobileMenu()">حوكمة 2023</a>
                 </li>
+
 <!--
             <li class="nav-item">
               <a routerLink="/Project2022" class="nav-link"> المشاريع المدعومة عام 2022 </a>
@@ -165,9 +170,11 @@
         <img src="../../assets/img/logo11.jpg" style="  margin-top: -10px;" alt="شعار المؤسسة">
       </a>
     </div>
+
+
+
     <!-- Menu For Desktop Device -->
     <div class="nivo-nav-one">
-
       <div class="main-nav">
         <nav class="navbar navbar-expand-md navbar-light">
           <a class="navbar-brand" routerLink="/">
@@ -179,9 +186,14 @@
                 <li class="nav-item">
                   <a routerLink="/" class="nav-link">الرئيسية</a>
                 </li>
+                <!--
+                <li class="nav-item">
+                  <a routerLink="/SubServices" class="nav-link ">عن المؤسسة</a>
+                    </li>
+                  -->
                 <li class="nav-item">
                   <a routerLink="/" class="nav-link dropdown-toggle">عن المؤسسة</a>
-                  <ul class="dropdown-menu">
+                <ul class="dropdown-menu">
                     <li class="nav-item">
                       <a routerLink="/CEOSpeech" class="nav-link">كلمة الرئيس </a>
                     </li>
@@ -195,26 +207,19 @@
                     <li class="nav-item">
                       <a routerLink="/BasicRegulation" class="nav-link">اللائحة الأساسية</a>
                     </li>
-
                     <li class="nav-item">
                       <a routerLink="/registration-certificate" class="nav-link">شهادة الترخيص</a>
                     </li>
-
                   <li class="nav-item" >
                     <a href="../../assets/Visual identity/الهوية البصرية - مؤسسة عبدالله ركيب الرمال لوالديه.pdf "target="_blank" class="nav-link" > الهوية البصرية</a>
                   </li>
-
                   <li class="nav-item">
                   <a routerLink="/policies" class="nav-link" >  السياسات واللوائح </a>
                   </li>
-
                   <li class="nav-item" >
                     <a routerLink="/CommitteesComponent" class="nav-link" > اللجان</a>
                   </li>
                   </ul>
-
-
-                </li>
                 <li class="nav-item">
                   <a routerLink="/" class="nav-link dropdown-toggle">المركز الاعلامي</a>
                   <ul class="dropdown-menu">
@@ -228,7 +233,6 @@
                       <a routerLink="/gallery-vid" class="nav-link"> معرض الفيديوهات</a>
                     </li>
                   </ul>
-
                 </li>
                 <li class="nav-item">
                   <a routerLink="/" class="nav-link dropdown-toggle">الخدمات الاكترونية</a>
@@ -245,6 +249,11 @@
                     <li class="nav-item">
                       <a routerLink="/Customer/InstitutionBenefitForm" class="nav-link">نموذج رقم (4) - دعم حالة مرضية</a>
                     </li>
+                    <!--
+                    <li class="nav-item">
+                      <a routerLink="/Customer/HealthAssociationsSupport" class="nav-link">نموذج رقم (5) - دعم الجمعيات الصحية</a>
+                    </li>
+                    -->
                     <li class="nav-item">
                       <a routerLink="/Customer/CheckResultComponent" class="nav-link"> مستفيد موجود مسبقا</a>
                     </li>
@@ -256,8 +265,6 @@
                     </li>
                   </ul>
                 </li>
-
-
               <li class="nav-item">
                 <a routerLink="/" class="nav-link dropdown-toggle">التقارير </a>
                <ul class="dropdown-menu">
@@ -288,9 +295,11 @@
                     <li class="nav-item">
                       <a routerLink="/Governance2022" class="nav-link">حوكمة 2022</a>
                       <a routerLink="/Governance2023" class="nav-link">حوكمة 2023</a>
+                      <a routerLink="/Governance2024" class="nav-link">حوكمة 2024</a>
                     </li>
                     </ul>
                 </li>
+
 
                 <li class="nav-item">
                   <a routerLink="/" class="nav-link dropdown-toggle"> قياس الرضا</a>
@@ -304,12 +313,13 @@
                     <li class="nav-item">
                       <a href="https://docs.google.com/forms/d/e/1FAIpQLSc68_cCucl7woPJ0x4nWgzuUHzzV2Wkl_OQHYtTrnJ36CAU7g/viewform"target="_blank" class="nav-link"> استبانة قياس رضا العاملين</a>
                     </li>
-
                     </ul>
                 </li>
+
                 <li class="nav-item">
                   <a href="../../assets/img/الوظائف.jpeg ">الوظائف</a>
                 </li>
+
                 <li class="nav-item">
                   <a routerLink="/Contact" class="nav-link">تواصل معنا</a>
                 </li>

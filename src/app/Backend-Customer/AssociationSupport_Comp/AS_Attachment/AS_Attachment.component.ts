@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -15,9 +15,13 @@ export class AS_AttachmentComponent implements OnInit {
   IsShowMessageError: boolean = false;
   userSubmitted: boolean = false;
   IsReady: boolean = false;
+  @Input() ShowAttachment :boolean = true;
+  @Input() ShowAttach :boolean = true;
+
   CS_Code: string = this.route.snapshot.params['id'];
   PatientFilesForm: FormGroup = new FormGroup({});
   FileList: any;
+ 
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) { }
 

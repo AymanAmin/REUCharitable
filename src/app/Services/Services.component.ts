@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './Services.component.html',
   styleUrls: ['./Services.component.css']
 })
-export class ServicesComponent implements OnInit {
+export class ServicesComponent implements OnInit
+{
 
   CustStyle:any= {'font-size': '40px','color': '#7c3c83'};
   ServicesList = [

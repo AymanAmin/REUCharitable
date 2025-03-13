@@ -12,7 +12,7 @@
     <button type="button" (click)="ChangeStatus(3)" class="btn btn-warning">تمت الدعم </button>
 </div>
 <div class="card" style="text-align: right;">
-    <div class="card-header">البيانات الاساسية والحسابات البنكية </div>
+    <div class="card-header">البيانات الاساسية </div>
     <div class="card-body">
         <form class="row" [formGroup]="BasicBankInfoForm" (ngSubmit)="OnSubmit()">
 
@@ -32,7 +32,7 @@
 
             <div class="col-md-6 mb-md-2">
                 <div class="form-outline">
-                    <label class="form-label" for="AssociationName">إسم الجمعية/ المؤسسة</label>
+                    <label class="form-label" for="AssociationName">إسم الجمعية</label>
                     <input type="text" formControlName="AssociationName" class="form-control form-control-sm" />
                 </div>
             </div>
@@ -44,14 +44,14 @@
             </div>
             <div class="col-md-6 mb-md-2">
                 <div class="form-outline">
-                    <label class="form-label" for="AssemblySpecialty">تخصص الجمعية/ المؤسسة</label>
+                    <label class="form-label" for="AssemblySpecialty">تخصص الجمعية</label>
                     <input type="text" formControlName="AssemblySpecialty" class="form-control form-control-sm" />
                 </div>
             </div>
 
             <div class="col-md-6 mb-md-2">
                 <div class="form-outline">
-                    <label class="form-label" for="Email">البريد الالكتروني للجمعية/ المؤسسة</label>
+                    <label class="form-label" for="Email">البريد الالكتروني للجمعية</label>
                     <input type="email" formControlName="Email" class="form-control form-control-sm" />
                 </div>
             </div>
@@ -69,28 +69,28 @@
 
 
 
-            <div class="col-md-3 mb-md-2">
+            <div class="col-md-3 mb-md-2" *ngIf="ShowBank">
                 <div class="form-outline">
                     <label class="form-label" for="Bank_Name_1">إسم البنك</label>
                     <input type="text" formControlName="Bank_Name_1" class="form-control form-control-sm" />
                 </div>
             </div>
 
-            <div class="col-md-9 mb-md-2">
+            <div class="col-md-9 mb-md-2" *ngIf="ShowBank">
                 <div class="form-outline">
                     <label class="form-label" for="Bank_No_1">رقم الحساب</label>
                     <input type="text" formControlName="Bank_No_1" class="form-control form-control-sm" />
                 </div>
             </div>
 
-            <div class="col-md-3 mb-md-2">
+            <div class="col-md-3 mb-md-2" *ngIf="ShowBank">
                 <div class="form-outline">
                     <label class="form-label" for="Bank_Name_2">إسم البنك</label>
                     <input type="text" formControlName="Bank_Name_2" class="form-control form-control-sm" />
                 </div>
             </div>
 
-            <div class="col-md-9 mb-md-2">
+            <div class="col-md-9 mb-md-2" *ngIf="ShowBank">
                 <div class="form-outline">
                     <label class="form-label" for="Bank_No_2">رقم الحساب</label>
                     <input type="text" formControlName="Bank_No_2" class="form-control form-control-sm" />
@@ -98,13 +98,13 @@
             </div>
 
 
-            <div class="col-md-6 mb-md-2">
+            <div class="col-md-6 mb-md-2" *ngIf="ShowBank">
                 <div class="form-outline">
                     <label class="form-label" for="ProjectsLastYear">عدد المشاريع المنفذة العام السابق</label>
                     <input type="number" formControlName="ProjectsLastYear" class="form-control form-control-sm" />
                 </div>
             </div>
-            <div class="col-md-6 mb-md-2">
+            <div class="col-md-6 mb-md-2" *ngIf="ShowBank">
                 <div class="form-outline">
                     <label class="form-label" for="ProjectsNextYear">عدد المشاريع المخطط لها العام الحالى</label>
                     <input type="number" formControlName="ProjectsNextYear" class="form-control form-control-sm" />

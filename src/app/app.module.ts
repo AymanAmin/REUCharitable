@@ -86,6 +86,10 @@ import { FinancialComponent } from './Financial/Financial.component';
 import { Governance2023Component } from './Governance2023/Governance2023.component';
 import { Project2022Component } from './Project2022/Project2022.component';
 import { WorkshopsReportsComponent } from './WorkshopsReports/WorkshopsReports.component';
+import { SubServicesComponent } from './Sub-services/Sub-services.component';
+import { Governance2024Component } from './Governance2022/Governance2024/Governance2024.component';
+import { HealthAssociationsSupportComponent } from './Backend-Customer/HealthAssociationsSupport/HealthAssociationsSupport.component';
+import { HA_SupportTypeComponent} from './Backend-Customer/HA_SupportType/HA_SupportType.Component';
 
 
 const appRoutes: Routes = [
@@ -147,7 +151,11 @@ const appRoutes: Routes = [
   { path: 'FinancialComponent', component: FinancialComponent },
   { path: 'Project2022Component', component: Project2022Component },
   { path: 'WorkshopsReports', component: WorkshopsReportsComponent },
-
+  { path: 'SubServices', component: SubServicesComponent },
+  { path: 'Governance2024', component: Governance2024Component },
+  { path: 'Customer/HealthAssociationsSupport', component: HealthAssociationsSupportComponent },
+  { path: 'Customer/HealthAssociationsSupport/:id', component: HealthAssociationsSupportComponent },
+  { path: 'Customer/HA_SupportType', component: HA_SupportTypeComponent },
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);
@@ -231,7 +239,12 @@ export const routing = RouterModule.forRoot(appRoutes);
     Governance2023Component,
     Project2022Component,
     YearlyReportsComponent,
-      WorkshopsReportsComponent
+    WorkshopsReportsComponent,
+    SubServicesComponent,
+    Governance2024Component,
+    HealthAssociationsSupportComponent,
+    HA_SupportTypeComponent,
+
    ],
 
 
