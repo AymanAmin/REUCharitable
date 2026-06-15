@@ -43,22 +43,20 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td> التقرير السنوي عام 2022م </td>
-                              <td style="vertical-align: middle;text-align: center;"> <a target="_blank" href="../../assets/YearlyReports/report2022.pdf "
-                                class="file-download"> عرض</a> </td>
-                            </tr>
-
-                            <tr>
-                              <td>التقرير السنوي عام2023 م </td>
-                              <td style="vertical-align: middle;text-align: center;"> <a target="_blank" href="../../assets/YearlyReports/report2023.pdf"
+                            <tr *ngFor="let file of listReports">
+                              <td> {{file.name}}</td>
+                              <td style="vertical-align: middle;text-align: center;"> <a target="_blank" href="{{file.imageSrc}} "
                                 class="file-download"> عرض</a> </td>
                             </tr>
 
                           </tbody>
                         </table>
-                        </div>  </div>   </div>  </div>  </div> </div> </div> </div></div>
+                        </div>  </div>   </div>  </div>  </div> </div> </div> </div>
+       </div>
 
 
-  </div>
-</section>
+
+
+
+
+

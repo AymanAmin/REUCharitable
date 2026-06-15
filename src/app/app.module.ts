@@ -90,6 +90,7 @@ import { SubServicesComponent } from './Sub-services/Sub-services.component';
 import { Governance2024Component } from './Governance2022/Governance2024/Governance2024.component';
 import { HealthAssociationsSupportComponent } from './Backend-Customer/HealthAssociationsSupport/HealthAssociationsSupport.component';
 import { HA_SupportTypeComponent} from './Backend-Customer/HA_SupportType/HA_SupportType.Component';
+import { IZOCertificateComponent } from './IZO-certificate/IZO-certificate.component';
 
 
 const appRoutes: Routes = [
@@ -156,6 +157,7 @@ const appRoutes: Routes = [
   { path: 'Customer/HealthAssociationsSupport', component: HealthAssociationsSupportComponent },
   { path: 'Customer/HealthAssociationsSupport/:id', component: HealthAssociationsSupportComponent },
   { path: 'Customer/HA_SupportType', component: HA_SupportTypeComponent },
+    { path: 'IZO-certificate', component: IZOCertificateComponent },
 ]
 
 export const routing = RouterModule.forRoot(appRoutes);
@@ -244,7 +246,7 @@ export const routing = RouterModule.forRoot(appRoutes);
     Governance2024Component,
     HealthAssociationsSupportComponent,
     HA_SupportTypeComponent,
-
+    IZOCertificateComponent
    ],
 
 

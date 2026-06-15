@@ -28,5 +28,7 @@ export class YearlyReportsComponent implements OnInit {
       }
     )
   }
+CustStyle:any= {'font-size': '40px','color': '#7c3c83'};
+
 
 }

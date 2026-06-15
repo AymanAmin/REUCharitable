@@ -12,8 +12,8 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit() {
     // تعيين IsView بناءً على التحقق
-    const startDate = "2025-03-29";
-    const endDate = "2025-04-05";
+    const startDate = "2025-09-22";
+    const endDate = "2025-09-24";
     this.IsView = this.isDateBetween(startDate, endDate);
   }
 
