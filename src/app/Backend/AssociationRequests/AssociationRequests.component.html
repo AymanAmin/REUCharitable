@@ -16,65 +16,97 @@
             <div class="col-12 col-lg-9 col-xl-12">
               <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                 <div class="card-body p-4 p-md-5">
-                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-10" style="color: #76b430;"> قائمة بالجمعيات المسجلة</h3>
+                  <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                    <h3 class="mb-0" style="color: #76b430;"> قائمة بالجمعيات المسجلة</h3>
+                    <button type="button" class="btn btn-success btn-sm export-btn" (click)="ExportToExcel()">
+                      <i class="fa fa-file-excel-o" aria-hidden="true"></i> تصدير إلى Excel
+                    </button>
+                  </div>
                   <hr />
                   <div *ngIf="FormList" class="row">
-                    <div class="col-md-12 mb-md-2 table-responsive">
-                      <hr />
-                      <div class="row">
+                    <div class="col-md-12 mb-md-2">
+                      <div class="row align-items-end">
                         <div class="col-md-3 mb-md-2">
                           <div class="form-outline">
                             <label class="form-label" for="Gander">حالة الطلب</label>
-                            <select class="form-select form-select-sm" [(ngModel)]="RequsetStatus">
+                            <select class="form-select form-select-sm" [(ngModel)]="RequsetStatus" (ngModelChange)="page = 1">
                               <option value="" selected="selected">الكل</option>
                               <option value="طلب جديد">جديد</option>
                               <option value="تحت دراسة">تحت الدراسة</option>
                               <option value="تم الدعم">تم الدعم</option>
                               <option value="غير مكتمل">غير مكتمل</option>
                               <option value="أرشيف">أرشيف</option>
-
                             </select>
                           </div>
                         </div>
                         <div class="col-md-3 mb-md-2">
                           <div class="form-outline">
                             <label class="form-label" for="Gander">نوع الطلب</label>
-                            <select class="form-select form-select-sm" [(ngModel)]="RequsetType">
+                            <select class="form-select form-select-sm" [(ngModel)]="RequsetType" (ngModelChange)="page = 1">
                               <option value="" selected="selected">الكل</option>
                             </select>
                           </div>
                         </div>
+                        <div class="col-md-6 mb-md-2">
+                          <label class="form-label">بحث</label>
+                          <div class="search-box">
+                            <i class="fa fa-search search-icon" aria-hidden="true"></i>
+                            <input type="text" class="form-control form-control-sm" placeholder="ابحث بالاسم، رقم الترخيص، التخصص..."
+                              [(ngModel)]="searchText" (ngModelChange)="page = 1" />
+                          </div>
+                        </div>
                       </div>
-                      <table class="table ">
-                        <thead style="background-color: #92d63dad;color: white;">
-                          <tr>
-                            <th>إسم الجمعية / المؤسسة</th>
-                            <th>رقم الترخيص</th>
-                            <th>التخصص</th>
-                            <th>تاريخ التقديم</th>
-                            <th>الحالة</th>
-                            <th>الأجراءات</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr *ngFor="let item of FormList | filter:RequsetStatus | filter: RequsetType" [ngClass]="{d_none: item.StatusId == 6}">
-                            <td>{{item.AssociationName}}</td>
-                            <td>{{item.LicenseNumber}}</td>
-                            <td>{{item.AssemblySpecialty}}</td>
-                            <td>{{item.DateCreation}}</td>
-                            <td><span class="badge badge-{{item.StatuColor}}">{{item.StatusName}}</span></td>
-                            <!--        <td></td>-->
-                            <td style="width: 120px;">
-                              <a target="_blank" href="Report/AssociationSupport_Rp/{{item.CS_Code}}" class="mx-5"><i
-                                  class="fa fa-print text-dark" aria-hidden="true"></i> </a>
-                              <a target="_blank" href="../Customer/AssociationSupport/{{item.CS_Code}}"><i
-                                  class="fa fa-edit text-success" aria-hidden="true"></i></a>
-                              <span (click)="Delete(item.CS_Code)" class="mx-5"><i class="fa fa-trash text-danger"
-                                  aria-hidden="true"></i></span>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
+
+                      <div class="table-responsive table-card mt-3">
+                        <table class="table table-hover table-striped align-middle mb-0 requests-table">
+                          <thead>
+                            <tr>
+                              <th class="text-center">#</th>
+                              <th>إسم الجمعية / المؤسسة</th>
+                              <th>رقم الترخيص</th>
+                              <th>التخصص</th>
+                              <th>تاريخ التقديم</th>
+                              <th class="text-center">الحالة</th>
+                              <th class="text-center">الأجراءات</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let item of FormList | filter:RequsetStatus | filter: RequsetType | filter: searchText | paginate: { id: 'assoc_pagination', itemsPerPage: itemsPerPage, currentPage: page }; let i = index" [ngClass]="{d_none: item.StatusId == 6}">
+                              <td class="text-center text-muted">{{ (page - 1) * itemsPerPage + i + 1 }}</td>
+                              <td class="fw-bold">{{item.AssociationName}}</td>
+                              <td>{{item.LicenseNumber}}</td>
+                              <td>{{item.AssemblySpecialty}}</td>
+                              <td>{{item.DateCreation}}</td>
+                              <td class="text-center"><span class="badge badge-{{item.StatuColor}}">{{item.StatusName}}</span></td>
+                              <td class="text-center actions-cell">
+                                <a target="_blank" title="طباعة" href="Report/AssociationSupport_Rp/{{item.CS_Code}}" class="action-icon"><i
+                                    class="fa fa-print text-dark" aria-hidden="true"></i></a>
+                                <a target="_blank" title="تعديل" href="../Customer/AssociationSupport/{{item.CS_Code}}" class="action-icon"><i
+                                    class="fa fa-edit text-success" aria-hidden="true"></i></a>
+                                <span title="حذف" (click)="Delete(item.CS_Code)" class="action-icon"><i class="fa fa-trash text-danger"
+                                    aria-hidden="true"></i></span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <div class="d-flex flex-wrap justify-content-between align-items-center mt-3 pagination-bar">
+                        <div class="d-flex align-items-center gap-2">
+                          <span class="text-muted small">عدد الصفوف بالصفحة</span>
+                          <select class="form-select form-select-sm page-size-select" title="عدد الصفوف بالصفحة" [(ngModel)]="itemsPerPage" (ngModelChange)="page = 1">
+                            <option [ngValue]="5">5</option>
+                            <option [ngValue]="10">10</option>
+                            <option [ngValue]="25">25</option>
+                            <option [ngValue]="50">50</option>
+                          </select>
+                        </div>
+                        <pagination-controls id="assoc_pagination" [maxSize]="7" [directionLinks]="true"
+                          [autoHide]="true" [responsive]="true"
+                          previousLabel="السابق" nextLabel="التالي"
+                          screenReaderPaginationLabel="الصفحات" screenReaderPageLabel="الصفحة"
+                          (pageChange)="page = $event"></pagination-controls>
+                      </div>
                     </div>
                   </div>
                 </div>
