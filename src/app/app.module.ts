@@ -8,6 +8,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 import { AppComponent } from './app.component';
+import { RevealDirective } from './shared/reveal.directive';
 import { ServicesComponent } from './Services/Services.component';
 import { LastNewsComponent } from './LastNews/LastNews.component';
 import { SliderImgComponent } from './SliderImg/SliderImg.component';
@@ -165,6 +166,7 @@ export const routing = RouterModule.forRoot(appRoutes);
 @NgModule({
   declarations: [
     AppComponent,
+    RevealDirective,
     ServicesComponent,
     LastNewsComponent,
     SliderImgComponent,

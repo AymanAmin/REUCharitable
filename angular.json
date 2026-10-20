@@ -48,7 +48,8 @@
               "src/assets/CustomCSS/PhotoGalleryCss.css",
               "src/assets/CustomCSS/ReportCss.css",
               "src/assets/CustomCSS/MyCss.css",
-              "src/assets/Report/stylesheet.css"
+              "src/assets/Report/stylesheet.css",
+              "src/arp-theme.css"
             ],
             "scripts": [
               "src/assets/js/MyScript.js",

@@ -1,136 +1,91 @@
-<!-- Start Latest News Area -->
-<section class="blog-area pb-100">
-  <div class="container">
-
-    <div class="vedioplayer mb-5">
-      <section class="about-area abouts-areas ptb-100 two" style="background: white;">
-        <div class="container">
-          <div class="row align-items-baseline">
-
-            <div class="col-lg-6" style="background: white;">
-              <iframe loading="lazy" width="100%" height="360px" src="https://www.youtube.com/embed/FDxmhJT7A4I"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-              <div style="color: black;margin-top: 10px;">
-                <p><strong>بمناسبة يوم التأسيس السعودي 22 | عرضة مملكتنا السعودية</strong></p>
-                <p>برعاية ‫#مؤسسة_عبد_الله_ركيب_الرمال_لوالديه‬&nbsp;
-                  &nbsp;<strong>كلمات</strong> : &nbsp;الشاعر سالم الخزام&nbsp; -&nbsp;&nbsp;&nbsp;<strong>أداء</strong>
-                  :
-                  الداوي&nbsp;-&nbsp;&nbsp; <strong>توزيع</strong> : وحيد غنيم&nbsp;
-                  &nbsp;-&nbsp;&nbsp;<strong>كورال</strong> : فرقة
-                  جبال سلمى&nbsp; -&nbsp;&nbsp; <strong>مشاركة</strong> : فرقة غياض&nbsp; &nbsp;-&nbsp;
-                  &nbsp;<strong>اخراج</strong> :
-                  عبدالله العبيد‬</p>
-              </div>
-            </div>
-
-            <div class="col-lg-6" style="background: white;">
-              <iframe loading="lazy" width="100%" height="360"
-               src="https://www.youtube.com/embed/IQ2hFSdOymo?si=CIW2Pm-6dqt5pSQv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              <div style="color: black;margin-top: 10px;">
-                <p><strong>كلمة البرفسور عبدالله ركيب الرمال -رئيس مجلس امناء مؤسسة عبدالله بن ركيب الرمال لوالديه
-                    الاهليه</strong></p>
-                <p class="mb-3"> كلمة البروفسور عبدالله ركيب الرمال في حفل #جمعية_جاه_لإصلاح_ذات_البين بالتعاون مع
-                  #مؤسسة_عبدالله_ركيب_الرمال_لوالدية_الأهليه بفندق الملينيوم #حائل الثلاثاء 17/11/1444 هـ الموافق
-                  6/6/2023م</p>
-              </div>
-            </div>
-
-
-            <div class="col-lg-6" style="background: white;">
-              <iframe loading="lazy" width="100%" height="360"
-               src="https://www.youtube.com/embed/wZtl4lroeHE?si=wD81zPp7dm5Z9fCs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              <div style="color: black;margin-top: 10px;">
-                <p><strong>حفل جمعية جاه بالتعاون مع مؤسسة عبدالله ركيب الرمال لوالديه الاهلية</strong></p>
-                <p class="mb-3">#برومو | لقطات متنوعه من حفل #جمعية_جاه_لإصلاح_ذات_البين بالتعاون مع
-                  #مؤسسة_عبدالله_ركيب_الرمال_لوالدية_الأهليه بفندق الملينيوم #حائل الثلاثاء 17/11/1444 هـ الموافق
-                  6/6/2023م</p>
-              </div>
-            </div>
-
-            <div class="col-lg-6" style="background: white;">
-              <iframe loading="lazy" width="100%" height="360" frameborder="0"
-               src="https://www.youtube.com/embed/YjISa4DMJgU?si=Jlnr4iAxP9afuuic" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-              <div style="color: black;margin-top: 10px;">
-                <p><strong>حفل البرفسور عبد الله ركيب الرمال لتكريم البرفسور فواز الشيحي</strong></p>
-                <p class="mb-3">#برومو | #لقطات متنوعه من حفل البرفسور عبد الله ركيب الرمال لتكريم البرفسور فواز الشيحي
-                  بفندق الملينيوم #حائل الثلاثاء 02/12/1444 هـ الموافق 20/6/2023م</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+<!-- ===== آخر الأخبار ===== -->
+<section class="news">
+  <div class="arp-wrap">
+    <div class="row-head">
+      <div>
+        <p class="arp-label" arpReveal>٠٤ — المركز الإعلامي</p>
+        <h2 class="arp-title" arpReveal [arpRevealDelay]="100">آخر الأخبار</h2>
+      </div>
+      <a class="arp-link" arpReveal [arpRevealDelay]="200" routerLink="/News">جميع الأخبار <i class="fa fa-arrow-left"></i></a>
     </div>
 
-    <section>
-      <div class="section-title">
-        <span>
-          <h2>أخر الاخبار</h2>
-        </span>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-8" *ngFor="let news of LastNews | slice:0:2">
-          <div class="single-news">
-            <div class="news-img">
-              <a routerLink="news/deatils/{{news.id}}" style="width: 100%;">
-                <img src="{{news.img}}" alt="News" style="width: 100%;">
-              </a>
-              <div class="date">
-                <span>{{news.dateCreation | date:'yyyy-MMM-dd'}}</span>
-              </div>
-            </div>
-            <div class="news-text">
-              <ul>
-                <li>
-                  <i style="color: #76b430;" aria-hidden="true" class="fas fa-user"></i>
-                  بواسطة
-                  <a href="#">{{news.publishBy}}</a>
-                </li>
-                <li>
-                  <i class="fas fa-eye" style="color: #76b430;"></i>
-                  &nbsp;<a href="#"> {{news.numberOfViews}} المشاهدة </a>
-                </li>
-              </ul>
-              <h3>
-                <a routerLink="news/deatils/{{news.id}}">{{news.title}}</a>
-              </h3>
-              <p>{{news.details | slice:0:120}}</p>
-              <a class="read-more" routerLink="news/deatils/{{news.id}}">عرض المزيد
-              </a>
-            </div>
-          </div>
+    <div class="news-grid">
+      <article class="story" *ngFor="let news of LastNews | slice:0:2; let i = index" arpReveal [arpRevealDelay]="i * 140">
+        <a class="img" arpReveal="mask" routerLink="/news/deatils/{{news.id}}">
+          <img src="{{news.img}}" alt="{{news.title}}" loading="lazy">
+        </a>
+        <div class="meta">
+          <span>{{news.dateCreation | date:'dd MMM yyyy'}}</span>
+          <span><i class="fas fa-eye"></i> {{news.numberOfViews}} مشاهدة</span>
         </div>
+        <h3><a routerLink="/news/deatils/{{news.id}}">{{news.title}}</a></h3>
+        <p>{{news.details | slice:0:140}}…</p>
+        <a class="more" routerLink="/news/deatils/{{news.id}}">اقرأ الخبر <i class="fa fa-arrow-left"></i></a>
+      </article>
 
-        <div class="col-lg-3 col-md-3" style="max-height: 455px;overflow-y: scroll;overflow-x: hidden; ">
-          <a class="twitter-timeline" href="https://twitter.com/arp_org_sa?ref_src=twsrc%5Etfw">Tweets by arp_org_sa</a>
+      <aside class="tweets" arpReveal [arpRevealDelay]="280">
+        <p class="tw-head"><i class="fab fa-twitter"></i> من حسابنا على X</p>
+        <div class="tw-body">
+          <a class="twitter-timeline" data-chrome="noheader nofooter" href="https://twitter.com/arp_org_sa?ref_src=twsrc%5Etfw">Tweets by arp_org_sa</a>
         </div>
-
-        <div class="col-md-12">
-          <p>لمشاهدة جميع الاخبار <a routerLink="/News" style="color:#76b430">اضغط هنا</a></p>
-        </div>
-      </div>
-    </section>
-
-    <br><br>
-
-
-
-    <div class="card">
-      <div class="firstinfo"><img src="../../assets/img/dr.ahad.jpg" />
-        <div class="profileinfo">
-          <br>
-          <h1>الدكتور/ فهد عبدالله الشمري</h1>
-          <h2>المدير التنفيذي المكلف</h2>
-
-          <h4> <i class="fa fa-phone" aria-hidden="true"></i> 0555191988
-            <br>
-            <i class="fa fa-envelope" aria-hidden="true"></i> info@arp.org.sa
-          </h4>
-        </div>
-      </div>
+      </aside>
     </div>
-
   </div>
 </section>
-<!-- End Latest News Area -->
+
+<!-- ===== الفيديوهات ===== -->
+<section class="media">
+  <div class="arp-wrap">
+    <div class="row-head">
+      <div>
+        <p class="arp-label" arpReveal>٠٥ — بالصوت والصورة</p>
+        <h2 class="arp-title" arpReveal [arpRevealDelay]="100">أثرنا كما وثّقناه</h2>
+      </div>
+      <a class="arp-link" arpReveal [arpRevealDelay]="200" routerLink="/gallery-vid">معرض الفيديوهات <i class="fa fa-arrow-left"></i></a>
+    </div>
+
+    <!-- الأفلام التعريفية -->
+    <div class="featured">
+      <div class="clip" arpReveal>
+        <iframe loading="lazy" frameborder="0" allowfullscreen title="الفيلم التعريفي بالمؤسسة"
+                src="https://arp.org.sa/assets/Media/الفديو التعريفي الخاص بمؤسسة عبدالله بن ركيب الرمال لوالدية الاهلية.mp4"></iframe>
+        <p class="cap"><b>الفيلم التعريفي</b> بمؤسسة عبدالله بن ركيب الرمال لوالديه الأهلية</p>
+      </div>
+      <div class="clip" arpReveal [arpRevealDelay]="140">
+        <video controls preload="none" title="فيديو المؤسسة">
+          <source src="https://arp.org.sa/assets/Media/video.mp4" type="video/mp4"/>
+        </video>
+        <p class="cap"><b>من أعمال المؤسسة</b></p>
+      </div>
+    </div>
+
+    <!-- فعاليات على يوتيوب -->
+    <div class="clips">
+      <div class="clip" *ngFor="let v of Videos; let i = index" arpReveal [arpRevealDelay]="(i % 2) * 140">
+        <iframe loading="lazy" [src]="v.safeUrl" [title]="v.title" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p class="cap"><b>{{v.title}}</b></p>
+        <p class="sub">{{v.details}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== التواصل مع الإدارة ===== -->
+<section class="exec">
+  <div class="arp-wrap">
+    <div class="bar" arpReveal>
+      <img src="assets/img/dr.ahad.jpg" alt="الدكتور فهد عبدالله الشمري">
+      <div class="who">
+        <span class="k">المدير التنفيذي المكلّف</span>
+        <b>الدكتور/ فهد عبدالله الشمري</b>
+      </div>
+      <div class="lines">
+        <a href="tel:0555191988"><i class="fa fa-phone"></i><span dir="ltr">0555191988</span></a>
+        <a href="mailto:info@arp.org.sa"><i class="fa fa-envelope"></i>info@arp.org.sa</a>
+      </div>
+      <a class="cta" routerLink="/Contact">تواصل معنا <i class="fa fa-arrow-left"></i></a>
+    </div>
+  </div>
+</section>
