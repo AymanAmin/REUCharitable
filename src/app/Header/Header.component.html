@@ -27,6 +27,11 @@
     <div class="bar">
       <a class="brand" routerLink="/" (click)="closeMenu()" aria-label="مؤسسة عبدالله ركيب الرمال لوالديه - الرئيسية">
         <img src="assets/img/Logo.png" alt="شعار مؤسسة عبدالله ركيب الرمال لوالديه">
+        <!-- الاسم يظهر في الجوال فقط (حين تُطوى القائمة) -->
+        <span class="brand-name" aria-hidden="true">
+          <b>مؤسسة عبدالله ركيب الرمال لوالديه</b>
+          <small>الأهلية · ترخيص رقم ١٠٤٦</small>
+        </span>
       </a>
 
       <nav class="menu" [class.open]="menuOpen" aria-label="القائمة الرئيسية">

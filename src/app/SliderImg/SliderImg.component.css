@@ -121,7 +121,7 @@ h1 em{font-style:normal;color:var(--arp-leaf-300)}
   .quick a:nth-child(n+3){border-top:1px solid var(--arp-line)}
 }
 @media (max-width:640px){
-  .arp-hero{padding:118px 12px 0}
+  .arp-hero{padding:138px 12px 0}
   .frame{min-height:620px;align-items:flex-end}
   .photo{object-position:30% 50%}
   .shade{background:linear-gradient(to top, rgba(14,30,8,.95) 0%, rgba(14,30,8,.75) 50%, rgba(14,30,8,.1) 85%)}
