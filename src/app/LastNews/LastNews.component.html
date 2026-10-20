@@ -47,14 +47,11 @@
     <!-- الأفلام التعريفية -->
     <div class="featured">
       <div class="clip" arpReveal>
-        <iframe loading="lazy" frameborder="0" allowfullscreen title="الفيلم التعريفي بالمؤسسة"
-                src="https://arp.org.sa/assets/Media/الفديو التعريفي الخاص بمؤسسة عبدالله بن ركيب الرمال لوالدية الاهلية.mp4"></iframe>
+        <app-lazy-video src="https://arp.org.sa/assets/Media/الفديو التعريفي الخاص بمؤسسة عبدالله بن ركيب الرمال لوالدية الاهلية.mp4" title="الفيلم التعريفي بالمؤسسة" [showTitle]="false"></app-lazy-video>
         <p class="cap"><b>الفيلم التعريفي</b> بمؤسسة عبدالله بن ركيب الرمال لوالديه الأهلية</p>
       </div>
       <div class="clip" arpReveal [arpRevealDelay]="140">
-        <video controls preload="none" title="فيديو المؤسسة">
-          <source src="https://arp.org.sa/assets/Media/video.mp4" type="video/mp4"/>
-        </video>
+        <app-lazy-video src="https://arp.org.sa/assets/Media/video.mp4" title="من أعمال المؤسسة" [showTitle]="false"></app-lazy-video>
         <p class="cap"><b>من أعمال المؤسسة</b></p>
       </div>
     </div>
@@ -62,9 +59,7 @@
     <!-- فعاليات على يوتيوب -->
     <div class="clips">
       <div class="clip" *ngFor="let v of Videos; let i = index" arpReveal [arpRevealDelay]="(i % 2) * 140">
-        <iframe loading="lazy" [src]="v.safeUrl" [title]="v.title" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <app-lazy-video [src]="v.url" [title]="v.title" [showTitle]="false"></app-lazy-video>
         <p class="cap"><b>{{v.title}}</b></p>
         <p class="sub">{{v.details}}</p>
       </div>

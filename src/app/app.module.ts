@@ -9,6 +9,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppComponent } from './app.component';
 import { RevealDirective } from './shared/reveal.directive';
+import { LazyVideoComponent } from './shared/lazy-video.component';
+import { LinkViewerComponent } from './shared/link-viewer.component';
 import { ServicesComponent } from './Services/Services.component';
 import { LastNewsComponent } from './LastNews/LastNews.component';
 import { SliderImgComponent } from './SliderImg/SliderImg.component';
@@ -167,6 +169,8 @@ export const routing = RouterModule.forRoot(appRoutes);
   declarations: [
     AppComponent,
     RevealDirective,
+    LazyVideoComponent,
+    LinkViewerComponent,
     ServicesComponent,
     LastNewsComponent,
     SliderImgComponent,

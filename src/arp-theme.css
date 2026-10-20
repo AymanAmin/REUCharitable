@@ -34,6 +34,8 @@ a:hover{color:var(--arp-forest-800)}
 /* أغلب الصفحات تضع الترويسة داخل قسم بحشوة علوية؛ نلغيها حتى لا تتضاعف المسافة */
 .ptb-100 > .page-title-area:first-child,
 .organaization-area.ptb-100 > .page-title-area:first-child{margin-top:-100px}
+/* القسم الخارجي الذي يحيط بالصفحة كاملة لا يحتاج حشوة سفلية (كانت تترك شريطًا أبيض قبل الفوتر) */
+.organaization-area.ptb-100:has(> .page-title-area:first-child){padding-bottom:0}
 
 /* ===== ترويسة الصفحة ===== */
 .page-title-area{

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
 
 declare const twttr: any;
@@ -14,7 +13,7 @@ export class LastNewsComponent implements OnInit, AfterViewInit {
 
   LastNews :any [] = [];
 
-  Videos: { title: string; details: string; url: string; safeUrl?: SafeResourceUrl }[] = [
+  Videos: { title: string; details: string; url: string }[] = [
     {
       title: 'بمناسبة يوم التأسيس السعودي | عرضة مملكتنا السعودية',
       details: 'برعاية المؤسسة · كلمات: الشاعر سالم الخزام · أداء: الداوي · توزيع: وحيد غنيم · كورال: فرقة جبال سلمى · مشاركة: فرقة غياض · إخراج: عبدالله العبيد',
@@ -37,9 +36,7 @@ export class LastNewsComponent implements OnInit, AfterViewInit {
     }
   ];
 
-  constructor(private http:HttpClient, private sanitizer: DomSanitizer) {
-    this.Videos.forEach(v => v.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(v.url));
-  }
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
     this.getLastNews();
