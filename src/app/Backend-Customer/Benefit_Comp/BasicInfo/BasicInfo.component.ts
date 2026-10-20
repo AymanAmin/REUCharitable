@@ -126,9 +126,10 @@ export class BasicInfoComponent implements OnInit {
   }
 
   fillData(Data: any) {
-    var BasicInfoData =  Data[0]
-    this.Staff_Note = Data[0].Staff_Note;
+    // الطلب الجديد لا يملك بيانات بعد، فتعود الاستجابة فارغة
+    var BasicInfoData = Array.isArray(Data) ? Data[0] : undefined;
     if (BasicInfoData){
+        this.Staff_Note = BasicInfoData.Staff_Note;
         this.CreationDate = BasicInfoData.DateCreation;
         this.BasicInfoForm.patchValue({
         Full_Name: BasicInfoData.Full_Name,

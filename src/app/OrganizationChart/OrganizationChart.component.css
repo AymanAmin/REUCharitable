@@ -1,0 +1,141 @@
+/* الألوان والخطوط معرّفة في src/styles.css (--arp-*) */
+:host{--line:#C9D8B4;--ease:cubic-bezier(.2,.7,.2,1);--step:.16s}
+
+.org{background:var(--arp-ivory);padding:90px 0 110px;direction:rtl;font-family:var(--arp-f-body)}
+.intro{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:56px}
+.intro .title{margin:0;font-family:var(--arp-f-display);font-weight:700;font-size:clamp(26px,3vw,38px);color:var(--arp-forest-800)}
+
+/* ===== المخطط ===== */
+.chart{position:relative;padding:40px clamp(16px,4vw,48px) 48px;background:#fff;border:1px solid var(--arp-line);border-radius:6px;overflow:hidden}
+.chart::before{ /* شبكة نقطية خفيفة */
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;
+  background-image:radial-gradient(var(--arp-leaf-100) 1px, transparent 1px);background-size:22px 22px;
+}
+.tier{position:relative;display:flex;flex-direction:column;align-items:center}
+.tier-label{
+  position:absolute;inset-inline-start:0;top:50%;transform:translateY(-50%);
+  display:flex;align-items:center;gap:10px;font-family:var(--arp-f-display);font-size:12.5px;color:var(--arp-muted);
+}
+.tier-label::after{content:"";width:28px;height:1px;background:var(--line)}
+.depts .tier-label{top:auto;bottom:40px;transform:none}
+
+/* ===== الخطوط ===== */
+.trunk,.v-link,.h-link{background:var(--arp-olive-600);flex:none}
+.trunk{width:2px;align-self:stretch;justify-self:center;transform-origin:top;animation:grow-y .5s var(--ease) both;animation-delay:calc(1 * var(--step))}
+.v-link{width:2px;height:34px;transform-origin:top;animation:grow-y .4s var(--ease) both;animation-delay:calc(3 * var(--step))}
+.v-link.short{height:30px;animation-delay:calc(4 * var(--step))}
+.h-link{height:0;width:56px;background:none;border-top:2px dashed var(--line)}
+.side-start .h-link{transform-origin:left;animation:grow-x .4s var(--ease) both;animation-delay:calc(2 * var(--step))}
+.side-end .h-link{transform-origin:right;animation:grow-x .4s var(--ease) both;animation-delay:calc(2 * var(--step))}
+@keyframes grow-y{from{transform:scaleY(0)}}
+@keyframes grow-x{from{transform:scaleX(0)}}
+
+/* ===== الجهات الاستشارية ===== */
+.advisory{display:grid;grid-template-columns:1fr 2px 1fr;align-items:center;min-height:130px;width:100%}
+.side{display:flex;align-items:center}
+.side-start{justify-content:flex-end}
+.side-end{justify-content:flex-start}
+
+/* ===== الإدارات ===== */
+.branches{display:grid;grid-template-columns:repeat(4,1fr);width:100%;max-width:1000px}
+.branch{position:relative;padding:30px 10px 0;display:flex}
+.branch::before{ /* الخط الأفقي */
+  content:"";position:absolute;top:0;inset-inline:0;height:2px;background:var(--arp-olive-600);
+  transform-origin:center;animation:grow-x .5s var(--ease) both;animation-delay:calc(4.6 * var(--step));
+}
+.branch:first-child::before{inset-inline-start:50%}
+.branch:last-child::before{inset-inline-end:50%}
+.branch::after{ /* النزول لكل إدارة */
+  content:"";position:absolute;top:0;left:50%;width:2px;height:30px;margin-left:-1px;background:var(--arp-olive-600);
+  transform-origin:top;animation:grow-y .35s var(--ease) both;animation-delay:calc(5.2 * var(--step));
+}
+
+/* ===== العقد ===== */
+.node{
+  position:relative;z-index:1;display:flex;align-items:center;gap:14px;
+  padding:16px 20px;border:1px solid var(--arp-line);border-radius:6px;background:#fff;color:var(--arp-forest-800);
+  box-shadow:0 18px 40px -28px rgba(20,40,9,.45);text-decoration:none;
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;
+  animation:pop .6s var(--ease) both;animation-delay:calc(var(--d,0) * var(--step) + .1s);
+}
+.node:hover{transform:translateY(-4px);border-color:var(--arp-leaf-400);box-shadow:0 26px 50px -28px rgba(20,40,9,.55)}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.96)}}
+.node .ic{
+  flex:none;width:44px;height:44px;border-radius:6px;display:grid;place-items:center;
+  background:var(--arp-leaf-50);color:var(--arp-olive-600);font-size:18px;
+}
+.node .txt{display:flex;flex-direction:column;gap:2px;text-align:start}
+.node b{font-family:var(--arp-f-display);font-weight:500;font-size:16.5px;line-height:1.4}
+.node small{font-size:12.5px;color:var(--arp-muted)}
+
+/* مجلس الأمناء */
+.node-top{
+  overflow:hidden;min-width:min(420px,100%);padding:22px 26px;flex-wrap:wrap;
+  background:var(--arp-forest-800);border-color:var(--arp-forest-800);color:#fff;
+}
+.node-top:hover{color:#fff;border-color:var(--arp-leaf-400)}
+.node-top .ic{background:rgba(143,209,63,.16);color:var(--arp-leaf-300);width:52px;height:52px;font-size:22px}
+.node-top b{font-size:21px;font-weight:700;color:#fff}
+.node-top small{color:rgba(255,255,255,.7)}
+.node-top .mark{position:absolute;z-index:0;inset-inline-start:-34px;bottom:-40px;width:140px;opacity:.08;pointer-events:none}
+.node-top > :not(.mark){position:relative;z-index:1}
+.node-top .go{
+  margin-inline-start:auto;display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:600;color:var(--arp-leaf-300);
+}
+.node-top .go i{transition:transform .3s var(--ease)}
+.node-top:hover .go i{transform:translateX(-5px)}
+
+/* الجهات الاستشارية */
+.node-soft{background:var(--arp-ivory);border-style:dashed;border-color:#B9CBA0;box-shadow:none}
+.node-soft .ic{background:#fff}
+
+/* المدير التنفيذي */
+.node-mid{border:2px solid var(--arp-leaf-400);background:#fff;min-width:300px;padding:18px 24px}
+.node-mid .ic{background:var(--arp-leaf-400);color:var(--arp-forest-900)}
+.node-mid b{font-size:18.5px;font-weight:700}
+
+/* الإدارات */
+.node-dept{flex-direction:column;justify-content:center;gap:12px;width:100%;padding:24px 14px;text-align:center}
+.node-dept .ic{width:52px;height:52px;border-radius:50%;font-size:20px;transition:background .35s,color .35s}
+.node-dept:hover .ic{background:var(--arp-forest-800);color:var(--arp-leaf-300)}
+.node-dept b{font-size:16px}
+
+/* ===== وسيلة الإيضاح ===== */
+.legend{display:flex;flex-wrap:wrap;gap:12px 28px;margin:26px 0 0;padding:0;list-style:none;font-size:13.5px;color:var(--arp-muted)}
+.legend li{display:flex;align-items:center;gap:8px}
+.sw{width:18px;height:12px;border-radius:2px;display:inline-block}
+.sw-top{background:var(--arp-forest-800)}
+.sw-soft{background:var(--arp-ivory);border:1px dashed #9DB57F}
+.sw-mid{background:#fff;border:2px solid var(--arp-leaf-400)}
+.sw-dept{background:#fff;border:1px solid var(--arp-line)}
+
+/* ===== التجاوب ===== */
+@media (max-width:1100px){
+  .tier-label{display:none}
+}
+@media (max-width:760px){
+  .org{padding:60px 0 80px}
+  .chart{padding:28px 14px 32px}
+  .node-top{min-width:0;width:100%}
+  .node-top .go{margin-inline-start:0;flex-basis:100%;padding-top:10px;border-top:1px solid rgba(255,255,255,.15)}
+  /* الجهات الاستشارية تصبح عمودية */
+  .advisory{display:flex;flex-direction:column;min-height:0}
+  .advisory .trunk{order:0;height:22px;align-self:center}
+  .side{flex-direction:column;width:100%}
+  .side-start{order:1}
+  .side-end{order:2}
+  .side .h-link{width:0;height:18px;border-top:0;border-inline-start:2px dashed var(--line)}
+  .side-end .h-link{order:0}
+  .side .node{width:100%}
+  .node-mid{min-width:0;width:100%}
+  /* الإدارات شبكة من عمودين */
+  .branches{grid-template-columns:1fr 1fr;gap:10px;padding-top:22px;position:relative}
+  .branches::before{content:"";position:absolute;top:0;inset-inline:25%;height:2px;background:var(--arp-olive-600)}
+  .branch{padding:0}
+  .branch::before,.branch::after{display:none}
+  .node-dept{padding:18px 10px}
+}
+@media (prefers-reduced-motion:reduce){
+  .node,.trunk,.v-link,.h-link,.branch::before,.branch::after{animation:none !important}
+}

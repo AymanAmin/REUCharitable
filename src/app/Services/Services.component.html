@@ -1,126 +1,88 @@
-<section class="get-started-today-area two ptb-100">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-lg-6">
-        <div class="get-started-img">
-          <img src="../../assets/Media/homePage/about.png" alt="Donation">
-          <!--<img class="modal-content" id="img01" src="../../assets/img/اليوم الوطني.jpeg">-->
+<!-- ===== عن المؤسسة ===== -->
+<section class="about">
+  <div class="arp-wrap">
+    <div class="intro">
+      <div class="text">
+        <p class="arp-label" arpReveal>٠١ — من نحن</p>
+        <h2 class="arp-title" arpReveal [arpRevealDelay]="100">مؤسسة خيرية مانحة تسعى لتحسين جودة الحياة لأفراد المجتمع.</h2>
+        <p class="body" arpReveal [arpRevealDelay]="200">
+          مؤسسة عبدالله ركيب الرمال لوالديه، مؤسسة خيرية مسجلة في وزارة الموارد البشرية والتنمية الاجتماعية
+          ومرخّصة من المركز الوطني لتنمية القطاع غير الربحي — ترخيص رقم ١٠٤٦ وتاريخ ٢٣/١٢/١٤٤٢هـ.
+        </p>
+        <div arpReveal [arpRevealDelay]="300">
+          <a class="arp-link" routerLink="/registration-certificate">شهادة الترخيص <i class="fa fa-arrow-left"></i></a>
         </div>
       </div>
+      <figure class="photo">
+        <div class="img-wrap" arpReveal="mask">
+          <img src="assets/img/pic1.jpg" alt="توقيع اتفاقية بين المؤسسة وإحدى الجمعيات الأهلية" loading="lazy">
+        </div>
+        <figcaption arpReveal [arpRevealDelay]="400">من شراكات المؤسسة مع الجمعيات الأهلية</figcaption>
+      </figure>
+    </div>
 
-      <div class="col-lg-6">
-        <div class="get-started-title">
-          <h3>نبذة عن المؤسسة</h3>
-          <p>مؤسسة عبدالله ركيب الرمال لوالديه ، مؤسسة خيرية مسجلة في وزارة الموارد البشرية و التنمية الاجتماعية – ترخيص رقم ١٠٤٦ وتاريخ ٢٣/١٢/١٤٤٢.</p>
-        </div>
-        <div class="get-started-list">
-          <img src="../../assets/img/get-started/v4.jpeg" alt="Started"  style="width: -20%;" >
-          <h3>الرؤية</h3>
-          <p>ان تكون المؤسسة رائدة للأعمال الإنسانية والتنمية الاجتماعية المستدامة لأسرة واعية ومجتمع متماسك.</p>
-        </div>
-        <div class="get-started-list">
-          <img src="../../assets/img/get-started/m1.jpeg" alt="Started" style="width: 6% ;" >
-          <h3>الرسالة</h3>
-          <p>الإسهام الحضاري في تطوير مجالات التنمية الاجتماعية ودعم العمل الخيري وتقديم القرض الغير ربحي.</p>
-        </div>
-
-        <div class="get-started-list">
-          <img src="../../assets/img/get-started/q1.jpeg" alt="Started" style="width:7%">
-          <h3>القيم</h3>
-          <div>
-            <ul>
-              <li>- الإيمان بالقيم والمبادئ الأساسية للإسلام ومن أهمها التكافل الاجتماعي.</li>
-              <li>- الأمانة والإخلاص.</li>
-              <li>- العمل المؤسسي والتطوير.</li>
-            </ul>
-          </div>
-        </div>
+    <div class="pillars">
+      <div *ngFor="let p of Pillars; let i = index" arpReveal [arpRevealDelay]="i * 120">
+        <span class="rule" arpReveal="line" [arpRevealDelay]="i * 120"></span>
+        <h3><span>{{p.k}}</span>{{p.title}}</h3>
+        <p *ngIf="p.text">{{p.text}}</p>
+        <ul *ngIf="p.list"><li *ngFor="let v of p.list">{{v}}</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-
-<section class="get-started-today-area two ptb-100">
-  <div class="container">
-      <div class="text-center mb-2-8 mb-lg-6">
-          <h1 class="display-18 display-md-16 display-lg-14 font-weight-700"><span>الأهداف</span></h1>
-      </div>
-      <div class="row align-items-center">
-          <div class="col-sm-6 col-lg-4 mb-2-9 mb-sm-0">
-              <div class="pr-md-3">
-
-                  <div class="text-center text-sm-right mb-2-9">
-                      <h5 class="sub-info">الهدف الاول</h5>
-                      <p >دعم الجهود والمشاريع التي تهدف إلى تطوير مكونات القطاع غير الربحي وتطويره.</p>
-                  </div><br>
-
-                  <div class="text-center text-sm-right">
-                      <h5 class="sub-info">الهدف الثاني</h5>
-                      <p >الدعم المالي للمبادرات التنموية والأهلية التي تهدف لتحسين جودة الحياة.</p>
-                  </div><br>
-              </div>
-          </div>
-
-          <div class="col-lg-4 d-lg-block">
-            <div class="why-choose-center-image">
-                <img src="../../assets/img/get-started/value.jpeg" alt=".goals.." class="rounded-circle">
-               </div>
-
-               <div class="text-center text-sm-center mb-2-9">
-                <h5 class="sub-info">الهدف الثالث</h5>
-                <p >دعم البرامج والمشروعات التنموية والاجتماعية والتعليمية والصحية والتطوعية .</p>
-               </div><br> </div>
-
-          <div class="col-sm-6 col-lg-4">
-              <div class="pl-md-3">
-                <div class="text-center text-sm-left">
-                  <br>
-                  <h5 class="image.png">الهدف الرابع</h5>
-                  <p >تقديم الدعم المالي والعيني للأسر والأفراد والحالات المحتاجة.</p>
-              </div><br>
-                  <div class="text-center text-sm-left">
-                    <br>
-                    <h5 class="image.png">الهدف الخامس</h5>
-                    <p >تقديم القروض والتسهيلات الغير ربحية للمحتاجين.</p>
-                </div><br>
-
-              </div>
-          </div>
-      </div>
+<!-- ===== شريط القيم المتحرك ===== -->
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <ng-container *ngFor="let r of [1,2]">
+      <span *ngFor="let v of Values">{{v}}<img src="assets/img/Logo.png" alt=""></span>
+    </ng-container>
   </div>
-  </section>
+</div>
 
-
-
-
-<!---
-<section>
-<app-objectiv></app-objectiv>
-</section>
---->
-<!-- Start Services Area -->
-<section class="good-causes-area two ptb-50-70">
-  <div class="container">
-    <div class="section-title">
-      <br> <br>
-      <h2>نبذة عن البرامج والمشاريع </h2>
-    </div>
-    <div class="row">
-      <div *ngFor="let Service of ServicesList" class="col-lg-4 col-md-6">
-        <div class="single-good-causes two">
-          <i class="{{Service.Icon}}" [style.color]="Service.ColorIcon" style="font-size: 40px;"></i>
-          <h3>{{Service.Name}}</h3>
-          <p>{{Service.Deatils}}</p>
-          <a class="read-more" href="{{Service.Link}}">عرض المزيد
-          </a>
-          <div class="shape-icon">
-            <i class="{{Service.Icon}}" [style.color]="Service.ColorIcon" style="font-size: 40px;"></i>
-          </div>
-        </div>
+<!-- ===== الأهداف ===== -->
+<section class="goals">
+  <div class="arp-wrap grid">
+    <div class="head">
+      <p class="arp-label" arpReveal>٠٢ — الأهداف</p>
+      <h2 class="arp-title" arpReveal [arpRevealDelay]="100">خمسة أهداف<br>تقود عطاءنا.</h2>
+      <!-- مؤشر الهدف الحالي -->
+      <div class="meter" arpReveal [arpRevealDelay]="200">
+        <b>{{arabicDigits[activeGoal + 1]}}</b><span>/ {{arabicDigits[Goals.length]}}</span>
+        <i><em [style.transform]="'scaleX(' + (activeGoal + 1) / Goals.length + ')'"></em></i>
       </div>
+    </div>
+    <ol #goalList>
+      <li *ngFor="let g of Goals; let i = index" [class.active]="i === activeGoal" arpReveal [arpRevealDelay]="i * 80">
+        <span class="n">{{arabicDigits[i + 1]}}</span>
+        <p>{{g}}</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===== البرامج والمشاريع ===== -->
+<section class="programs">
+  <div class="arp-wrap">
+    <div class="row-head">
+      <div>
+        <p class="arp-label" arpReveal>٠٣ — البرامج والمشاريع</p>
+        <h2 class="arp-title" arpReveal [arpRevealDelay]="100">أين يذهب عطاؤك؟</h2>
+      </div>
+      <div arpReveal [arpRevealDelay]="200">
+        <a class="arp-link" routerLink="/Customer/CheckResultComponent">متابعة طلب سابق <i class="fa fa-arrow-left"></i></a>
+      </div>
+    </div>
+    <div class="cells">
+      <a *ngFor="let Service of ServicesList; let i = index" class="cell" [routerLink]="Service.Link"
+         (mousemove)="spot($event)" arpReveal [arpRevealDelay]="(i % 3) * 110">
+        <span class="idx">{{arabicDigits[0]}}{{arabicDigits[i + 1]}}</span>
+        <i class="{{Service.Icon}}"></i>
+        <h3>{{Service.Name}}</h3>
+        <p>{{Service.Deatils}}</p>
+        <span class="go">قدّم طلبًا <i class="fa fa-arrow-left"></i></span>
+      </a>
     </div>
   </div>
 </section>
-<!-- End Services Area -->
-

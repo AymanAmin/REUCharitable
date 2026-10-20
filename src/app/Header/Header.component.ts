@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { MainInfo } from '../Model/MainInfo';
 
@@ -12,6 +12,9 @@ export class HeaderComponent implements OnInit {
 
   IsLogin:boolean = false;
   company!:MainInfo;
+  menuOpen = false;
+  openGroup: string | null = null;
+  scrolled = false;
   constructor(private http:HttpClient) { }
 
   ngOnInit() {
@@ -31,6 +34,30 @@ export class HeaderComponent implements OnInit {
     let token = localStorage.getItem('token');
     if(token)
       this.IsLogin = true;
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+    this.openGroup = null;
+  }
+
+  // في الجوال تُفتح القوائم الفرعية بالضغط، وعلى سطح المكتب تُفتح بالمرور
+  toggleGroup(name: string) {
+    this.openGroup = this.openGroup === name ? null : name;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+    this.openGroup = null;
+  }
+
+  progress = 0;
+
+  @HostListener('window:scroll')
+  onScroll() {
+    this.scrolled = window.scrollY > 10;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    this.progress = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
   }
 
 }

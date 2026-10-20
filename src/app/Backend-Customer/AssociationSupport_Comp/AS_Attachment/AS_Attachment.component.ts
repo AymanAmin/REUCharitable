@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
@@ -37,12 +37,12 @@ export class AS_AttachmentComponent implements OnInit {
   }
 
   CreateForm() {
+    // أسماء الحقول مطابقة لمرفقات الجمعيات في القالب؛ كل ملف يُرفع فور اختياره
     this.PatientFilesForm = new FormGroup({
-      Identify: new FormControl(null, [Validators.required]),
-      Medical_Report: new FormControl(null, [Validators.required]),
-      Proof_of_Residence: new FormControl(null),
-      Bank_Statement: new FormControl(null),
-      Other_Files: new FormControl(null),
+      MinistryOfHumanResourcesLicense: new FormControl(null),
+      CouncilFormationDecision: new FormControl(null),
+      ChairmanSpeech: new FormControl(null),
+      MeasurementMethods: new FormControl(null),
     });
   }
 

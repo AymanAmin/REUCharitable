@@ -1,34 +1,41 @@
-<section class="pt-100">
-  <div class="ImageContainer">
-    <img class="ImageSlide" src="../../assets/img/homeimg6.jpeg" alt="Snow" style="width:99% ;filter:blur(4px); ">
-    <!--<div class="bottom-left">Bottom Left</div>-->
-    <!--<div class="top-left">Top Left</div>-->
-    <!--<div class="top-right">Top Right</div>-->
-    <!--<div class="centered">Bottom Right</div>-->
-    <div class="bottom-right">
-      <p class="headerText"><span class="backgroundText"> مؤسسة عبدالله ركيب الرمال لوالدية</span></p>
-      <p class="inlineText"[innerHTML]="about" > </p>
+<section class="arp-hero">
+  <div class="frame" #frame>
+    <img class="photo" src="assets/img/homeimg3.jpeg" alt="نبتة خضراء تنمو من التربة">
+    <div class="shade" aria-hidden="true"></div>
+    <div class="light" aria-hidden="true"></div>
+
+    <div class="content">
+      <p class="eyebrow">
+        <img src="assets/img/Logo.png" alt="">
+        مؤسسة خيرية مانحة · ترخيص رقم ١٠٤٦
+      </p>
+      <!-- كل سطر داخل قناع ليظهر من الأسفل -->
+      <h1>
+        <span class="ln"><span>كلُّ عطاءٍ بذرة،</span></span>
+        <span class="ln"><span>وكلُّ بذرةٍ&nbsp;<em>أثرٌ</em>&nbsp;يمتد.</span></span>
+      </h1>
+      <p class="lead">
+        نُسهم في التنمية الاجتماعية المستدامة ودعم العمل الخيري؛ نمدّ يد العون للأسر والأفراد،
+        ونموّل المبادرات التي تصنع أسرةً واعية ومجتمعًا متماسكًا.
+      </p>
+      <div class="ctas">
+        <a class="btn-solid" routerLink="/Customer/SupportNeedyFamilies">قدّم طلب دعم <i class="fa fa-arrow-left"></i></a>
+        <a class="btn-text" routerLink="/CEOSpeech">تعرّف على المؤسسة</a>
+      </div>
     </div>
 
+    <a class="news" *ngIf="latestNews" routerLink="/news/deatils/{{latestNews.id}}">
+      <span class="k">آخر الأخبار · {{latestNews.dateCreation | date:'dd MMM yyyy'}}</span>
+      <span class="t">{{latestNews.title}}</span>
+    </a>
   </div>
-  <!--<div class="vedioplayer">
-    <br><br>
-    <video controls style="width: 90%;">
-      <source src="../../assets/Media/video.mp4" type="video/mp4" width="90%" />
-    </video>
-  </div>-->
 
-
-  <div class="vedioplayer">
-    <br><br>
-    <video controls style="width: 90%;"  preload="none">
-      <source src="https://arp.org.sa/assets/Media/video.mp4" type="video/mp4" width="90%" height="400px"/>
-    </video>
-    <br><br>
-
-   <iframe loading="lazy" width="90%" height="500px" frameborder="0" src="https://arp.org.sa/assets/Media/الفديو التعريفي الخاص بمؤسسة عبدالله بن ركيب الرمال لوالدية الاهلية.mp4" allowfullscreen ></iframe>
-
-  </div>
-
+  <!-- اختصارات النماذج الإلكترونية -->
+  <nav class="quick" aria-label="النماذج الإلكترونية">
+    <a *ngFor="let f of forms; let i = index" [routerLink]="f.link" (mousemove)="spot($event)">
+      <span class="n">0{{i + 1}}</span>
+      <span class="t">{{f.title}}</span>
+      <span class="s">نموذج إلكتروني <i class="fa fa-arrow-left"></i></span>
+    </a>
+  </nav>
 </section>
-

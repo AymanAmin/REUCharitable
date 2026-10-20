@@ -34,6 +34,8 @@ export class SupportNeedyFamiliesComponent implements OnInit {
       data => {
         var jsonInfo = JSON.stringify(data);
         var MainInfoData = JSON.parse(jsonInfo);
+        // الطلب الجديد لا يملك خطوة محفوظة بعد؛ نبقى على الخطوة الأولى
+        if (!Array.isArray(MainInfoData) || !MainInfoData[0] || !MainInfoData[0].Step) return;
         const myArray = MainInfoData[0].Step.split("-");
 
         let last_step = parseInt(myArray[1]) + 1;

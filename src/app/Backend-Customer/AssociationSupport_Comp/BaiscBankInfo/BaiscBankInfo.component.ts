@@ -65,8 +65,9 @@ export class BaiscBankInfoComponent implements OnInit {
   }
 
   fillData(Data: any) {
-    var BasicBankInfoData = Data[0];
-    if (BasicBankInfoData)
+    // الطلب الجديد لا يملك بيانات بعد، فتعود الاستجابة فارغة
+    var BasicBankInfoData = Array.isArray(Data) ? Data[0] : undefined;
+    if (!BasicBankInfoData) return;
       this.BasicBankInfoForm.patchValue({
         AssociationName: BasicBankInfoData.AssociationName,
         LicenseNumber: BasicBankInfoData.LicenseNumber,

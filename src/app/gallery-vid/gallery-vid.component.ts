@@ -21,7 +21,6 @@ export class GalleryVidComponent implements OnInit {
 
   ngOnInit() {
     this.GetVideoList();
-    console.log("this.listVideo: " + this.listVideo);
   }
 
   GetVideoList() {
@@ -32,5 +31,11 @@ export class GalleryVidComponent implements OnInit {
         //this.loadData(this.listVideo);
       }
     )
+  }
+
+  // التاريخ بصيغة /Date(ms)/ القادمة من الخادم
+  videoDate(video: any): string {
+    const ms = Number(String(video?.dateCreation || "").replace(/\D/g, ""));
+    return ms ? new Date(ms).toLocaleDateString("ar-SA-u-ca-gregory", { year: "numeric", month: "long", day: "numeric" }) : "";
   }
 }

@@ -1,32 +1,9 @@
-@import url('https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lightgallery.css');
-@import url('https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css');
-body {
-  margin: 0;
-}
-@media only screen and (min-width: 901px){
-.gallery-item {
-  margin: 5px;
-  width: 24% !important;
-}
-.imageView{
-  height: auto;
-}
-}
+/* الألوان والخطوط معرّفة في src/styles.css (--arp-*) */
+.videos{background:var(--arp-ivory);padding:70px 0 100px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 24px;margin-bottom:30px}
+.item{margin:0}
+.item figcaption{margin-top:12px;font-size:13.5px;color:var(--arp-muted);display:flex;align-items:center;gap:8px}
+.item figcaption i{color:var(--arp-leaf-500)}
 
-@media only screen and (max-width: 900px){
-  .gallery-item{
-    width: 100% !important;
-    margin: 5px;
-  }
-  .imageView{
-    height: 240px !important;
-  }
-  }
-
-.lg-outer{
-  text-align:right;
-}
-
-.imageView {width: 100% !important;height: 240px !important;object-fit: cover;}
-
-
+@media (max-width:991px){ .grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:600px){ .grid{grid-template-columns:1fr} .videos{padding:50px 0 70px} }
